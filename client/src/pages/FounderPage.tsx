@@ -3,7 +3,7 @@ import ScrollAnimation from "@/components/ui/scroll-animation";
 import { Link } from "wouter";
 
 // Import school logos
-import studyHiveLogo from "@/assets/images/schools/study-hive.svg";
+import studyHiveLogo from "@/assets/study-hive-logo-square.png";
 import nlcsLogo from "@/assets/nlcs-logo.png";
 import stHelensLogo from "@/assets/st-helens-logo.png";
 import bbcBitesizeLogo from "@/assets/images/schools/bbc-bitesize.svg";
@@ -234,7 +234,7 @@ const FounderPage = () => {
                         <img 
                           src={item.image} 
                           alt={item.organization} 
-                          className="h-32 object-contain rounded-md"
+                          className={`h-32 object-contain ${item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-2" : "rounded-md"}`}
                         />
                       </div>
                     )}
