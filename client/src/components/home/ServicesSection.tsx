@@ -1,5 +1,6 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import Hexagon from "@/components/ui/hexagon";
+import ScrollAnimation from "@/components/ui/scroll-animation";
 
 type ServiceCardProps = {
   icon: string;
