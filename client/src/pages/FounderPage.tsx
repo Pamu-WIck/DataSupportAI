@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import { Link } from "wouter";
 
+// Using relative paths for assets - no imports needed
+
 const FounderPage = () => {
   return (
     <div className="bg-[#fafbfc]">
@@ -64,7 +66,7 @@ const FounderPage = () => {
               <div className="relative">
                 <div className="bg-gradient-to-tr from-yellow-400/20 to-teal-400/20 w-full h-full absolute top-6 left-6 rounded-2xl"></div>
                 <img 
-                  src="/assets/images/neethu-haridas.jpg" 
+                  src="/assets/images/neethu-haridas.jpg"
                   alt="Neethu Haridas - Founder of The Study Hive" 
                   className="w-full h-auto object-cover rounded-2xl shadow-xl relative z-10 border-2 border-slate-800"
                 />
