@@ -45,6 +45,8 @@ const PastPapersPage = () => {
     const capitalizedSubject = subject.charAt(0).toUpperCase() + subject.slice(1);
     const capitalizedTier = tier.charAt(0).toUpperCase() + tier.slice(1);
     const examBoard = examBoards.find(b => b.id === selectedBoard)?.name;
+    const examType = examBoards.find(b => b.id === selectedBoard)?.type || "GCSE";
+    const isALevel = examType.includes("A Level") || examType.includes("A-Level");
     
     // Generate different notes based on the specific paper details
     const paperSpecificTopics = generatePaperSpecificTopics(paper, subject);
@@ -52,7 +54,10 @@ const PastPapersPage = () => {
     const frequentlyTestedConcepts = generateFrequentlyTestedConcepts(paper, subject, examBoard);
     const practiceQuestions = generatePracticeQuestions(paper, subject);
     
-    return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
+    // Format title differently for A-level (no tier)
+    const titleTier = isALevel ? "" : `(${capitalizedTier} Tier)`;
+    
+    return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} ${titleTier}
 
 ## Key Topics Covered in ${paper.year} ${paper.season} Paper
 
@@ -75,12 +80,213 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
   
   // Generate paper-specific topics based on paper number, year and season
   const generatePaperSpecificTopics = (paper: any, subject: string) => {
+    const examType = examBoards.find(b => b.id === selectedBoard)?.type || "GCSE";
+    const isALevel = examType.includes("A Level") || examType.includes("A-Level");
     // Use paper identifiers to create unique content
     const paperIdentifier = `${paper.year}${paper.season}${paper.paperNumber}`;
     const hash = Array.from(paperIdentifier).reduce((hash, char) => char.charCodeAt(0) + ((hash << 5) - hash), 0);
     
-    if (subject === "biology") {
-      // Create a selection of biology topics
+    if (isALevel && subject === "biology") {
+      // A-level Biology topics
+      const allTopics = [
+        {
+          title: "Biological Molecules",
+          bullets: [
+            "Protein structure: primary, secondary, tertiary and quaternary structure",
+            "Carbohydrates, lipids and their roles in living organisms",
+            "Enzyme mechanisms, inhibition and factors affecting activity"
+          ]
+        },
+        {
+          title: "Cells, Viruses and Reproduction",
+          bullets: [
+            "Ultrastructure of eukaryotic and prokaryotic cells",
+            "Membrane structure and transport mechanisms",
+            "Cell cycle control and mitosis/meiosis regulation"
+          ]
+        },
+        {
+          title: "Exchange and Transport",
+          bullets: [
+            "Gaseous exchange systems in mammals and plants",
+            "Circulatory systems and cardiac cycle",
+            "Transport systems in plants - xylem and phloem"
+          ]
+        },
+        {
+          title: "Energy Transfer Systems",
+          bullets: [
+            "Photosynthesis: light-dependent and light-independent reactions",
+            "Cellular respiration: glycolysis, Krebs cycle and oxidative phosphorylation",
+            "Chemiosmotic theory and ATP synthesis"
+          ]
+        },
+        {
+          title: "Genetics, Evolution and Biodiversity",
+          bullets: [
+            "DNA replication, transcription and translation",
+            "Gene expression control and epigenetic mechanisms",
+            "Population genetics and speciation mechanisms"
+          ]
+        },
+        {
+          title: "Control Systems and Homeostasis",
+          bullets: [
+            "Neural and hormonal communication",
+            "Synaptic transmission and action potentials",
+            "Homeostatic mechanisms including negative feedback"
+          ]
+        }
+      ];
+      
+      // Select topics based on paper hash to ensure consistency for the same paper
+      const selectedIndices = [
+        Math.abs(hash % allTopics.length),
+        Math.abs((hash + 1) % allTopics.length),
+        Math.abs((hash + 2) % allTopics.length),
+        Math.abs((hash + 3) % allTopics.length)
+      ];
+      
+      // Format the selected topics
+      return selectedIndices.map((index, i) => {
+        const topic = allTopics[index];
+        return `${i+1}. **${topic.title}**\n   - ${topic.bullets.join('\n   - ')}`;
+      }).join('\n\n');
+      
+    } else if (isALevel && subject === "chemistry") {
+      // A-level Chemistry topics
+      const allTopics = [
+        {
+          title: "Physical Chemistry: Atomic Structure and Bonding",
+          bullets: [
+            "Electron configurations and orbital theory",
+            "Advanced concepts in ionic, covalent and metallic bonding",
+            "Intermolecular forces and their effects on physical properties"
+          ]
+        },
+        {
+          title: "Physical Chemistry: Energetics and Kinetics",
+          bullets: [
+            "Enthalpy, entropy and free energy changes",
+            "Born-Haber cycles and advanced thermodynamic calculations",
+            "Reaction rates, order and complex mechanisms"
+          ]
+        },
+        {
+          title: "Physical Chemistry: Equilibria and Redox",
+          bullets: [
+            "Equilibrium constants Kc, Kp and their applications",
+            "pH calculations, buffer solutions and titration curves",
+            "Electrode potentials and electrochemical cells"
+          ]
+        },
+        {
+          title: "Inorganic Chemistry",
+          bullets: [
+            "Periodicity and trends in s, p and d-block elements",
+            "Transition metal chemistry and complex ions",
+            "Reaction mechanisms in inorganic chemistry"
+          ]
+        },
+        {
+          title: "Organic Chemistry: Structure and Mechanisms",
+          bullets: [
+            "Stereoisomerism: optical isomerism and E/Z isomerism",
+            "Nucleophilic substitution and elimination mechanisms",
+            "Electrophilic addition and substitution mechanisms"
+          ]
+        },
+        {
+          title: "Organic Chemistry: Functional Groups",
+          bullets: [
+            "Aromatic chemistry and benzene derivatives",
+            "Carbonyl compounds: aldehydes, ketones and carboxylic acids",
+            "Organic synthesis and analytical techniques"
+          ]
+        }
+      ];
+      
+      // Select topics based on paper hash
+      const selectedIndices = [
+        Math.abs(hash % allTopics.length),
+        Math.abs((hash + 1) % allTopics.length),
+        Math.abs((hash + 2) % allTopics.length),
+        Math.abs((hash + 3) % allTopics.length)
+      ];
+      
+      return selectedIndices.map((index, i) => {
+        const topic = allTopics[index];
+        return `${i+1}. **${topic.title}**\n   - ${topic.bullets.join('\n   - ')}`;
+      }).join('\n\n');
+      
+    } else if (isALevel && subject === "physics") {
+      // A-level Physics topics
+      const allTopics = [
+        {
+          title: "Mechanics and Materials",
+          bullets: [
+            "Advanced kinematics and dynamics in two dimensions",
+            "Circular motion, simple harmonic motion, and resonance",
+            "Elastic and plastic deformation, stress-strain relationships"
+          ]
+        },
+        {
+          title: "Waves and Quantum Physics",
+          bullets: [
+            "Wave-particle duality and the photoelectric effect",
+            "Standing waves, interference, and diffraction",
+            "Quantum phenomena and the uncertainty principle"
+          ]
+        },
+        {
+          title: "Electricity and Magnetism",
+          bullets: [
+            "Electric field theory and capacitance",
+            "Magnetic fields, electromagnetic induction and applications",
+            "AC circuits, resonance and power calculations"
+          ]
+        },
+        {
+          title: "Fields and Nuclear Physics",
+          bullets: [
+            "Gravitational, electric and magnetic fields",
+            "Nuclear structure, radioactive decay and binding energy",
+            "Nuclear fission, fusion and reactor design"
+          ]
+        },
+        {
+          title: "Thermodynamics and Gases",
+          bullets: [
+            "Kinetic theory of gases and molecular modeling",
+            "First and second laws of thermodynamics",
+            "Entropy, heat engines and thermal efficiency"
+          ]
+        },
+        {
+          title: "Modern Physics and Astrophysics",
+          bullets: [
+            "Special relativity: time dilation and length contraction",
+            "Particle physics: Standard Model and fundamental forces",
+            "Cosmology: Big Bang theory and the expanding universe"
+          ]
+        }
+      ];
+      
+      // Select topics based on paper hash
+      const selectedIndices = [
+        Math.abs(hash % allTopics.length),
+        Math.abs((hash + 1) % allTopics.length),
+        Math.abs((hash + 2) % allTopics.length),
+        Math.abs((hash + 3) % allTopics.length)
+      ];
+      
+      return selectedIndices.map((index, i) => {
+        const topic = allTopics[index];
+        return `${i+1}. **${topic.title}**\n   - ${topic.bullets.join('\n   - ')}`;
+      }).join('\n\n');
+      
+    } else if (subject === "biology") {
+      // GCSE Biology topics
       const allTopics = [
         {
           title: "Cell Biology and Organization",
@@ -609,18 +815,112 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
   
   // Exam board data structure
   const examBoards = [
+    // GCSE Exam Boards
     { id: "aqa", name: "AQA", type: "GCSE" },
     { id: "ocr", name: "OCR", type: "GCSE" },
     { id: "edexcel-gcse", name: "Edexcel", type: "GCSE" },
     { id: "wjec", name: "WJEC", type: "GCSE" },
     { id: "edexcel-igcse", name: "Edexcel", type: "IGCSE" },
-    { id: "cie", name: "Cambridge (CIE)", type: "IGCSE" }
+    { id: "cie", name: "Cambridge (CIE)", type: "IGCSE" },
+    
+    // A-Level Exam Boards
+    { id: "aqa-alevel", name: "AQA", type: "A Level" },
+    { id: "ocr-alevel", name: "OCR", type: "A Level" },
+    { id: "edexcel-alevel", name: "Edexcel", type: "A Level" },
+    { id: "wjec-alevel", name: "WJEC", type: "A Level" },
+    { id: "cie-alevel", name: "Cambridge (CIE)", type: "A Level" }
   ];
   
 
   
   // Past papers by exam board and subject
   const pastPapers = {
+    // A-Level Past Papers
+    "aqa-alevel": {
+      biology: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Biology", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-1-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-1-MS-JUN23.pdf" },
+          { year: "2023", season: "Summer", course: "Biology", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-2-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-2-MS-JUN23.pdf" },
+          { year: "2023", season: "Summer", course: "Biology", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-3-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-3-MS-JUN23.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-1-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-1-MS-JUN22.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-2-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-2-MS-JUN22.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-3-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/biology/AQA-7402-3-MS-JUN22.pdf" }
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Chemistry", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-1-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-1-MS-JUN23.pdf" },
+          { year: "2023", season: "Summer", course: "Chemistry", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-2-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-2-MS-JUN23.pdf" },
+          { year: "2023", season: "Summer", course: "Chemistry", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-3-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-3-MS-JUN23.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-1-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-1-MS-JUN22.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-2-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-2-MS-JUN22.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-3-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/chemistry/AQA-7405-3-MS-JUN22.pdf" }
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Physics", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-1-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-1-MS-JUN23.pdf" },
+          { year: "2023", season: "Summer", course: "Physics", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-2-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-2-MS-JUN23.pdf" },
+          { year: "2023", season: "Summer", course: "Physics", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-3-QP-JUN23.pdf", markScheme: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-3-MS-JUN23.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-1-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-1-MS-JUN22.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-2-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-2-MS-JUN22.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-3-QP-JUN22.pdf", markScheme: "/downloads/past-papers/aqa-alevel/physics/AQA-7408-3-MS-JUN22.pdf" }
+        ]
+      }
+    },
+    
+    "edexcel-alevel": {
+      biology: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Biology A", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/edexcel-alevel/biology/9BN0_01_que_20230524.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/biology/9BN0_01_rms_20230524.pdf" },
+          { year: "2023", season: "Summer", course: "Biology A", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/edexcel-alevel/biology/9BN0_02_que_20230614.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/biology/9BN0_02_rms_20230614.pdf" },
+          { year: "2023", season: "Summer", course: "Biology A", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/edexcel-alevel/biology/9BN0_03_que_20230620.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/biology/9BN0_03_rms_20230620.pdf" },
+          { year: "2022", season: "Summer", course: "Biology A", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/edexcel-alevel/biology/9BN0_01_que_20220524.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/biology/9BN0_01_rms_20220524.pdf" },
+          { year: "2022", season: "Summer", course: "Biology A", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/edexcel-alevel/biology/9BN0_02_que_20220614.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/biology/9BN0_02_rms_20220614.pdf" },
+          { year: "2022", season: "Summer", course: "Biology A", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/edexcel-alevel/biology/9BN0_03_que_20220620.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/biology/9BN0_03_rms_20220620.pdf" }
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Chemistry", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/edexcel-alevel/chemistry/9CH0_01_que_20230526.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/chemistry/9CH0_01_rms_20230526.pdf" },
+          { year: "2023", season: "Summer", course: "Chemistry", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/edexcel-alevel/chemistry/9CH0_02_que_20230616.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/chemistry/9CH0_02_rms_20230616.pdf" },
+          { year: "2023", season: "Summer", course: "Chemistry", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/edexcel-alevel/chemistry/9CH0_03_que_20230622.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/chemistry/9CH0_03_rms_20230622.pdf" }
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Physics", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/edexcel-alevel/physics/9PH0_01_que_20230525.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/physics/9PH0_01_rms_20230525.pdf" },
+          { year: "2023", season: "Summer", course: "Physics", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/edexcel-alevel/physics/9PH0_02_que_20230615.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/physics/9PH0_02_rms_20230615.pdf" },
+          { year: "2023", season: "Summer", course: "Physics", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/edexcel-alevel/physics/9PH0_03_que_20230621.pdf", markScheme: "/downloads/past-papers/edexcel-alevel/physics/9PH0_03_rms_20230621.pdf" }
+        ]
+      }
+    },
+    
+    "ocr-alevel": {
+      biology: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Biology A", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/ocr-alevel/biology/H420-01-que-20230525.pdf", markScheme: "/downloads/past-papers/ocr-alevel/biology/H420-01-rms-20230525.pdf" },
+          { year: "2023", season: "Summer", course: "Biology A", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/ocr-alevel/biology/H420-02-que-20230608.pdf", markScheme: "/downloads/past-papers/ocr-alevel/biology/H420-02-rms-20230608.pdf" },
+          { year: "2023", season: "Summer", course: "Biology A", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/ocr-alevel/biology/H420-03-que-20230615.pdf", markScheme: "/downloads/past-papers/ocr-alevel/biology/H420-03-rms-20230615.pdf" }
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Chemistry A", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/ocr-alevel/chemistry/H432-01-que-20230605.pdf", markScheme: "/downloads/past-papers/ocr-alevel/chemistry/H432-01-rms-20230605.pdf" },
+          { year: "2023", season: "Summer", course: "Chemistry A", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/ocr-alevel/chemistry/H432-02-que-20230612.pdf", markScheme: "/downloads/past-papers/ocr-alevel/chemistry/H432-02-rms-20230612.pdf" },
+          { year: "2023", season: "Summer", course: "Chemistry A", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/ocr-alevel/chemistry/H432-03-que-20230619.pdf", markScheme: "/downloads/past-papers/ocr-alevel/chemistry/H432-03-rms-20230619.pdf" }
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2023", season: "Summer", course: "Physics A", paperNumber: "Paper 1", questionPaper: "/downloads/past-papers/ocr-alevel/physics/H556-01-que-20230606.pdf", markScheme: "/downloads/past-papers/ocr-alevel/physics/H556-01-rms-20230606.pdf" },
+          { year: "2023", season: "Summer", course: "Physics A", paperNumber: "Paper 2", questionPaper: "/downloads/past-papers/ocr-alevel/physics/H556-02-que-20230613.pdf", markScheme: "/downloads/past-papers/ocr-alevel/physics/H556-02-rms-20230613.pdf" },
+          { year: "2023", season: "Summer", course: "Physics A", paperNumber: "Paper 3", questionPaper: "/downloads/past-papers/ocr-alevel/physics/H556-03-que-20230620.pdf", markScheme: "/downloads/past-papers/ocr-alevel/physics/H556-03-rms-20230620.pdf" }
+        ]
+      }
+    },
+    
+    // GCSE Past Papers
     aqa: {
       biology: {
         higher: [
