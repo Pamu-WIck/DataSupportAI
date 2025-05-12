@@ -67,6 +67,17 @@ const FounderPage = () => {
                   alt="Neethu Haridas - Founder of The Study Hive" 
                   className="w-full h-auto object-cover rounded-2xl shadow-xl relative z-10 border-2 border-slate-800"
                 />
+                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-20">
+                  <a 
+                    href="https://www.linkedin.com/in/neethu-haridas-6198a021/" 
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="font-medium text-sm flex items-center text-blue-700"
+                  >
+                    <i className="fab fa-linkedin text-blue-700 mr-2"></i>
+                    View LinkedIn Profile
+                  </a>
+                </div>
               </div>
             </ScrollAnimation>
           </div>
@@ -159,19 +170,22 @@ const FounderPage = () => {
                 year: "2020 - Present",
                 title: "Founder & Lead Educator",
                 organization: "The Study Hive",
-                description: "Founded The Study Hive to provide personalized science education and academic support for GCSE and IGCSE students."
+                description: "Founded The Study Hive to provide personalized science education and academic support for GCSE and IGCSE students.",
+                image: "/assets/images/schools/study-hive.svg"
               },
               {
                 year: "2018 - Present",
                 title: "Head of Biology Department",
                 organization: "St Helen's School, Northwood",
-                description: "Leading the Biology department at one of the UK's top independent schools, developing curriculum and teaching methodologies that consistently achieve outstanding exam results."
+                description: "Leading the Biology department at one of the UK's top independent schools, developing curriculum and teaching methodologies that consistently achieve outstanding exam results.",
+                image: "/assets/images/schools/st-helens-school.svg"
               },
               {
-                year: "2012 - 2015",
+                year: "2012 - 2018",
                 title: "Science Teacher",
                 organization: "North London Collegiate School",
-                description: "Taught Science subjects to students aged 11-18, specializing in Biology curriculum development."
+                description: "Taught Science subjects to students aged 11-18, specializing in Biology curriculum development and exam preparation.",
+                image: "/assets/images/schools/nlcs-school.svg"
               },
               {
                 year: "2008 - 2012",
@@ -183,7 +197,7 @@ const FounderPage = () => {
               <ScrollAnimation 
                 key={index} 
                 variant={index % 2 === 0 ? "fadeRight" : "fadeLeft"}
-                className="mb-12 relative"
+                className="mb-16 relative"
               >
                 <div className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:pr-12 lg:pr-24' : 'md:pl-12 lg:pl-24'}`}>
                   <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 md:static md:transform-none z-10 ${index % 2 === 0 ? 'md:order-1 md:left-0' : 'md:order-3 md:right-0'}`}>
@@ -193,6 +207,15 @@ const FounderPage = () => {
                   </div>
                   
                   <div className={`bg-white p-6 rounded-xl shadow-md border border-slate-200 w-full md:w-auto z-0 mt-6 md:mt-0 ${index % 2 === 0 ? 'md:order-2 md:text-right' : 'md:order-2 md:text-left'}`}>
+                    {item.image && (
+                      <div className="mb-4 flex justify-center">
+                        <img 
+                          src={item.image} 
+                          alt={item.organization} 
+                          className="h-32 object-contain rounded-md"
+                        />
+                      </div>
+                    )}
                     <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
                     <p className="text-yellow-600 font-medium mb-3">{item.organization}</p>
                     <p className="text-slate-700">{item.description}</p>
