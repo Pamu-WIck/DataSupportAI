@@ -64,8 +64,8 @@ const CallToActionSection = () => {
               </ScrollAnimation>
             </div>
             
-            <div className="bg-teal-400 p-8 md:p-12 flex flex-col justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-teal-400 opacity-95 z-0"></div>
+            <div className="bg-[#009688] p-8 md:p-12 flex flex-col justify-center relative overflow-hidden">
+              {/* Using a solid teal/green color that matches The Study Hive logo */}
               
               <div className="relative z-10">
                 <ScrollAnimation variant="fadeLeft" delay={0.2}>
