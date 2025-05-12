@@ -133,7 +133,7 @@ const VideoGallery = () => {
         
         <ScrollAnimation variant="fadeUp" className="text-center mb-16">
           <motion.span 
-            className="inline-block px-4 py-1 bg-red-50 text-red-800 text-sm font-medium rounded-full mb-6 border border-red-100"
+            className="inline-block px-4 py-1 bg-teal-50 text-teal-800 text-sm font-medium rounded-full mb-6 border border-teal-100"
             whileHover={{ y: -3 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
@@ -232,7 +232,7 @@ const VideoGallery = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="bg-red-600 rounded-full p-3 transform scale-90 group-hover:scale-100 transition-transform">
+                    <div className="bg-[#2dd4bf] rounded-full p-3 transform scale-90 group-hover:scale-100 transition-transform">
                       <i className="fas fa-play text-white"></i>
                     </div>
                   </div>
@@ -257,7 +257,7 @@ const VideoGallery = () => {
                   <h4 className="font-medium text-slate-900 mb-3 line-clamp-2">{video.title}</h4>
                   <a 
                     href={`#video-${video.id}`}
-                    className="text-sm font-medium text-red-600 hover:text-red-700 flex items-center mt-2"
+                    className="text-sm font-medium text-teal-600 hover:text-teal-700 flex items-center mt-2"
                   >
                     Watch Video <i className="fas fa-chevron-right ml-1 text-xs"></i>
                   </a>
