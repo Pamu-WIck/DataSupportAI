@@ -167,7 +167,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-[#424242]">{t("contact.info.location")}</h4>
-                      <p className="text-[#424242]/70">St Helens School<br/>Northwood</p>
+                      <p className="text-[#424242]/70">Northwood, and online</p>
                     </div>
                   </div>
                   
