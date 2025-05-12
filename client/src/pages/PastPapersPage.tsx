@@ -188,60 +188,125 @@ const PastPapersPage = () => {
       },
     },
     "edexcel-igcse": {
-      biology: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_rms_20220517.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_que_20220606.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_rms_20220606.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_que_20210517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_rms_20210517.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_que_20210608.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_rms_20210608.pdf" },
-      ],
-      chemistry: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1C", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_1C_que_20220518.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_1C_rms_20220518.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2C", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_2C_que_20220608.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_2C_rms_20220608.pdf" },
-      ],
-      physics: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1P", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_1P_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_1P_rms_20220520.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2P", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_2P_que_20220611.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_2P_rms_20220611.pdf" },
-      ],
+      biology: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 1B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_rms_20220517.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 2B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_que_20220606.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_rms_20220606.pdf" },
+          { year: "2021", season: "Summer", course: "Biology", paperNumber: "Paper 1B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_que_20210517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_1B_rms_20210517.pdf" },
+          { year: "2021", season: "Summer", course: "Biology", paperNumber: "Paper 2B", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_que_20210608.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Biology/2017/exam-materials/4BI1_2B_rms_20210608.pdf" },
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 1C", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_1C_que_20220518.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_1C_rms_20220518.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 2C", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_2C_que_20220608.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Chemistry/2017/exam-materials/4CH1_2C_rms_20220608.pdf" },
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 1P", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_1P_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_1P_rms_20220520.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 2P", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_2P_que_20220611.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Physics/2017/exam-materials/4PH1_2P_rms_20220611.pdf" },
+        ]
+      },
+      "combined-science": {
+        higher: [
+          { year: "2022", season: "Summer", course: "Science (Double Award)", paperNumber: "Biology Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Science%20(Double%20Award)/2017/exam-materials/4SD0_1B_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Science%20(Double%20Award)/2017/exam-materials/4SD0_1B_rms_20220517.pdf" },
+          { year: "2022", season: "Summer", course: "Science (Double Award)", paperNumber: "Chemistry Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Science%20(Double%20Award)/2017/exam-materials/4SD0_1C_que_20220518.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Science%20(Double%20Award)/2017/exam-materials/4SD0_1C_rms_20220518.pdf" },
+          { year: "2022", season: "Summer", course: "Science (Double Award)", paperNumber: "Physics Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Science%20(Double%20Award)/2017/exam-materials/4SD0_1P_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/International%20GCSE/Science%20(Double%20Award)/2017/exam-materials/4SD0_1P_rms_20220520.pdf" },
+        ]
+      }
     },
     cie: {
-      biology: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_21.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 - Core", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 4 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_41.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 4 - Core", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_42.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_ms_21.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 4 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_ms_41.pdf" },
-      ],
-      chemistry: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_ms_21.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 4 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_ms_41.pdf" },
-      ],
-      physics: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 4 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_42.pdf" },
-      ],
+      biology: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 2 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_21.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 4 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_41.pdf" },
+          { year: "2021", season: "Summer", course: "Biology", paperNumber: "Paper 2 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_ms_21.pdf" },
+          { year: "2021", season: "Summer", course: "Biology", paperNumber: "Paper 4 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2021/0610_s21_ms_41.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 2 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_22.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Paper 4 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Biology%20(0610)/2022/0610_s22_ms_42.pdf" },
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 2 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_ms_21.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 4 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_ms_41.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 2 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_ms_22.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Paper 4 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Chemistry%20(0620)/2022/0620_s22_ms_42.pdf" },
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 2 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_22.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 4 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_42.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 2 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_21.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Paper 4 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_41.pdf" },
+        ]
+      },
+      "combined-science": {
+        higher: [
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Biology Paper 2 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_qp_21.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_ms_21.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Chemistry Paper 3 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_qp_31.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_ms_31.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Physics Paper 4 (Extended)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_qp_41.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_ms_41.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Biology Paper 2 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_ms_22.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Chemistry Paper 3 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_qp_32.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_ms_32.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Physics Paper 4 (Core)", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Science%20-%20Combined%20(0653)/2022/0653_s22_ms_42.pdf" },
+        ]
+      },
     },
     wjec: {
-      biology: [
-        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/bhypcb1e/3400u10-1-wjec-gcse-biology-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/2epjoxuz/3400u10-1-wjec-gcse-biology-unit-1-higher-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/dqdkq2tn/3400n10-1-wjec-gcse-biology-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/dwcnnjr2/3400n10-1-wjec-gcse-biology-unit-1-foundation-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/4adnb4mz/3400u20-1-wjec-gcse-biology-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/fxynmgnc/3400u20-1-wjec-gcse-biology-unit-2-higher-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/0wmbbmfi/3400n20-1-wjec-gcse-biology-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/jlpd4mbz/3400n20-1-wjec-gcse-biology-unit-2-foundation-ms-s22.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/t2inoqju/3400u10-1-wjec-gcse-biology-unit-1-higher-que-s21.pdf", markScheme: "https://www.wjec.co.uk/media/mmlpbywt/3400u10-1-wjec-gcse-biology-unit-1-higher-ms-s21.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/axyd0b0u/3400u20-1-wjec-gcse-biology-unit-2-higher-que-s21.pdf", markScheme: "https://www.wjec.co.uk/media/ylwpoigu/3400u20-1-wjec-gcse-biology-unit-2-higher-ms-s21.pdf" },
-      ],
-      chemistry: [
-        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/yh5jclrk/3410u10-1-wjec-gcse-chemistry-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/yphlhd05/3410u10-1-wjec-gcse-chemistry-unit-1-higher-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/3uadacka/3410n10-1-wjec-gcse-chemistry-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/n0yfs5u1/3410n10-1-wjec-gcse-chemistry-unit-1-foundation-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/oekbfz0d/3410u20-1-wjec-gcse-chemistry-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/ixofgc23/3410u20-1-wjec-gcse-chemistry-unit-2-higher-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/z5kjnqlb/3410n20-1-wjec-gcse-chemistry-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/vaxnnunp/3410n20-1-wjec-gcse-chemistry-unit-2-foundation-ms-s22.pdf" },
-      ],
-      physics: [
-        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/tvvnm4yd/3420u10-1-wjec-gcse-physics-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/cbpldugv/3420u10-1-wjec-gcse-physics-unit-1-higher-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/s0gbzqmy/3420n10-1-wjec-gcse-physics-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/j3vhubut/3420n10-1-wjec-gcse-physics-unit-1-foundation-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/tdnpbajg/3420u20-1-wjec-gcse-physics-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/yfckwrj5/3420u20-1-wjec-gcse-physics-unit-2-higher-ms-s22.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/vfvptc4b/3420n20-1-wjec-gcse-physics-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/wbjllrbv/3420n20-1-wjec-gcse-physics-unit-2-foundation-ms-s22.pdf" },
-      ],
+      biology: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/bhypcb1e/3400u10-1-wjec-gcse-biology-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/2epjoxuz/3400u10-1-wjec-gcse-biology-unit-1-higher-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/4adnb4mz/3400u20-1-wjec-gcse-biology-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/fxynmgnc/3400u20-1-wjec-gcse-biology-unit-2-higher-ms-s22.pdf" },
+          { year: "2021", season: "Summer", course: "Biology", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/t2inoqju/3400u10-1-wjec-gcse-biology-unit-1-higher-que-s21.pdf", markScheme: "https://www.wjec.co.uk/media/mmlpbywt/3400u10-1-wjec-gcse-biology-unit-1-higher-ms-s21.pdf" },
+          { year: "2021", season: "Summer", course: "Biology", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/axyd0b0u/3400u20-1-wjec-gcse-biology-unit-2-higher-que-s21.pdf", markScheme: "https://www.wjec.co.uk/media/ylwpoigu/3400u20-1-wjec-gcse-biology-unit-2-higher-ms-s21.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/dqdkq2tn/3400n10-1-wjec-gcse-biology-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/dwcnnjr2/3400n10-1-wjec-gcse-biology-unit-1-foundation-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Biology", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/0wmbbmfi/3400n20-1-wjec-gcse-biology-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/jlpd4mbz/3400n20-1-wjec-gcse-biology-unit-2-foundation-ms-s22.pdf" },
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/yh5jclrk/3410u10-1-wjec-gcse-chemistry-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/yphlhd05/3410u10-1-wjec-gcse-chemistry-unit-1-higher-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/oekbfz0d/3410u20-1-wjec-gcse-chemistry-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/ixofgc23/3410u20-1-wjec-gcse-chemistry-unit-2-higher-ms-s22.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/3uadacka/3410n10-1-wjec-gcse-chemistry-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/n0yfs5u1/3410n10-1-wjec-gcse-chemistry-unit-1-foundation-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Chemistry", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/z5kjnqlb/3410n20-1-wjec-gcse-chemistry-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/vaxnnunp/3410n20-1-wjec-gcse-chemistry-unit-2-foundation-ms-s22.pdf" },
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/tvvnm4yd/3420u10-1-wjec-gcse-physics-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/cbpldugv/3420u10-1-wjec-gcse-physics-unit-1-higher-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/tdnpbajg/3420u20-1-wjec-gcse-physics-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/yfckwrj5/3420u20-1-wjec-gcse-physics-unit-2-higher-ms-s22.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/s0gbzqmy/3420n10-1-wjec-gcse-physics-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/j3vhubut/3420n10-1-wjec-gcse-physics-unit-1-foundation-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Physics", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/vfvptc4b/3420n20-1-wjec-gcse-physics-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/wbjllrbv/3420n20-1-wjec-gcse-physics-unit-2-foundation-ms-s22.pdf" },
+        ]
+      },
+      "combined-science": {
+        higher: [
+          { year: "2022", season: "Summer", course: "Applied Science (Double Award)", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/cjbdszft/4473u10-1-wjec-gcse-applied-science-double-award-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/phcpy2a3/4473u10-1-wjec-gcse-applied-science-double-award-unit-1-higher-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Applied Science (Double Award)", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/qfwdtswr/4473u20-1-wjec-gcse-applied-science-double-award-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/njsnsacx/4473u20-1-wjec-gcse-applied-science-double-award-unit-2-higher-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Applied Science (Double Award)", paperNumber: "Unit 3", questionPaper: "https://www.wjec.co.uk/media/0y3o1bkg/4473u30-1-wjec-gcse-applied-science-double-award-unit-3-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/bqjcyoip/4473u30-1-wjec-gcse-applied-science-double-award-unit-3-higher-ms-s22.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Applied Science (Double Award)", paperNumber: "Unit 1", questionPaper: "https://www.wjec.co.uk/media/2eon2zf5/4473n10-1-wjec-gcse-applied-science-double-award-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/zrpnvipk/4473n10-1-wjec-gcse-applied-science-double-award-unit-1-foundation-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Applied Science (Double Award)", paperNumber: "Unit 2", questionPaper: "https://www.wjec.co.uk/media/k44hzkiq/4473n20-1-wjec-gcse-applied-science-double-award-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/jtfpbbgk/4473n20-1-wjec-gcse-applied-science-double-award-unit-2-foundation-ms-s22.pdf" },
+          { year: "2022", season: "Summer", course: "Applied Science (Double Award)", paperNumber: "Unit 3", questionPaper: "https://www.wjec.co.uk/media/hxdcwsxd/4473n30-1-wjec-gcse-applied-science-double-award-unit-3-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/2psmqvri/4473n30-1-wjec-gcse-applied-science-double-award-unit-3-foundation-ms-s22.pdf" },
+        ]
+      },
     },
   };
   
