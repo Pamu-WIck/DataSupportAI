@@ -241,14 +241,14 @@ const FounderPage = () => {
                       {/* Logo positioned above the year */}
                       {item.image && (
                         <div className="flex-shrink-0 mb-2">
-                          <div className="bg-white p-2 rounded-full shadow-md border border-slate-200">
+                          <div className={`${item.organization === "BBC Bitesize" ? "bg-[#ff8d1e] border-[#ff8d1e]" : "bg-white border-slate-200"} p-2 rounded-full shadow-md border`}>
                             <img 
                               src={item.image} 
                               alt={item.organization} 
                               className={`h-16 w-16 object-contain ${
                                 item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
                                 item.organization === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
-                                item.organization === "BBC Bitesize" ? "rounded-full bg-[#ff8d1e] p-1" : 
+                                item.organization === "BBC Bitesize" ? "rounded-full bg-[#ff8d1e]" : 
                                 item.organization === "St Helen's School" ? "rounded-full bg-[#b7bcb2] p-1" : 
                                 ""
                               }`}
@@ -313,12 +313,12 @@ const FounderPage = () => {
                     description: "Of our students report improved confidence and understanding"
                   },
                   {
-                    percentage: "95%",
+                    percentage: "100%",
                     metric: "Grade Improvements",
                     description: "Of students improve by at least one grade level"
                   },
                   {
-                    percentage: "90%",
+                    percentage: "95%",
                     metric: "Exam Success Rate",
                     description: "Of our students achieve A* to B grades in GCSE Science"
                   },
