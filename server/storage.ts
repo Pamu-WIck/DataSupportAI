@@ -11,7 +11,8 @@ import {
   students, type Student, type InsertStudent,
   badges, type Badge, type InsertBadge,
   studentBadges, type StudentBadge, type InsertStudentBadge,
-  paperCompletions, type PaperCompletion, type InsertPaperCompletion
+  paperCompletions, type PaperCompletion, type InsertPaperCompletion,
+  videoCompletions, type VideoCompletion, type InsertVideoCompletion
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, sql } from "drizzle-orm";
@@ -50,6 +51,11 @@ export interface IStorage {
   recordPaperCompletion(completion: InsertPaperCompletion): Promise<PaperCompletion>;
   getStudentCompletedPapers(studentId: number): Promise<PaperCompletion[]>;
   getPaperCompletionStats(): Promise<{subject: string, completionCount: number}[]>;
+  
+  // Video completion methods
+  recordVideoCompletion(completion: InsertVideoCompletion): Promise<VideoCompletion>;
+  getStudentCompletedVideos(studentId: number): Promise<VideoCompletion[]>;
+  getVideoCompletionStats(): Promise<{subject: string, completionCount: number}[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -313,6 +319,63 @@ export class DatabaseStorage implements IStorage {
     return results;
   }
 
+  // Video completion methods
+  async recordVideoCompletion(insertCompletion: InsertVideoCompletion): Promise<VideoCompletion> {
+    try {
+      // Record the video completion
+      const [completion] = await db
+        .insert(videoCompletions)
+        .values(insertCompletion)
+        .returning();
+      
+      // Update student points
+      await this.updateStudentPoints(
+        insertCompletion.studentId, 
+        insertCompletion.pointsEarned || 25
+      );
+      
+      // Check for new badges (same as we do for paper completions)
+      await this.checkForVideoCompletionBadges(insertCompletion.studentId);
+      
+      return completion;
+    } catch (error) {
+      // If the student has already completed this video, just return the existing record
+      if (error.code === '23505') { // Unique constraint violation
+        const [existing] = await db
+          .select()
+          .from(videoCompletions)
+          .where(
+            and(
+              eq(videoCompletions.studentId, insertCompletion.studentId),
+              eq(videoCompletions.videoId, insertCompletion.videoId)
+            )
+          );
+        return existing;
+      }
+      throw error;
+    }
+  }
+
+  async getStudentCompletedVideos(studentId: number): Promise<VideoCompletion[]> {
+    return db
+      .select()
+      .from(videoCompletions)
+      .where(eq(videoCompletions.studentId, studentId))
+      .orderBy(desc(videoCompletions.completedAt));
+  }
+
+  async getVideoCompletionStats(): Promise<{subject: string, completionCount: number}[]> {
+    const results = await db
+      .select({
+        subject: videoCompletions.subject,
+        completionCount: sql<number>`count(*)`
+      })
+      .from(videoCompletions)
+      .groupBy(videoCompletions.subject);
+    
+    return results;
+  }
+
   // Badge checking logic
   private async checkForCompletionBadges(studentId: number): Promise<void> {
     // Get all papers completed by this student
@@ -337,6 +400,35 @@ export class DatabaseStorage implements IStorage {
       } else if (badge.category === 'subject') {
         const [subject, count] = badge.requirements.split(':');
         if (subjectCounts[subject] >= parseInt(count)) {
+          await this.tryAwardBadge(studentId, badge.id);
+        }
+      }
+    }
+  }
+  
+  private async checkForVideoCompletionBadges(studentId: number): Promise<void> {
+    // Get all videos completed by this student
+    const completedVideos = await this.getStudentCompletedVideos(studentId);
+    
+    // Get all badges
+    const allBadges = await this.getAllBadges();
+    
+    // Check for video completion badges
+    const videoCount = completedVideos.length;
+    
+    // Check for subject-specific video badges
+    const videoSubjectCounts: Record<string, number> = {};
+    for (const video of completedVideos) {
+      videoSubjectCounts[video.subject] = (videoSubjectCounts[video.subject] || 0) + 1;
+    }
+    
+    // Find eligible badges
+    for (const badge of allBadges) {
+      if (badge.category === 'video' && videoCount >= parseInt(badge.requirements)) {
+        await this.tryAwardBadge(studentId, badge.id);
+      } else if (badge.category === 'video-subject') {
+        const [subject, count] = badge.requirements.split(':');
+        if (videoSubjectCounts[subject] >= parseInt(count)) {
           await this.tryAwardBadge(studentId, badge.id);
         }
       }

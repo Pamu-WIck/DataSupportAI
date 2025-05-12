@@ -148,3 +148,35 @@ export const insertPaperCompletionSchema = createInsertSchema(paperCompletions)
 
 export type InsertPaperCompletion = z.infer<typeof insertPaperCompletionSchema>;
 export type PaperCompletion = typeof paperCompletions.$inferSelect;
+
+// Track YouTube lesson completions
+export const videoCompletions = pgTable("video_completions", {
+  id: serial("id").primaryKey(),
+  studentId: integer("student_id").notNull().references(() => students.id, { onDelete: 'cascade' }),
+  videoId: text("video_id").notNull(), // YouTube video ID
+  videoTitle: text("video_title").notNull(),
+  subject: text("subject").notNull(), // Biology, Chemistry, Physics
+  topic: text("topic"), // Specific topic within the subject
+  watchedPercentage: integer("watched_percentage").default(100).notNull(),
+  completedAt: timestamp("completed_at").defaultNow().notNull(),
+  pointsEarned: integer("points_earned").default(25).notNull(), // Default points for watching a video
+}, (t) => ({
+  unq: unique().on(t.studentId, t.videoId), // Each student can only get points once per video
+}));
+
+export const insertVideoCompletionSchema = createInsertSchema(videoCompletions)
+  .pick({
+    studentId: true,
+    videoId: true,
+    videoTitle: true,
+    subject: true,
+    topic: true,
+    watchedPercentage: true,
+    pointsEarned: true,
+  })
+  .extend({
+    pointsEarned: z.number().default(25), // Ensure pointsEarned is always provided with a default
+  });
+
+export type InsertVideoCompletion = z.infer<typeof insertVideoCompletionSchema>;
+export type VideoCompletion = typeof videoCompletions.$inferSelect;
