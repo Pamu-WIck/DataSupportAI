@@ -12,7 +12,7 @@ const JellyfishVideos = () => {
   const [selectedVideo, setSelectedVideo] = useState(0);
   
   // These are the actual videos from Miss Haridas' Study Hive YouTube channel
-  // Videos from https://www.youtube.com/@TheStudyHive/featured with exact titles
+  // Videos from https://www.youtube.com/@TheStudyHive/videos with exact titles
   const videos = [
     {
       id: "video1",
@@ -53,6 +53,46 @@ const JellyfishVideos = () => {
       embedId: "gDvGOm55qZ4",
       subject: "Biology",
       description: "Continuation of the hormones and endocrine system topic for GCSE and IGCSE Biology."
+    },
+    {
+      id: "video6",
+      title: "Diffusion | GCSE Biology",
+      thumbnail: "https://img.youtube.com/vi/tKm24Dm6eHk/maxresdefault.jpg",
+      embedId: "tKm24Dm6eHk",
+      subject: "Biology",
+      description: "Learn about diffusion processes and their importance in biological systems for GCSE Biology."
+    },
+    {
+      id: "video7",
+      title: "Photosynthesis | GCSE Biology",
+      thumbnail: "https://img.youtube.com/vi/djudhjDheUg/maxresdefault.jpg",
+      embedId: "djudhjDheUg",
+      subject: "Biology",
+      description: "Comprehensive guide to photosynthesis covering all the essential concepts for GCSE Biology."
+    },
+    {
+      id: "video8",
+      title: "Factors affecting the rate of Photosynthesis | GCSE / IGCSE Biology",
+      thumbnail: "https://img.youtube.com/vi/qhC5VRIhXrg/maxresdefault.jpg",
+      embedId: "qhC5VRIhXrg",
+      subject: "Biology",
+      description: "Detailed explanation of all the factors that affect photosynthesis rates in plants for GCSE and IGCSE."
+    },
+    {
+      id: "video9",
+      title: "Structure of a Leaf | GCSE / IGCSE Biology",
+      thumbnail: "https://img.youtube.com/vi/hEG-G8oGXmM/maxresdefault.jpg",
+      embedId: "hEG-G8oGXmM",
+      subject: "Biology",
+      description: "Detailed look at leaf structure and how it relates to photosynthesis for GCSE and IGCSE Biology."
+    },
+    {
+      id: "video10",
+      title: "How to Revise Effectively | The Study Hive LIVE",
+      thumbnail: "https://img.youtube.com/vi/_eT2bS0dwh0/maxresdefault.jpg",
+      embedId: "_eT2bS0dwh0",
+      subject: "Study Skills",
+      description: "Essential revision strategies and techniques to help you succeed in your science exams."
     },
   ];
 
@@ -138,15 +178,13 @@ const JellyfishVideos = () => {
             
             <div className="mt-4">
               <motion.a 
-                href="https://www.youtube.com/@TheStudyHive/featured" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#all-videos"
                 className="flex items-center justify-center w-full py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all"
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <i className="fab fa-youtube mr-2 text-lg"></i>
-                Visit Our Full YouTube Channel
+                <i className="fas fa-play-circle mr-2 text-lg"></i>
+                View All Video Lessons
               </motion.a>
             </div>
           </div>
@@ -188,6 +226,74 @@ const JellyfishVideos = () => {
             </div>
           </div>
         </ScrollAnimation>
+        
+        {/* All Videos Library Section */}
+        <div id="all-videos" className="mt-20 pt-12 border-t border-slate-200">
+          <ScrollAnimation variant="fadeUp">
+            <h3 className="font-playfair text-3xl font-bold text-slate-900 mb-8 text-center">All Video Lessons</h3>
+            <p className="text-slate-600 max-w-3xl mx-auto text-center mb-12">
+              Access our complete library of GCSE and IGCSE science video lessons, embedded directly on this page for easy viewing.
+            </p>
+          </ScrollAnimation>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {videos.map((video, index) => (
+              <ScrollAnimation key={video.id} variant="fadeUp" delay={0.1 * (index % 2)}>
+                <div className="bg-white rounded-lg overflow-hidden shadow-md border border-slate-200">
+                  <div className="aspect-video w-full">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${video.embedId}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={video.title}
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-slate-900 mb-2">{video.title}</h4>
+                    <p className="text-slate-600 text-sm mb-2">{video.description}</p>
+                    <span className="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full">
+                      {video.subject}
+                    </span>
+                  </div>
+                </div>
+              </ScrollAnimation>
+            ))}
+          </div>
+          
+          {/* Additional Videos Section */}
+          <ScrollAnimation variant="fadeUp" delay={0.3} className="mt-12">
+            <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
+              <h4 className="font-playfair text-xl font-bold text-slate-900 mb-4 text-center">More Videos Coming Soon</h4>
+              <p className="text-slate-600 text-center mb-6">
+                We're constantly adding new videos to help with your science education. 
+                Visit our <a 
+                  href="https://www.youtube.com/@TheStudyHive/featured"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-600 hover:text-red-700 font-medium"
+                >YouTube channel</a> to see the latest uploads.
+              </p>
+              
+              <div className="flex justify-center">
+                <motion.a 
+                  href="https://www.youtube.com/@TheStudyHive/featured"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-5 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <i className="fab fa-youtube mr-2"></i>
+                  Visit YouTube Channel
+                </motion.a>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
       </div>
     </section>
   );
