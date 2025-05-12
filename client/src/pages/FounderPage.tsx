@@ -226,17 +226,22 @@ const FounderPage = () => {
               >
                 <div className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:pr-12 lg:pr-24' : 'md:pl-12 lg:pl-24'}`}>
                   <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 md:static md:transform-none z-10 ${index % 2 === 0 ? 'md:order-1 md:left-0' : 'md:order-3 md:right-0'}`}>
-                    <div className="flex items-center bg-white p-2 rounded-full border-2 border-yellow-400 shadow-md">
+                    <div className="flex items-center gap-3">
+                      {/* Logo */}
                       {item.image && (
-                        <div className="mr-2">
-                          <img 
-                            src={item.image} 
-                            alt={item.organization} 
-                            className={`h-12 w-12 object-contain ${item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : "rounded-full p-1"}`}
-                          />
+                        <div className="flex-shrink-0">
+                          <div className="bg-white p-2 rounded-full shadow-md border border-slate-200">
+                            <img 
+                              src={item.image} 
+                              alt={item.organization} 
+                              className={`h-14 w-14 object-contain ${item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : ""}`}
+                            />
+                          </div>
                         </div>
                       )}
-                      <div className="font-bold px-3 py-1">
+                      
+                      {/* Year button with original yellow background */}
+                      <div className="bg-yellow-400 text-slate-900 font-bold px-4 py-2 rounded-full shadow-sm border-2 border-black">
                         {item.year}
                       </div>
                     </div>
