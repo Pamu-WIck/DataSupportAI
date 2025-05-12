@@ -1,33 +1,44 @@
 import { useTranslation } from "@/hooks/useTranslation";
+import Hexagon from "@/components/ui/hexagon";
 
 type StepProps = {
   number: string;
   title: string;
   description: string;
   icon: string;
+  variant: "primary" | "secondary";
 };
 
-const Step = ({ number, title, description, icon }: StepProps) => {
+const Step = ({ number, title, description, icon, variant }: StepProps) => {
   return (
     <div className="relative pl-8 md:pl-0">
-      {/* Desktop number line (hidden on mobile) */}
-      <div className="hidden md:block absolute top-10 left-0 w-full h-0.5 bg-blue-100 z-0">
-        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full h-full bg-blue-100"></div>
+      {/* Desktop connector line (hidden on mobile) */}
+      <div className="hidden md:block absolute top-14 left-0 w-full h-2 border-t-2 border-b-2 border-dashed border-black z-0 opacity-30">
       </div>
       
       <div className="md:text-center relative z-10">
         <div className="flex md:block items-center mb-4">
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white text-blue-600 border-2 border-blue-100 flex items-center justify-center mx-auto shadow-sm">
-            <i className={`${icon} text-xl`}></i>
+          <div className="md:mx-auto">
+            <Hexagon
+              variant={variant}
+              className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center"
+              content={
+                <div className="text-center">
+                  <div className="text-lg font-bold">{number}</div>
+                  <i className={`${icon} text-lg`}></i>
+                </div>
+              }
+            />
           </div>
-          <div className="md:mt-4 ml-4 md:ml-0">
-            <div className="text-xs text-blue-600 font-semibold mb-1 md:mb-2 uppercase tracking-wider">Step {number}</div>
-            <h3 className="font-poppins font-semibold text-xl text-slate-900">{title}</h3>
+          <div className="md:mt-5 ml-4 md:ml-0">
+            <h3 className="font-poppins font-bold text-xl text-slate-900">{title}</h3>
           </div>
         </div>
-        <p className="text-slate-600 text-sm md:px-4">
-          {description}
-        </p>
+        <div className="md:bg-white md:rounded-lg md:p-4 md:border-2 md:border-black md:shadow-md">
+          <p className="text-slate-700 text-sm leading-relaxed">
+            {description}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -41,36 +52,44 @@ const HowItWorks = () => {
       number: "1",
       titleKey: "howItWorks.step1.title",
       descriptionKey: "howItWorks.step1.description",
-      icon: "fas fa-clipboard-check"
+      icon: "fas fa-clipboard-check",
+      variant: "primary" as const
     },
     {
       number: "2",
       titleKey: "howItWorks.step2.title",
       descriptionKey: "howItWorks.step2.description",
-      icon: "fas fa-user-graduate"
+      icon: "fas fa-user-graduate",
+      variant: "secondary" as const
     },
     {
       number: "3",
       titleKey: "howItWorks.step3.title",
       descriptionKey: "howItWorks.step3.description",
-      icon: "fas fa-chart-line"
+      icon: "fas fa-chart-line",
+      variant: "primary" as const
     }
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-28 bg-white honeycomb-pattern relative">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block text-blue-600 font-medium text-sm mb-3">METHODOLOGY</span>
-          <h2 className="font-poppins font-bold text-3xl md:text-4xl text-slate-900 mb-4">
+          <div className="inline-block">
+            <span className="bg-teal-400 border-2 border-black text-black font-semibold text-sm mb-3 px-4 py-2 rounded-full inline-block">
+              OUR METHODOLOGY
+            </span>
+          </div>
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl text-slate-900 mb-4 mt-5">
             {t("howItWorks.title")}
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-slate-700 max-w-2xl mx-auto">
             {t("howItWorks.subtitle")}
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
+        {/* Mobile view - stack vertically */}
+        <div className="md:hidden space-y-10 mb-12">
           {steps.map((step, index) => (
             <Step
               key={index}
@@ -78,6 +97,21 @@ const HowItWorks = () => {
               title={t(step.titleKey)}
               description={t(step.descriptionKey)}
               icon={step.icon}
+              variant={step.variant}
+            />
+          ))}
+        </div>
+        
+        {/* Desktop view - horizontal with connected hexagons */}
+        <div className="hidden md:grid md:grid-cols-3 md:gap-6 mb-16 relative">
+          {steps.map((step, index) => (
+            <Step
+              key={index}
+              number={step.number}
+              title={t(step.titleKey)}
+              description={t(step.descriptionKey)}
+              icon={step.icon}
+              variant={step.variant}
             />
           ))}
         </div>
@@ -85,7 +119,7 @@ const HowItWorks = () => {
         <div className="flex justify-center">
           <a 
             href="#contact" 
-            className="bg-blue-600 hover:bg-blue-700 text-white font-montserrat font-medium px-6 py-3 rounded-lg shadow-sm transition-colors"
+            className="bg-yellow-400 hover:bg-yellow-500 text-black font-montserrat font-medium px-6 py-3 rounded-full border-2 border-black shadow-sm transition-colors"
           >
             {t("howItWorks.cta")}
           </a>

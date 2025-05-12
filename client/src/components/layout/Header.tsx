@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
+import Hexagon from "@/components/ui/hexagon";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -11,45 +12,49 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white backdrop-blur-sm bg-white/90 border-b border-slate-200 sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
+    <header className="bg-white/95 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold">SH</span>
+            <div className="w-12 h-12 relative">
+              <img 
+                src="/assets/images/study-hive-logo.png" 
+                alt="The Study Hive Logo" 
+                className="w-full h-full"
+              />
             </div>
-            <span className="text-gray-900 font-poppins font-bold text-2xl">The Study Hive</span>
+            <span className="text-slate-900 font-poppins font-bold text-2xl">The Study Hive</span>
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex space-x-8">
             <a 
               href="#home" 
-              className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.home")}
             </a>
             <a 
               href="#services" 
-              className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.services")}
             </a>
             <a 
               href="#tutors" 
-              className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.tutors")}
             </a>
             <a 
               href="#resources" 
-              className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.resources")}
             </a>
             <a 
               href="#contact" 
-              className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-full transition-colors border-2 border-black"
             >
               {t("nav.contact")}
             </a>
@@ -57,49 +62,49 @@ const Header = () => {
           
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-800 focus:outline-none" 
+            className="md:hidden text-slate-900 focus:outline-none p-2" 
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
-            <i className="fas fa-bars text-2xl"></i>
+            <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
           </button>
         </div>
         
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
               <a 
                 href="#home" 
-                className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.home")}
               </a>
               <a 
                 href="#services" 
-                className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.services")}
               </a>
               <a 
                 href="#tutors" 
-                className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.tutors")}
               </a>
               <a 
                 href="#resources" 
-                className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.resources")}
               </a>
               <a 
                 href="#contact" 
-                className="font-montserrat font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-full transition-colors border-2 border-black"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.contact")}
