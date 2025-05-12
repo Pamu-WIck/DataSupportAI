@@ -36,7 +36,7 @@ const FounderPage = () => {
                 </h1>
                 
                 <p className="text-xl text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Teacher of Biology at St Helen's School<br/>
+                  Teacher of Science & Director of EPQ at North London Collegiate School<br/>
                   Founder of The Study Hive
                 </p>
                 
@@ -112,9 +112,9 @@ const FounderPage = () => {
                 icon: "fas fa-briefcase",
                 title: "Experience",
                 items: [
-                  "Teacher of Biology at St Helen's School, Northwood",
                   "Teacher of Science at North London Collegiate School",
                   "Director of Extended Project Qualification (EPQ) at NLCS",
+                  "Teacher of Biology at St Helen's School, Northwood",
                   "Science Specialist Writer for BBC Bitesize"
                 ]
               },
@@ -177,17 +177,17 @@ const FounderPage = () => {
               },
               {
                 year: "2014 - Present",
-                title: "Teacher of Biology",
-                organization: "St Helen's School, Northwood",
-                description: "Teaching Biology at one of the UK's top independent schools, developing specialized curriculum and exam preparation strategies for students.",
-                image: "/assets/images/schools/st-helens-school.svg"
+                title: "Teacher of Science & Director of EPQ",
+                organization: "North London Collegiate School",
+                description: "Teaching Science and directing the Extended Project Qualification program, helping students achieve outstanding exam results.",
+                image: "/assets/images/schools/nlcs-school.svg"
               },
               {
                 year: "2012 - 2014",
-                title: "Teacher of Science & Director of EPQ",
-                organization: "North London Collegiate School",
-                description: "Taught Science and directed the Extended Project Qualification program, helping students achieve outstanding exam results.",
-                image: "/assets/images/schools/nlcs-school.svg"
+                title: "Teacher of Biology",
+                organization: "St Helen's School, Northwood",
+                description: "Taught Biology at one of the UK's top independent schools, developing specialized curriculum and exam preparation strategies for students.",
+                image: "/assets/images/schools/st-helens-school.svg"
               },
               {
                 year: "2010 - 2014",
@@ -251,7 +251,7 @@ const FounderPage = () => {
               
               <div className="space-y-6 text-slate-700">
                 <p>
-                  As a Biology Teacher at St Helen's School, with experience as a Science Teacher and Director of EPQ at North London Collegiate School, and as a content writer for BBC Bitesize, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
+                  As a Science Teacher and Director of EPQ at North London Collegiate School, with previous experience as a Biology Teacher at St Helen's School and as a content writer for BBC Bitesize, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
                 </p>
                 
                 <p>
