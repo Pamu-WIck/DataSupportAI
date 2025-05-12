@@ -234,7 +234,11 @@ const FounderPage = () => {
                             <img 
                               src={item.image} 
                               alt={item.organization} 
-                              className={`h-14 w-14 object-contain ${item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : ""}`}
+                              className={`h-14 w-14 object-contain ${
+                                item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
+                                item.organization === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
+                                ""
+                              }`}
                             />
                           </div>
                         </div>
