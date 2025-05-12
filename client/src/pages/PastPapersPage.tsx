@@ -1614,7 +1614,7 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                 EXAM PREPARATION
               </motion.span>
               
-              <ScrollAnimation variant="fadeRight">
+              <ScrollAnimation variant="fadeIn">
                 <h1 className="font-playfair font-bold text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6">
                   Past Papers
                 </h1>
