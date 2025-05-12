@@ -199,7 +199,7 @@ const FounderPage = () => {
                 year: "2020 - Present",
                 title: "Founder & Lead Educator",
                 organization: "The Study Hive",
-                description: "Founded The Study Hive to provide personalized science education and academic support for GCSE and IGCSE students.",
+                description: "Founded The Study Hive to provide personalised science education and academic support for GCSE and IGCSE students.",
                 image: studyHiveLogo
               },
               {
@@ -213,7 +213,7 @@ const FounderPage = () => {
                 year: "2017 - 2021",
                 title: "Teacher of Biology",
                 organization: "St Helen's School, Northwood",
-                description: "Taught Biology at one of the UK's top independent schools, developing specialized curriculum and exam preparation strategies for students.",
+                description: "Taught Biology at one of the UK's top independent schools, developing specialised curriculum and exam preparation strategies for students.",
                 image: stHelensLogo
               },
               {
@@ -227,7 +227,7 @@ const FounderPage = () => {
                 year: "2012 - 2017",
                 title: "Science Education Specialist",
                 organization: "Various Educational Institutions",
-                description: "Developed specialized teaching methodologies for science subjects with a focus on practical applications."
+                description: "Developed specialised teaching methodologies for science subjects with a focus on practical applications."
               }
             ].map((item, index) => (
               <ScrollAnimation 
@@ -431,7 +431,7 @@ const FounderPage = () => {
               </h2>
               
               <p className="text-white/90 text-lg mb-8">
-                Join Ms. Haridas and The Study Hive team for personalized science tutoring that delivers results. Spaces are limited to ensure quality instruction for each student.
+                Join Ms. Haridas and The Study Hive team for personalised science tutoring that delivers results. Spaces are limited to ensure quality instruction for each student.
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center">
