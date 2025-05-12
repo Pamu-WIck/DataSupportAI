@@ -6,32 +6,32 @@ const VideosSection = () => {
   const { t } = useTranslation();
   const [selectedVideo, setSelectedVideo] = useState(0);
   
-  // These are real videos from The Study Hive YouTube channel
-  // Videos from https://www.youtube.com/@TheStudyHive/videos
+  // These are the actual videos from Miss Haridas' Study Hive YouTube channel
+  // Videos from https://www.youtube.com/@TheStudyHive/featured
   const videos = [
     {
       id: "video1",
-      title: "IGCSE Biology Paper 4 - Specimen 2020 (Q1~3) - 0610/04/SP/20",
-      thumbnail: "https://img.youtube.com/vi/t-x-lBi8M_g/maxresdefault.jpg",
-      embedId: "t-x-lBi8M_g",
+      title: "Solving IGCSE O Level MCQs - Part 1 (Biology)",
+      thumbnail: "https://img.youtube.com/vi/WC3TiPRECTI/maxresdefault.jpg",
+      embedId: "WC3TiPRECTI",
       subject: "Biology",
-      description: "IGCSE Biology past paper walkthrough with detailed explanations and exam techniques."
+      description: "Learn how to solve IGCSE O Level Biology Multiple Choice Questions with expert guidance."
     },
     {
       id: "video2",
-      title: "P4 Vectors and SUVAT - Kinematics",
-      thumbnail: "https://img.youtube.com/vi/8FmnTLrTPkk/maxresdefault.jpg",
-      embedId: "8FmnTLrTPkk",
-      subject: "Physics",
-      description: "Learn how to tackle vector problems and use SUVAT equations for kinematics."
+      title: "IGCSE Biology Paper 42 - October/November 2022",
+      thumbnail: "https://img.youtube.com/vi/mU9PGceV_yk/maxresdefault.jpg",
+      embedId: "mU9PGceV_yk",
+      subject: "Biology",
+      description: "Detailed walkthrough of IGCSE Biology Paper 42 from the October/November 2022 examination series."
     },
     {
       id: "video3",
-      title: "Rates of Reaction - GCSE Chemistry",
-      thumbnail: "https://img.youtube.com/vi/EdGM-mqDios/maxresdefault.jpg",
-      embedId: "EdGM-mqDios",
+      title: "IGCSE/O Level/AS Level Chemistry on Organic Chemistry",
+      thumbnail: "https://img.youtube.com/vi/gDvGOm55qZ4/maxresdefault.jpg",
+      embedId: "gDvGOm55qZ4",
       subject: "Chemistry",
-      description: "Complete guide to understanding rates of reaction for GCSE Chemistry."
+      description: "Comprehensive tutorial on Organic Chemistry for IGCSE, O Level, and AS Level students."
     },
   ];
 
@@ -134,7 +134,7 @@ const VideosSection = () => {
               
               <div className="mt-6 text-center">
                 <a 
-                  href="https://www.youtube.com/@TheStudyHive/videos" 
+                  href="https://www.youtube.com/@TheStudyHive/featured" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-full inline-flex items-center"
