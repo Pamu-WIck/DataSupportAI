@@ -2,6 +2,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
+import { Link } from "wouter";
 
 /**
  * JellyfishVideos component for The Study Hive
@@ -112,9 +113,20 @@ const JellyfishVideos = () => {
             Science Video Lessons
           </h2>
           
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-slate-600 max-w-2xl mx-auto mb-8">
             Access our library of curriculum-focused video lessons, created by Miss Haridas to help you master key science concepts for GCSE and IGCSE exams.
           </p>
+          
+          <Link href="/videos">
+            <motion.a 
+              className="inline-flex items-center px-6 py-3 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              View All Video Lessons
+              <i className="fas fa-arrow-right ml-2"></i>
+            </motion.a>
+          </Link>
         </ScrollAnimation>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">

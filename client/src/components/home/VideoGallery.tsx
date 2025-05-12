@@ -2,10 +2,12 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
+import { Link } from "wouter";
 
 /**
  * VideoGallery component for The Study Hive
  * A dedicated page-style section for YouTube videos styled with the Jellyfish template design
+ * This matches the Jellyfish Squarespace template layout for video content
  */
 const VideoGallery = () => {
   const { t } = useTranslation();
@@ -117,6 +119,14 @@ const VideoGallery = () => {
   return (
     <section id="videos" className="py-20 md:py-28 bg-[#fafbfc] relative">
       <div className="container mx-auto px-6">
+        <div className="mb-6">
+          <Link href="/">
+            <a className="inline-flex items-center text-slate-600 hover:text-slate-900 mb-8">
+              <i className="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+          </Link>
+        </div>
+        
         <ScrollAnimation variant="fadeUp" className="text-center mb-16">
           <motion.span 
             className="inline-block px-4 py-1 bg-red-50 text-red-800 text-sm font-medium rounded-full mb-6 border border-red-100"
