@@ -78,6 +78,12 @@ export const translations = {
     "testimonials.title": "Student Success Stories",
     "testimonials.subtitle": "Read how our targeted curriculum-focused tutoring has helped students achieve their academic potential in UK science examinations.",
     
+    // Videos section
+    "videos.title": "Video Tutorials",
+    "videos.subtitle": "Watch our expert tutors explain complex science concepts through engaging video lessons. Perfect for visual learners and exam revision.",
+    "videos.more": "More Videos",
+    "videos.visitChannel": "Visit Our YouTube Channel",
+    
     // Resources section
     "resources.title": "Curriculum Resources",
     "resources.subtitle": "Access our library of UK curriculum-aligned materials to supplement your learning and exam preparation.",

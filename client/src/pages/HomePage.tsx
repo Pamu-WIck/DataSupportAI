@@ -5,6 +5,7 @@ import TutorsSection from "@/components/home/TutorsSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import ResourcesSection from "@/components/home/ResourcesSection";
 import ContactSection from "@/components/home/ContactSection";
+import VideosSection from "@/components/home/VideosSection";
 import LanguageSelector from "@/components/LanguageSelector";
 
 const HomePage = () => {
@@ -15,6 +16,7 @@ const HomePage = () => {
       <HowItWorks />
       <TutorsSection />
       <TestimonialsSection />
+      <VideosSection />
       <ResourcesSection />
       <LanguageSelector />
       <ContactSection />
