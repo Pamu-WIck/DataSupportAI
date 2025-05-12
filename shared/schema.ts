@@ -128,6 +128,7 @@ export const paperCompletions = pgTable("paper_completions", {
   maxScore: integer("max_score"), // Maximum possible score on the paper
   completedAt: timestamp("completed_at").defaultNow().notNull(),
   pointsEarned: integer("points_earned").default(0).notNull(),
+  notes: text("notes"), // Study notes generated for this paper
 }, (t) => ({
   unq: unique().on(t.studentId, t.paperIdentifier),
 }));
@@ -141,9 +142,11 @@ export const insertPaperCompletionSchema = createInsertSchema(paperCompletions)
     score: true,
     maxScore: true,
     pointsEarned: true,
+    notes: true,
   })
   .extend({
     pointsEarned: z.number().default(0), // Ensure pointsEarned is always provided with a default
+    notes: z.string().optional(),
   });
 
 export type InsertPaperCompletion = z.infer<typeof insertPaperCompletionSchema>;
