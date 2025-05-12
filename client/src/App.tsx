@@ -9,12 +9,14 @@ import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import VideoGallery from "./components/home/VideoGallery";
+import FounderPage from "./pages/FounderPage";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
       <Route path="/videos" component={VideoGallery} />
+      <Route path="/founder" component={FounderPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -40,12 +40,12 @@ const Header = () => {
             >
               {t("nav.services")}
             </a>
-            <a 
-              href="#tutors" 
+            <Link 
+              href="/founder" 
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
-              {t("nav.tutors")}
-            </a>
+              Founder
+            </Link>
             <Link 
               href="/videos" 
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
@@ -94,13 +94,13 @@ const Header = () => {
               >
                 {t("nav.services")}
               </a>
-              <a 
-                href="#tutors" 
+              <Link 
+                href="/founder" 
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {t("nav.tutors")}
-              </a>
+                Founder
+              </Link>
               <Link 
                 href="/videos" 
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
