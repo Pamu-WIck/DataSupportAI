@@ -44,7 +44,7 @@ const Header = () => {
               href="/founder" 
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
-              Founder
+              Meet Ms Haridas
             </Link>
             <Link 
               href="/videos" 
@@ -99,7 +99,7 @@ const Header = () => {
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Founder
+                Meet Ms Haridas
               </Link>
               <Link 
                 href="/videos" 

@@ -12,7 +12,7 @@ import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
 const FounderPage = () => {
   useEffect(() => {
-    // Update the document title to match the new header
+    // Update the document title to match the header
     document.title = "Meet Ms Haridas | The Study Hive";
     
     // Restore the original title when component unmounts
