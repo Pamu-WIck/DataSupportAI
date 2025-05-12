@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,6 +30,12 @@
   --chart-3: 0 84.2% 60.2%;
   --chart-4: 270 95% 64%;
   --chart-5: 32 94% 58%;
+  
+  /* Jellyfish template inspired colors */
+  --jellyfish-bg: 220 33% 98%;
+  --jellyfish-text: 220 20% 20%;
+  --jellyfish-accent: 45 100% 50%;
+  --jellyfish-secondary: 164 75% 55%;
 }
 
 .dark {
@@ -174,14 +182,25 @@
   background-size: 60px 60px;
 }
 
-/* Define custom font families */
+/* Define custom font families inspired by Jellyfish template */
 @layer base {
   body {
-    font-family: 'Open Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: hsl(var(--jellyfish-text));
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
   }
 
   .font-montserrat {
@@ -192,8 +211,19 @@
     font-family: 'Poppins', system-ui, sans-serif;
   }
   
-  .font-open-sans {
-    font-family: 'Open Sans', system-ui, sans-serif;
+  /* Jellyfish template inspired text styles */
+  .text-jellyfish-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-jellyfish-body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
   }
 }
 

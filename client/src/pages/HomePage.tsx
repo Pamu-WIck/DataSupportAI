@@ -1,5 +1,5 @@
-import HeroSection from "@/components/home/HeroSection";
-import ServicesSection from "@/components/home/ServicesSection";
+import JellyfishHero from "@/components/home/JellyfishHero";
+import JellyfishServices from "@/components/home/JellyfishServices"; 
 import HowItWorks from "@/components/home/HowItWorks";
 import TutorsSection from "@/components/home/TutorsSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -12,13 +12,14 @@ import LanguageSelector from "@/components/LanguageSelector";
 const HomePage = () => {
   return (
     <>
-      <HeroSection />
-      <ServicesSection />
+      <JellyfishHero />
+      <JellyfishServices />
       <HowItWorks />
       <TutorsSection />
       <TestimonialsSection />
       <VideosSection />
       <ResourcesSection />
+      <CallToActionSection />
       <LanguageSelector />
       <ContactSection />
     </>
