@@ -69,14 +69,17 @@ const FounderPage = () => {
             
             <ScrollAnimation variant="fadeUp" delay={0.2}>
               <div className="relative flex justify-center mb-8">
-                {/* Rectangular image container */}
+                {/* YouTube video container */}
                 <div className="relative w-3/4 md:w-2/3 lg:w-3/5 mx-auto">
                   <div className="relative aspect-[16/9] rounded-lg overflow-hidden border-2 border-yellow-400">
-                    <img 
-                      src={neethuHaridasPhoto}
-                      alt="Neethu Haridas - Founder of The Study Hive" 
-                      className="w-full h-full object-cover object-top"
-                    />
+                    <iframe 
+                      src="https://www.youtube.com/embed/hEG-G8oGXmM?start=20&rel=0" 
+                      title="Ms. Haridas introducing science topics" 
+                      className="absolute top-0 left-0 w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
                     
                     {/* LinkedIn badge */}
                     <div className="absolute bottom-4 right-4 bg-white/90 px-4 py-2 rounded-lg shadow-md z-20">
