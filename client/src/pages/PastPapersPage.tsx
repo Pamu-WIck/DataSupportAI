@@ -567,8 +567,21 @@ const PastPapersPage = () => {
                       {subject === "combined-science" ? "Combined Science" : subject} Papers - {examBoards.find(b => b.id === selectedBoard)?.name} {examBoards.find(b => b.id === selectedBoard)?.type}
                     </h3>
                     
-                    {/* Official Resource Link */}
-                    <div className="mb-6">
+                    {/* Direct Download and Official Resource Links */}
+                    <div className="mb-6 flex flex-wrap gap-3">
+                      <a 
+                        href={`/downloads/${selectedBoard}-${subject}-papers.zip`}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#2dd4bf] hover:bg-teal-600 text-white rounded-lg font-medium transition-all"
+                        download
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-download">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                          <polyline points="7 10 12 15 17 10"/>
+                          <line x1="12" x2="12" y1="15" y2="3"/>
+                        </svg>
+                        Download {examBoards.find(b => b.id === selectedBoard)?.name} {subject === "combined-science" ? "Combined Science" : subject} Papers (2018-2023)
+                      </a>
+                      
                       <a 
                         href={(() => {
                           const subjectForUrl = subject === "combined-science" ? "combined-science" : subject;
@@ -593,7 +606,7 @@ const PastPapersPage = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 font-medium transition-all"
                       >
                         <ExternalLink size={16} />
-                        Access Official {examBoards.find(b => b.id === selectedBoard)?.name} {subject === "combined-science" ? "Combined Science" : subject} Resources
+                        Browse Official {examBoards.find(b => b.id === selectedBoard)?.name} Resources
                       </a>
                     </div>
                     
@@ -652,9 +665,13 @@ const PastPapersPage = () => {
                                                 href={paper.questionPaper} 
                                                 target="_blank" 
                                                 rel="noreferrer" 
-                                                className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                                                className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center gap-1.5"
                                               >
-                                                <i className="fas fa-file-pdf mr-2"></i> Question Paper
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                                  <polyline points="14 2 14 8 20 8"/>
+                                                </svg>
+                                                Question Paper
                                               </a>
                                             </td>
                                             <td className="py-4 px-4 border-b">
@@ -662,9 +679,13 @@ const PastPapersPage = () => {
                                                 href={paper.markScheme} 
                                                 target="_blank" 
                                                 rel="noreferrer" 
-                                                className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                                                className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center gap-1.5"
                                               >
-                                                <i className="fas fa-file-pdf mr-2"></i> Mark Scheme
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                                  <polyline points="14 2 14 8 20 8"/>
+                                                </svg>
+                                                Mark Scheme
                                               </a>
                                             </td>
                                           </tr>
