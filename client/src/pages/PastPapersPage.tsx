@@ -24,78 +24,168 @@ const PastPapersPage = () => {
   // Past papers by exam board and subject
   const pastPapers = {
     aqa: {
-      biology: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611H-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611F-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621H-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621F-MS-JUN22.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611H-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611F-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621H-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621F-MS-JUN21.PDF" },
-      ],
-      chemistry: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612H-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612F-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622H-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622F-MS-JUN22.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612H-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612F-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622H-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622F-MS-JUN21.PDF" },
-      ],
-      physics: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613H-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613F-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623H-MS-JUN22.PDF" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623F-MS-JUN22.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613H-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613F-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623H-MS-JUN21.PDF" },
-        { year: "2021", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623F-MS-JUN21.PDF" },
-      ],
+      biology: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621H-MS-JUN22.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611H-MS-JUN21.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621H-MS-JUN21.PDF" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621F-MS-JUN22.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84611F-MS-JUN21.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84621F-MS-JUN21.PDF" },
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622H-MS-JUN22.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612H-MS-JUN21.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622H-MS-JUN21.PDF" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622F-MS-JUN22.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84612F-MS-JUN21.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84622F-MS-JUN21.PDF" },
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623H-MS-JUN22.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613H-MS-JUN21.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623H-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623H-MS-JUN21.PDF" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84613F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84623F-MS-JUN22.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84613F-MS-JUN21.PDF" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623F-QP-JUN21.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/june/AQA-84623F-MS-JUN21.PDF" },
+        ]
+      },
+      "combined-science": {
+        higher: [
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Biology Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83461H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83461H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Biology Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83471H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83471H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Chemistry Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83462H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83462H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Chemistry Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83472H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83472H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Physics Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83463H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83463H-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Physics Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83473H-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83473H-MS-JUN22.PDF" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Biology Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83461F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83461F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Biology Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83471F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83471F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Chemistry Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83462F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83462F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Chemistry Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83472F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83472F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Physics Paper 1", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83463F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83463F-MS-JUN22.PDF" },
+          { year: "2022", season: "Summer", course: "Combined Science: Trilogy", paperNumber: "Physics Paper 2", questionPaper: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83473F-QP-JUN22.PDF", markScheme: "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-83473F-MS-JUN22.PDF" },
+        ]
+      },
     },
     ocr: {
-      biology: [
-        { year: "2022", season: "Summer", paperNumber: "Biology A - Paper 1 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Biology A - Paper 1 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Biology A - Paper 2 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Biology A - Paper 2 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Biology A - Paper 1 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Question-Paper-June-2021.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Mark-Scheme-June-2021.pdf" },
-        { year: "2021", season: "Summer", paperNumber: "Biology A - Paper 1 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Question-Paper-June-2021.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Mark-Scheme-June-2021.pdf" },
-      ],
-      chemistry: [
-        { year: "2022", season: "Summer", paperNumber: "Chemistry A - Paper 1 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Chemistry A - Paper 1 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Chemistry A - Paper 2 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Chemistry A - Paper 2 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
-      ],
-      physics: [
-        { year: "2022", season: "Summer", paperNumber: "Physics A - Paper 1 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Physics A - Paper 1 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Physics A - Paper 2 (Higher)", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Physics A - Paper 2 (Foundation)", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
-      ],
+      biology: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Biology A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Biology A - Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Biology A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Question-Paper-June-2021.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Higher-Tier-Mark-Scheme-June-2021.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Biology A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Biology A - Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2021", season: "Summer", course: "Triple Science", paperNumber: "Biology A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Question-Paper-June-2021.pdf", markScheme: "https://www.ocr.org.uk/Images/J247-J257-Paper-1-Foundation-Tier-Mark-Scheme-June-2021.pdf" },
+        ],
+      },
+      chemistry: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Chemistry A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Chemistry A - Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Chemistry A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Chemistry A - Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J248-J258-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+        ],
+      },
+      physics: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Physics A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Physics A - Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Physics A - Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Physics A - Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J249-J259-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+        ],
+      },
+      "combined-science": {
+        higher: [
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Biology Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-1-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-1-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Biology Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-4-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-4-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Chemistry Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-2-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-2-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Chemistry Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-5-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-5-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Physics Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-3-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-3-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Physics Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-6-Higher-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-6-Higher-Tier-Mark-Scheme-June-2022.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Biology Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-1-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-1-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Biology Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-4-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-4-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Chemistry Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-2-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-2-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Chemistry Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-5-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-5-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Physics Paper 1", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-3-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-3-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science A: Gateway", paperNumber: "Physics Paper 2", questionPaper: "https://www.ocr.org.uk/Images/J250-J260-Paper-6-Foundation-Tier-Question-Paper-June-2022.pdf", markScheme: "https://www.ocr.org.uk/Images/J250-J260-Paper-6-Foundation-Tier-Mark-Scheme-June-2022.pdf" },
+        ],
+      },
     },
     "edexcel-gcse": {
-      biology: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1H_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1H_msc_20220517.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1F_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1F_msc_20220517.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2H_que_20220609.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2H_msc_20220609.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2F_que_20220609.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2F_msc_20220609.pdf" },
-      ],
-      chemistry: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1H_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1H_msc_20220520.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1F_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1F_msc_20220520.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2H_que_20220613.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2H_msc_20220613.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2F_que_20220613.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2F_msc_20220613.pdf" },
-      ],
-      physics: [
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Higher)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1H_que_20220524.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1H_msc_20220524.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 1 (Foundation)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1F_que_20220524.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1F_msc_20220524.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Higher)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2H_que_20220616.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2H_msc_20220616.pdf" },
-        { year: "2022", season: "Summer", paperNumber: "Paper 2 (Foundation)", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2F_que_20220616.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2F_msc_20220616.pdf" },
-      ],
+      biology: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1H_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1H_msc_20220517.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2H_que_20220609.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2H_msc_20220609.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1F_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_1F_msc_20220517.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2F_que_20220609.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Biology/2016/exam-materials/1BI0_2F_msc_20220609.pdf" },
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1H_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1H_msc_20220520.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2H_que_20220613.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2H_msc_20220613.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1F_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_1F_msc_20220520.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2F_que_20220613.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Chemistry/2016/exam-materials/1CH0_2F_msc_20220613.pdf" },
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1H_que_20220524.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1H_msc_20220524.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2H_que_20220616.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2H_msc_20220616.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1F_que_20220524.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_1F_msc_20220524.pdf" },
+          { year: "2022", season: "Summer", course: "Triple Science", paperNumber: "Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2F_que_20220616.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Physics/2016/exam-materials/1PH0_2F_msc_20220616.pdf" },
+        ]
+      },
+      "combined-science": {
+        higher: [
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Biology Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1BH_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1BH_msc_20220517.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Biology Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2BH_que_20220609.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2BH_msc_20220609.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Chemistry Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1CH_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1CH_msc_20220520.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Chemistry Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2CH_que_20220613.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2CH_msc_20220613.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Physics Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1PH_que_20220524.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1PH_msc_20220524.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Physics Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2PH_que_20220616.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2PH_msc_20220616.pdf" },
+        ],
+        foundation: [
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Biology Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1BF_que_20220517.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1BF_msc_20220517.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Biology Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2BF_que_20220609.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2BF_msc_20220609.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Chemistry Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1CF_que_20220520.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1CF_msc_20220520.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Chemistry Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2CF_que_20220613.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2CF_msc_20220613.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Physics Paper 1", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1PF_que_20220524.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_1PF_msc_20220524.pdf" },
+          { year: "2022", season: "Summer", course: "Combined Science", paperNumber: "Physics Paper 2", questionPaper: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2PF_que_20220616.pdf", markScheme: "https://qualifications.pearson.com/content/dam/pdf/GCSE/Science/2016/exam-materials/1SC0_2PF_msc_20220616.pdf" },
+        ]
+      },
     },
     "edexcel-igcse": {
       biology: [
@@ -155,8 +245,11 @@ const PastPapersPage = () => {
     },
   };
   
-  // Subjects
-  const subjects = ["biology", "chemistry", "physics"];
+  // Subjects and course types
+  const subjects = ["biology", "chemistry", "physics", "combined-science"];
+  
+  // Tiers
+  const tiers = ["higher", "foundation"];
   
   return (
     <div className="bg-[#fafbfc]">
@@ -226,62 +319,143 @@ const PastPapersPage = () => {
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <Tabs defaultValue="biology" className="w-full">
                 <div className="px-6 pt-6 border-b">
-                  <TabsList className="grid grid-cols-3 mb-2">
+                  <TabsList className="grid grid-cols-4 mb-2">
                     <TabsTrigger value="biology" className="text-sm md:text-base">Biology</TabsTrigger>
                     <TabsTrigger value="chemistry" className="text-sm md:text-base">Chemistry</TabsTrigger>
                     <TabsTrigger value="physics" className="text-sm md:text-base">Physics</TabsTrigger>
+                    <TabsTrigger value="combined-science" className="text-sm md:text-base">Combined Science</TabsTrigger>
                   </TabsList>
                 </div>
                 
                 {subjects.map((subject) => (
                   <TabsContent key={subject} value={subject} className="p-6">
-                    <h3 className="font-playfair font-bold text-2xl text-slate-900 mb-6 capitalize">
-                      {subject} Papers - {examBoards.find(b => b.id === selectedBoard)?.name} {examBoards.find(b => b.id === selectedBoard)?.type}
+                    <h3 className="font-playfair font-bold text-2xl text-slate-900 mb-4 capitalize">
+                      {subject === "combined-science" ? "Combined Science" : subject} Papers - {examBoards.find(b => b.id === selectedBoard)?.name} {examBoards.find(b => b.id === selectedBoard)?.type}
                     </h3>
                     
                     {pastPapers[selectedBoard as keyof typeof pastPapers] && 
                      (pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject] ? (
-                      <div className="overflow-x-auto">
-                        <table className="w-full border-collapse">
-                          <thead>
-                            <tr className="bg-slate-50">
-                              <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Year</th>
-                              <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Season</th>
-                              <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Paper</th>
-                              <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Question Paper</th>
-                              <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Mark Scheme</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject].map((paper: any, index: number) => (
-                              <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                                <td className="py-4 px-4 border-b text-slate-800">{paper.year}</td>
-                                <td className="py-4 px-4 border-b text-slate-800">{paper.season}</td>
-                                <td className="py-4 px-4 border-b text-slate-800">{paper.paperNumber}</td>
-                                <td className="py-4 px-4 border-b">
-                                  <a 
-                                    href={paper.questionPaper} 
-                                    target="_blank" 
-                                    rel="noreferrer" 
-                                    className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                      <div>
+                        {/* Tier Tabs */}
+                        {typeof (pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject] === 'object' && 
+                         !(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject].length ? (
+                          <div>
+                            <div className="flex space-x-2 mb-6">
+                              {tiers.map((tier) => (
+                                (pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier] && 
+                                (
+                                  <button
+                                    key={tier}
+                                    onClick={() => {
+                                      const element = document.getElementById(`${subject}-${tier}`);
+                                      if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                      }
+                                    }}
+                                    className="px-4 py-2 bg-[#2dd4bf] text-white rounded-md capitalize font-medium"
                                   >
-                                    <i className="fas fa-file-pdf mr-2"></i> Question Paper
-                                  </a>
-                                </td>
-                                <td className="py-4 px-4 border-b">
-                                  <a 
-                                    href={paper.markScheme} 
-                                    target="_blank" 
-                                    rel="noreferrer" 
-                                    className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
-                                  >
-                                    <i className="fas fa-file-pdf mr-2"></i> Mark Scheme
-                                  </a>
-                                </td>
-                              </tr>
+                                    {tier} Tier
+                                  </button>
+                                )
+                              ))}
+                            </div>
+                            
+                            {tiers.map((tier) => (
+                              (pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier] && (
+                                <div key={tier} id={`${subject}-${tier}`} className="mb-12">
+                                  <h4 className="text-xl font-semibold mb-4 capitalize">{tier} Tier</h4>
+                                  <div className="overflow-x-auto">
+                                    <table className="w-full border-collapse">
+                                      <thead>
+                                        <tr className="bg-slate-50">
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Year</th>
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Season</th>
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Course</th>
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Paper</th>
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Question Paper</th>
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Mark Scheme</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier].map((paper: any, index: number) => (
+                                          <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
+                                            <td className="py-4 px-4 border-b text-slate-800">{paper.year}</td>
+                                            <td className="py-4 px-4 border-b text-slate-800">{paper.season}</td>
+                                            <td className="py-4 px-4 border-b text-slate-800">{paper.course}</td>
+                                            <td className="py-4 px-4 border-b text-slate-800">{paper.paperNumber}</td>
+                                            <td className="py-4 px-4 border-b">
+                                              <a 
+                                                href={paper.questionPaper} 
+                                                target="_blank" 
+                                                rel="noreferrer" 
+                                                className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                                              >
+                                                <i className="fas fa-file-pdf mr-2"></i> Question Paper
+                                              </a>
+                                            </td>
+                                            <td className="py-4 px-4 border-b">
+                                              <a 
+                                                href={paper.markScheme} 
+                                                target="_blank" 
+                                                rel="noreferrer" 
+                                                className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                                              >
+                                                <i className="fas fa-file-pdf mr-2"></i> Mark Scheme
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              )
                             ))}
-                          </tbody>
-                        </table>
+                          </div>
+                        ) : (
+                          <div className="overflow-x-auto">
+                            <table className="w-full border-collapse">
+                              <thead>
+                                <tr className="bg-slate-50">
+                                  <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Year</th>
+                                  <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Season</th>
+                                  <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Paper</th>
+                                  <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Question Paper</th>
+                                  <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Mark Scheme</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject].map((paper: any, index: number) => (
+                                  <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
+                                    <td className="py-4 px-4 border-b text-slate-800">{paper.year}</td>
+                                    <td className="py-4 px-4 border-b text-slate-800">{paper.season}</td>
+                                    <td className="py-4 px-4 border-b text-slate-800">{paper.paperNumber}</td>
+                                    <td className="py-4 px-4 border-b">
+                                      <a 
+                                        href={paper.questionPaper} 
+                                        target="_blank" 
+                                        rel="noreferrer" 
+                                        className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                                      >
+                                        <i className="fas fa-file-pdf mr-2"></i> Question Paper
+                                      </a>
+                                    </td>
+                                    <td className="py-4 px-4 border-b">
+                                      <a 
+                                        href={paper.markScheme} 
+                                        target="_blank" 
+                                        rel="noreferrer" 
+                                        className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center"
+                                      >
+                                        <i className="fas fa-file-pdf mr-2"></i> Mark Scheme
+                                      </a>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        )}
                       </div>
                     ) : (
                       <div className="text-center py-12">
