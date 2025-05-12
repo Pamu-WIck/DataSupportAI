@@ -196,10 +196,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let pointsEarned = 25; // Base points for watching a video lesson
       
       // Bonus points for watching entire video
-      if (validatedData.watchedPercentage >= 95) {
-        pointsEarned += 10; // Bonus for completing the entire video
-      } else if (validatedData.watchedPercentage >= 75) {
-        pointsEarned += 5; // Partial bonus for watching most of the video
+      if (typeof validatedData.watchedPercentage === 'number') {
+        if (validatedData.watchedPercentage >= 95) {
+          pointsEarned += 10; // Bonus for completing the entire video
+        } else if (validatedData.watchedPercentage >= 75) {
+          pointsEarned += 5; // Partial bonus for watching most of the video
+        }
       }
       
       const completion = await storage.recordVideoCompletion({
