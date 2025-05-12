@@ -1899,7 +1899,7 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                             <td className="py-4 px-4 border-b text-slate-800">{paper.paperNumber}</td>
                                             <td className="py-4 px-4 border-b">
                                               <a 
-                                                href={paper.questionPaper} 
+                                                href={paper.questionPaper.replace('/downloads/past-papers/', '/api/download/')} 
                                                 target="_blank" 
                                                 rel="noreferrer" 
                                                 className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center gap-1.5"
@@ -1914,7 +1914,7 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                             </td>
                                             <td className="py-4 px-4 border-b">
                                               <a 
-                                                href={paper.markScheme} 
+                                                href={paper.markScheme.replace('/downloads/past-papers/', '/api/download/')} 
                                                 target="_blank" 
                                                 rel="noreferrer" 
                                                 className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center gap-1.5"
