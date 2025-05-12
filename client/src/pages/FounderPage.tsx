@@ -70,7 +70,7 @@ const FounderPage = () => {
             <ScrollAnimation variant="fadeUp" delay={0.2}>
               <div className="relative flex justify-center mb-8">
                 {/* YouTube video container */}
-                <div className="relative w-3/4 md:w-2/3 lg:w-3/5 mx-auto">
+                <div className="relative w-full md:w-5/6 lg:w-5/6 mx-auto">
                   <div className="relative aspect-[16/9] rounded-lg overflow-hidden border-2 border-yellow-400">
                     <iframe 
                       src="https://www.youtube.com/embed/hEG-G8oGXmM?start=20&rel=0" 
