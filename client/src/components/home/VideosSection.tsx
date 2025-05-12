@@ -7,31 +7,31 @@ const VideosSection = () => {
   const [selectedVideo, setSelectedVideo] = useState(0);
   
   // These are the actual videos from Miss Haridas' Study Hive YouTube channel
-  // Videos from https://www.youtube.com/@TheStudyHive/featured
+  // Videos from https://www.youtube.com/@TheStudyHive/featured with exact titles
   const videos = [
     {
       id: "video1",
-      title: "Solving IGCSE O Level MCQs - Part 1 (Biology)",
+      title: "Immune System | GCSE | IGCSE Biology",
       thumbnail: "https://img.youtube.com/vi/WC3TiPRECTI/maxresdefault.jpg",
       embedId: "WC3TiPRECTI",
       subject: "Biology",
-      description: "Learn how to solve IGCSE O Level Biology Multiple Choice Questions with expert guidance."
+      description: "Learn about the immune system for GCSE and IGCSE Biology with expert explanations from Miss Haridas."
     },
     {
       id: "video2",
-      title: "IGCSE Biology Paper 42 - October/November 2022",
+      title: "Vaccinations | GCSE / IGCSE Biology",
       thumbnail: "https://img.youtube.com/vi/mU9PGceV_yk/maxresdefault.jpg",
       embedId: "mU9PGceV_yk",
       subject: "Biology",
-      description: "Detailed walkthrough of IGCSE Biology Paper 42 from the October/November 2022 examination series."
+      description: "Comprehensive explanation of vaccinations for GCSE and IGCSE Biology curriculum requirements."
     },
     {
       id: "video3",
-      title: "IGCSE/O Level/AS Level Chemistry on Organic Chemistry",
-      thumbnail: "https://img.youtube.com/vi/gDvGOm55qZ4/maxresdefault.jpg",
-      embedId: "gDvGOm55qZ4",
-      subject: "Chemistry",
-      description: "Comprehensive tutorial on Organic Chemistry for IGCSE, O Level, and AS Level students."
+      title: "Required Practical for Photosynthesis | GCSE / IGCSE Biology",
+      thumbnail: "https://img.youtube.com/vi/z7Yg9Xf_rjs/maxresdefault.jpg",
+      embedId: "z7Yg9Xf_rjs",
+      subject: "Biology",
+      description: "Step-by-step guide to the required practical experiments for photosynthesis in GCSE and IGCSE Biology."
     },
   ];
 
