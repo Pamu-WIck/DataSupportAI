@@ -12,8 +12,8 @@ import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
 const FounderPage = () => {
   useEffect(() => {
-    // Update the document title to match the header
-    document.title = "Meet Ms Haridas | The Study Hive";
+    // Update the document title
+    document.title = "Founder | The Study Hive";
     
     // Restore the original title when component unmounts
     return () => {
@@ -45,7 +45,7 @@ const FounderPage = () => {
                 whileHover={{ y: -3 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                MEET MS HARIDAS
+                MEET OUR FOUNDER
               </motion.span>
               
               <ScrollAnimation variant="fadeRight">
