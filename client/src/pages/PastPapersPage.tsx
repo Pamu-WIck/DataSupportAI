@@ -1970,6 +1970,7 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                   <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Paper</th>
                                   <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Question Paper</th>
                                   <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Mark Scheme</th>
+                                  <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Study Notes</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -1997,6 +1998,15 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                       >
                                         <i className="fas fa-file-pdf mr-2"></i> Mark Scheme
                                       </a>
+                                    </td>
+                                    <td className="py-4 px-4 border-b">
+                                      <NoteGenerator
+                                        examBoard={selectedBoard}
+                                        subject={subject}
+                                        paperIdentifier={`${selectedBoard}-${subject}-${paper.paperNumber}-${paper.year}-${paper.season}`}
+                                        paperDetails={paper}
+                                        studentId={1} // Default student ID for demo
+                                      />
                                     </td>
                                   </tr>
                                 ))}
