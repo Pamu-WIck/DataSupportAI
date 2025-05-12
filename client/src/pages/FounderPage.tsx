@@ -176,21 +176,21 @@ const FounderPage = () => {
                 image: "/assets/images/schools/study-hive.svg"
               },
               {
-                year: "2014 - Present",
+                year: "2015 - Present",
                 title: "Teacher of Science & Director of EPQ",
                 organization: "North London Collegiate School",
                 description: "Teaching Science and directing the Extended Project Qualification program, helping students achieve outstanding exam results.",
                 image: "/assets/images/schools/nlcs-school.svg"
               },
               {
-                year: "2012 - 2014",
+                year: "2013 - 2015",
                 title: "Teacher of Biology",
                 organization: "St Helen's School, Northwood",
                 description: "Taught Biology at one of the UK's top independent schools, developing specialized curriculum and exam preparation strategies for students.",
                 image: "/assets/images/schools/st-helens-school.svg"
               },
               {
-                year: "2010 - 2014",
+                year: "2010 - 2012",
                 title: "Science Specialist Writer",
                 organization: "BBC Bitesize",
                 description: "Developed and wrote science content for BBC Bitesize's secondary school platform, creating educational materials for KS3 and GCSE students across the UK.",
