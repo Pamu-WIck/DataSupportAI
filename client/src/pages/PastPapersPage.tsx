@@ -7,6 +7,7 @@ import { ExternalLink, FileText, Sparkles, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
+import { NoteGenerator } from "@/components/pastpapers/NoteGenerator";
 
 /**
  * PastPapersPage component
@@ -1928,13 +1929,13 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                               </a>
                                             </td>
                                             <td className="py-4 px-4 border-b">
-                                              <button
-                                                onClick={() => generateNotes(paper, tier, subject)}
-                                                className="text-yellow-600 hover:text-yellow-800 font-medium inline-flex items-center gap-1.5"
-                                              >
-                                                <Sparkles size={16} />
-                                                Generate Notes
-                                              </button>
+                                              <NoteGenerator
+                                                examBoard={selectedBoard}
+                                                subject={subject}
+                                                paperIdentifier={`${selectedBoard}-${subject}-${paper.paperNumber}-${paper.year}-${paper.season}`}
+                                                paperDetails={paper}
+                                                studentId={1} // Default student ID for demo
+                                              />
                                             </td>
                                           </tr>
                                         ))}
