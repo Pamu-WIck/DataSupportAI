@@ -177,7 +177,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-[#424242]">{t("contact.info.phone")}</h4>
-                      <p className="text-[#424242]/70">(555) 123-4567</p>
+                      <p className="text-[#424242]/70">07534 907 708</p>
                     </div>
                   </div>
                   
