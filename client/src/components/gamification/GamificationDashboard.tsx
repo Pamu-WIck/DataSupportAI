@@ -161,27 +161,80 @@ const GamificationDashboard = () => {
         <TabsContent value="progress" className="space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Your Progress</CardTitle>
+              <CardTitle>Your Learning Progress</CardTitle>
               <CardDescription>
-                Track your learning journey
+                Track your learning journey across papers and videos
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="rounded-full bg-yellow-100 p-6 mb-4">
-                  <LucideTarget className="h-12 w-12 text-yellow-500" />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex flex-col items-center justify-center py-6 text-center bg-slate-50 rounded-xl p-6">
+                  <div className="rounded-full bg-yellow-100 p-4 mb-4">
+                    <LucideTarget className="h-8 w-8 text-yellow-500" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Past Papers Progress</h3>
+                  <p className="text-slate-500 max-w-md mb-4">
+                    Complete past papers and save your scores to track your progress over time.
+                    Each paper you complete contributes to your total points and unlocks badges.
+                  </p>
+                  <Button 
+                    variant="outline"
+                    className="mt-2 border-teal-500 text-teal-500 hover:bg-teal-50"
+                    onClick={() => window.location.href = "/past-papers"}
+                  >
+                    Go to Past Papers
+                  </Button>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Track Your Progress</h3>
-                <p className="text-slate-500 max-w-md">
-                  Complete past papers and save your scores to track your progress over time.
-                  Each paper you complete contributes to your total points and unlocks new badges.
-                </p>
-                <Button 
-                  className="mt-8 bg-teal-500 hover:bg-teal-600"
-                  onClick={() => window.location.href = "/past-papers"}
-                >
-                  Go to Past Papers
-                </Button>
+                
+                <div className="flex flex-col items-center justify-center py-6 text-center bg-slate-50 rounded-xl p-6">
+                  <div className="rounded-full bg-purple-100 p-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Video Lessons Progress</h3>
+                  <p className="text-slate-500 max-w-md mb-4">
+                    Watch The Study Hive's video lessons to earn points and special video badges.
+                    Each completed video adds to your knowledge and points.
+                  </p>
+                  <Button 
+                    variant="outline"
+                    className="mt-2 border-purple-500 text-purple-500 hover:bg-purple-50"
+                    onClick={() => window.location.href = "/achievements?tab=videos"}
+                  >
+                    View Video Lessons
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="mt-6 pt-6 border-t">
+                <h3 className="font-semibold text-lg mb-4">Recent Video Completion Badges</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {/* Video badges would be displayed here - this would come from real data in a full implementation */}
+                  <div className="flex items-center p-3 bg-purple-50 rounded-lg border border-purple-100">
+                    <div className="rounded-full bg-purple-100 p-2 mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium">Biology Video Star</div>
+                      <div className="text-xs text-slate-500">3 videos completed</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center p-3 bg-teal-50 rounded-lg border border-teal-100">
+                    <div className="rounded-full bg-teal-100 p-2 mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium">First Video Badge</div>
+                      <div className="text-xs text-slate-500">First video completed</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
