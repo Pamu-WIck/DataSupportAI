@@ -16,6 +16,7 @@ const PastPapersPage = () => {
     { id: "aqa", name: "AQA", type: "GCSE" },
     { id: "ocr", name: "OCR", type: "GCSE" },
     { id: "edexcel-gcse", name: "Edexcel", type: "GCSE" },
+    { id: "wjec", name: "WJEC", type: "GCSE" },
     { id: "edexcel-igcse", name: "Edexcel", type: "IGCSE" },
     { id: "cie", name: "Cambridge (CIE)", type: "IGCSE" }
   ];
@@ -128,6 +129,28 @@ const PastPapersPage = () => {
       physics: [
         { year: "2022", season: "Summer", paperNumber: "Paper 2 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_22.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_22.pdf" },
         { year: "2022", season: "Summer", paperNumber: "Paper 4 - Extended", questionPaper: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_qp_42.pdf", markScheme: "https://papers.gceguide.com/Cambridge%20IGCSE/Physics%20(0625)/2022/0625_s22_ms_42.pdf" },
+      ],
+    },
+    wjec: {
+      biology: [
+        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/bhypcb1e/3400u10-1-wjec-gcse-biology-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/2epjoxuz/3400u10-1-wjec-gcse-biology-unit-1-higher-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/dqdkq2tn/3400n10-1-wjec-gcse-biology-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/dwcnnjr2/3400n10-1-wjec-gcse-biology-unit-1-foundation-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/4adnb4mz/3400u20-1-wjec-gcse-biology-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/fxynmgnc/3400u20-1-wjec-gcse-biology-unit-2-higher-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/0wmbbmfi/3400n20-1-wjec-gcse-biology-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/jlpd4mbz/3400n20-1-wjec-gcse-biology-unit-2-foundation-ms-s22.pdf" },
+        { year: "2021", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/t2inoqju/3400u10-1-wjec-gcse-biology-unit-1-higher-que-s21.pdf", markScheme: "https://www.wjec.co.uk/media/mmlpbywt/3400u10-1-wjec-gcse-biology-unit-1-higher-ms-s21.pdf" },
+        { year: "2021", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/axyd0b0u/3400u20-1-wjec-gcse-biology-unit-2-higher-que-s21.pdf", markScheme: "https://www.wjec.co.uk/media/ylwpoigu/3400u20-1-wjec-gcse-biology-unit-2-higher-ms-s21.pdf" },
+      ],
+      chemistry: [
+        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/yh5jclrk/3410u10-1-wjec-gcse-chemistry-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/yphlhd05/3410u10-1-wjec-gcse-chemistry-unit-1-higher-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/3uadacka/3410n10-1-wjec-gcse-chemistry-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/n0yfs5u1/3410n10-1-wjec-gcse-chemistry-unit-1-foundation-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/oekbfz0d/3410u20-1-wjec-gcse-chemistry-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/ixofgc23/3410u20-1-wjec-gcse-chemistry-unit-2-higher-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/z5kjnqlb/3410n20-1-wjec-gcse-chemistry-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/vaxnnunp/3410n20-1-wjec-gcse-chemistry-unit-2-foundation-ms-s22.pdf" },
+      ],
+      physics: [
+        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Higher)", questionPaper: "https://www.wjec.co.uk/media/tvvnm4yd/3420u10-1-wjec-gcse-physics-unit-1-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/cbpldugv/3420u10-1-wjec-gcse-physics-unit-1-higher-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 1 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/s0gbzqmy/3420n10-1-wjec-gcse-physics-unit-1-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/j3vhubut/3420n10-1-wjec-gcse-physics-unit-1-foundation-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Higher)", questionPaper: "https://www.wjec.co.uk/media/tdnpbajg/3420u20-1-wjec-gcse-physics-unit-2-higher-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/yfckwrj5/3420u20-1-wjec-gcse-physics-unit-2-higher-ms-s22.pdf" },
+        { year: "2022", season: "Summer", paperNumber: "Unit 2 (Foundation)", questionPaper: "https://www.wjec.co.uk/media/vfvptc4b/3420n20-1-wjec-gcse-physics-unit-2-foundation-que-s22.pdf", markScheme: "https://www.wjec.co.uk/media/wbjllrbv/3420n20-1-wjec-gcse-physics-unit-2-foundation-ms-s22.pdf" },
       ],
     },
   };
