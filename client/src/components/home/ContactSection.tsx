@@ -187,7 +187,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-[#424242]">{t("contact.info.email")}</h4>
-                      <p className="text-[#424242]/70">info@thestudyhive.com</p>
+                      <p className="text-[#424242]/70">thestudyhive@gmail.com</p>
                     </div>
                   </div>
                   
