@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import studyHiveLogo from "@/assets/study-hive-logo-square.png";
 import nlcsLogo from "@/assets/nlcs-logo.png";
 import stHelensLogo from "@/assets/st-helens-logo.png";
-import bbcBitesizeLogo from "@/assets/images/schools/bbc-bitesize.svg";
+import bbcBitesizeLogo from "@/assets/bbc-bitesize-logo.png";
 import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
 const FounderPage = () => {
@@ -226,17 +226,19 @@ const FounderPage = () => {
               >
                 <div className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:pr-12 lg:pr-24' : 'md:pl-12 lg:pl-24'}`}>
                   <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 md:static md:transform-none z-10 ${index % 2 === 0 ? 'md:order-1 md:left-0' : 'md:order-3 md:right-0'}`}>
-                    <div className="flex items-center gap-3">
-                      {/* Logo */}
+                    <div className="flex flex-col items-center gap-2">
+                      {/* Logo positioned above the year */}
                       {item.image && (
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 mb-2">
                           <div className="bg-white p-2 rounded-full shadow-md border border-slate-200">
                             <img 
                               src={item.image} 
                               alt={item.organization} 
-                              className={`h-14 w-14 object-contain ${
+                              className={`h-16 w-16 object-contain ${
                                 item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
                                 item.organization === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
+                                item.organization === "BBC Bitesize" ? "rounded-full bg-[#ff8d1e] p-1" : 
+                                item.organization === "St Helen's School" ? "rounded-full bg-[#b7bcb2] p-1" : 
                                 ""
                               }`}
                             />
@@ -245,7 +247,7 @@ const FounderPage = () => {
                       )}
                       
                       {/* Year button with original yellow background */}
-                      <div className="bg-yellow-400 text-slate-900 font-bold px-4 py-2 rounded-full shadow-sm border-2 border-black">
+                      <div className="bg-yellow-400 text-slate-900 font-bold px-5 py-2 rounded-full shadow-sm border-2 border-black text-center min-w-[120px]">
                         {item.year}
                       </div>
                     </div>
