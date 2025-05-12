@@ -224,7 +224,7 @@ const FounderPage = () => {
                 image: bbcBitesizeLogo
               },
               {
-                year: "2008 - 2010",
+                year: "2012 - 2017",
                 title: "Science Education Specialist",
                 organization: "Various Educational Institutions",
                 description: "Developed specialized teaching methodologies for science subjects with a focus on practical applications."
