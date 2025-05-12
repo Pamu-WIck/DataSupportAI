@@ -1,7 +1,7 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertInquirySchema, insertSubscriberSchema } from "@shared/schema";
+import { insertInquirySchema, insertSubscriberSchema, insertVideoCompletionSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 
@@ -182,6 +182,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         success: false, 
         message: "Failed to fetch badges." 
+      });
+    }
+  });
+  
+  // Record video completion
+  app.post("/api/video-completions", async (req: Request, res: Response) => {
+    try {
+      // Validate the request body against the schema
+      const validatedData = insertVideoCompletionSchema.parse(req.body);
+      
+      // Calculate points based on video watch percentage
+      let pointsEarned = 25; // Base points for watching a video lesson
+      
+      // Bonus points for watching entire video
+      if (validatedData.watchedPercentage >= 95) {
+        pointsEarned += 10; // Bonus for completing the entire video
+      } else if (validatedData.watchedPercentage >= 75) {
+        pointsEarned += 5; // Partial bonus for watching most of the video
+      }
+      
+      const completion = await storage.recordVideoCompletion({
+        ...validatedData,
+        pointsEarned
+      });
+      
+      // Get updated student info
+      const student = await storage.getStudent(validatedData.studentId);
+      
+      res.status(201).json({
+        success: true,
+        message: "Video completion recorded successfully!",
+        data: {
+          completion,
+          student,
+          pointsEarned
+        }
+      });
+    } catch (error) {
+      console.error("Error recording video completion:", error);
+      res.status(500).json({
+        success: false,
+        message: "Failed to record video completion."
+      });
+    }
+  });
+  
+  // Get video completion stats
+  app.get("/api/video-completions/stats", async (_req: Request, res: Response) => {
+    try {
+      const stats = await storage.getVideoCompletionStats();
+      res.status(200).json({
+        success: true,
+        data: stats
+      });
+    } catch (error) {
+      console.error("Error fetching video completion stats:", error);
+      res.status(500).json({
+        success: false,
+        message: "Failed to fetch video completion statistics."
       });
     }
   });

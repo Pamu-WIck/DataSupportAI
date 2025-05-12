@@ -334,13 +334,14 @@ export class DatabaseStorage implements IStorage {
         insertCompletion.pointsEarned || 25
       );
       
-      // Check for new badges (same as we do for paper completions)
+      // Check for new badges (will be defined below)
       await this.checkForVideoCompletionBadges(insertCompletion.studentId);
       
       return completion;
     } catch (error) {
       // If the student has already completed this video, just return the existing record
-      if (error.code === '23505') { // Unique constraint violation
+      const pgError = error as { code?: string };
+      if (pgError.code === '23505') { // Unique constraint violation
         const [existing] = await db
           .select()
           .from(videoCompletions)
