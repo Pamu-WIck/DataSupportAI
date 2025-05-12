@@ -92,16 +92,16 @@ export const VideoLessonsGrid: React.FC<VideoLessonsGridProps> = ({
               <DialogTitle>Watch Lesson</DialogTitle>
             </DialogHeader>
             <div className="grid gap-4">
-              <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
-                {/* In a real implementation, this would be a YouTube iframe */}
-                <div className="text-center p-4">
-                  <BsPlayCircleFill className="text-6xl mx-auto mb-2 text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground">
-                    YouTube video player would go here in the real implementation.
-                    <br />
-                    Use the controls below to simulate watching progress.
-                  </p>
-                </div>
+              <div className="aspect-video bg-muted rounded-md overflow-hidden">
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
               <VideoCompletionTracker
                 videoId={video.id}

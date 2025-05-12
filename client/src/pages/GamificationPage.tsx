@@ -4,61 +4,61 @@ import ScrollAnimation from '@/components/ui/scroll-animation';
 import { VideoLessonsGrid } from '@/components/gamification/VideoLessonsGrid';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// Sample video lessons data
-const sampleVideoLessons = [
+// The Study Hive YouTube video lessons data
+const studyHiveVideoLessons = [
   {
-    id: "video1",
-    title: "Photosynthesis Explained: Light Reaction and Calvin Cycle",
+    id: "WC3TiPRECTI",
+    title: "Immune System | GCSE | IGCSE Biology",
+    subject: "Biology",
+    topic: "Immune System",
+    thumbnailUrl: `https://i.ytimg.com/vi/WC3TiPRECTI/hqdefault.jpg`,
+    duration: "13:42",
+    description: "Learn about the immune system, including white blood cells, antibodies, and the immune response in GCSE and IGCSE Biology."
+  },
+  {
+    id: "mU9PGceV_yk",
+    title: "Vaccinations | GCSE / IGCSE Biology",
+    subject: "Biology",
+    topic: "Vaccinations",
+    thumbnailUrl: `https://i.ytimg.com/vi/mU9PGceV_yk/hqdefault.jpg`,
+    duration: "9:21",
+    description: "Understand the science of vaccinations and how they help protect against diseases in this GCSE/IGCSE Biology lesson."
+  },
+  {
+    id: "jg4LsY5Re78",
+    title: "Hormones & the Endocrine System (Part 2) | GCSE / IGCSE Biology",
+    subject: "Biology",
+    topic: "Hormones & Endocrine System",
+    thumbnailUrl: `https://i.ytimg.com/vi/jg4LsY5Re78/hqdefault.jpg`,
+    duration: "12:15",
+    description: "Continue learning about hormones and the endocrine system in this second part of the GCSE/IGCSE Biology topic."
+  },
+  {
+    id: "Kfwf-Cow7_M",
+    title: "Hormones & the Endocrine System (Part 1) | GCSE/ IGCSE Biology",
+    subject: "Biology",
+    topic: "Hormones & Endocrine System",
+    thumbnailUrl: `https://i.ytimg.com/vi/Kfwf-Cow7_M/hqdefault.jpg`,
+    duration: "10:02",
+    description: "Introduction to hormones and the endocrine system for GCSE and IGCSE Biology students."
+  },
+  {
+    id: "Ww2pi_NPQOQ",
+    title: "Required Practical for Photosynthesis | GCSE / IGCSE Biology",
     subject: "Biology",
     topic: "Photosynthesis",
-    thumbnailUrl: "https://placehold.co/800x450?text=Photosynthesis",
-    duration: "12:45",
-    description: "Learn about the process of photosynthesis in plants, including the light-dependent reactions and Calvin cycle."
+    thumbnailUrl: `https://i.ytimg.com/vi/Ww2pi_NPQOQ/hqdefault.jpg`,
+    duration: "11:35",
+    description: "Learn how to conduct the required practical experiment for photosynthesis in this GCSE/IGCSE Biology lesson."
   },
   {
-    id: "video2",
-    title: "Periodic Table: Trends and Patterns",
-    subject: "Chemistry",
-    topic: "Elements and the Periodic Table",
-    thumbnailUrl: "https://placehold.co/800x450?text=Periodic+Table",
-    duration: "15:20",
-    description: "Explore the structure of the periodic table and understand the trends in atomic properties."
-  },
-  {
-    id: "video3",
-    title: "Newton's Laws of Motion: Practical Applications",
-    subject: "Physics",
-    topic: "Forces and Motion",
-    thumbnailUrl: "https://placehold.co/800x450?text=Newtons+Laws",
-    duration: "18:30",
-    description: "Understand how Newton's three laws of motion apply to everyday scenarios and problem-solving."
-  },
-  {
-    id: "video4",
-    title: "Cell Division: Mitosis and Meiosis Compared",
+    id: "UzTXecGcY1Q",
+    title: "Structure of a Leaf | GCSE / IGCSE Biology",
     subject: "Biology",
-    topic: "Cell Biology",
-    thumbnailUrl: "https://placehold.co/800x450?text=Cell+Division",
-    duration: "14:15",
-    description: "Compare and contrast the processes of mitosis and meiosis in cellular reproduction."
-  },
-  {
-    id: "video5",
-    title: "Chemical Bonding: Ionic, Covalent, and Metallic Bonds",
-    subject: "Chemistry",
-    topic: "Chemical Bonding",
-    thumbnailUrl: "https://placehold.co/800x450?text=Chemical+Bonding",
-    duration: "16:50",
-    description: "Understand the different types of chemical bonds and their properties."
-  },
-  {
-    id: "video6",
-    title: "Electricity and Circuits: Building Simple Circuits",
-    subject: "Physics",
-    topic: "Electricity",
-    thumbnailUrl: "https://placehold.co/800x450?text=Electricity",
-    duration: "13:40",
-    description: "Learn about electrical circuits, current, voltage, and resistance through practical examples."
+    topic: "Plant Structure",
+    thumbnailUrl: `https://i.ytimg.com/vi/UzTXecGcY1Q/hqdefault.jpg`,
+    duration: "8:54",
+    description: "Explore the detailed structure of a leaf and its functions in this GCSE/IGCSE Biology lesson."
   }
 ];
 
@@ -125,7 +125,7 @@ const GamificationPage = () => {
                   
                   <VideoLessonsGrid 
                     studentId={1} // In a real app, this would be the logged-in student's ID
-                    videos={sampleVideoLessons} 
+                    videos={studyHiveVideoLessons} 
                   />
                 </div>
               </ScrollAnimation>
