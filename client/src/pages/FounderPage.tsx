@@ -114,6 +114,7 @@ const FounderPage = () => {
                 items: [
                   "Teacher of Science at St Helen's School, Northwood",
                   "Director of Extended Project Qualification (EPQ)",
+                  "Science Specialist Writer for BBC Bitesize",
                   "Teacher of Biology at North London Collegiate School"
                 ]
               },
@@ -189,7 +190,14 @@ const FounderPage = () => {
                 image: "/assets/images/schools/nlcs-school.svg"
               },
               {
-                year: "2008 - 2012",
+                year: "2010 - 2014",
+                title: "Science Specialist Writer",
+                organization: "BBC Bitesize",
+                description: "Developed and wrote science content for BBC Bitesize's secondary school platform, creating educational materials for KS3 and GCSE students across the UK.",
+                image: "/assets/images/schools/bbc-bitesize.svg"
+              },
+              {
+                year: "2008 - 2010",
                 title: "Science Education Specialist",
                 organization: "Various Educational Institutions",
                 description: "Developed specialized teaching methodologies for science subjects with a focus on practical applications."
@@ -243,7 +251,7 @@ const FounderPage = () => {
               
               <div className="space-y-6 text-slate-700">
                 <p>
-                  As a Science Teacher and Director of EPQ at St Helen's School, with over 10 years of experience teaching in prestigious UK schools, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
+                  As a Science Teacher and Director of EPQ at St Helen's School, with over 10 years of experience teaching in prestigious UK schools and creating educational content for BBC Bitesize, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
                 </p>
                 
                 <p>
