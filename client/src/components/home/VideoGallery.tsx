@@ -209,12 +209,12 @@ const VideoGallery = () => {
           </h3>
         </div>
         
-        {/* Video grid - in jellyfish style - uniform size */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Video grid - 2 videos side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredVideos.slice(1).map((video, index) => (
-            <ScrollAnimation key={video.id} variant="fadeUp" delay={0.1 * (index % 4)}>
+            <ScrollAnimation key={video.id} variant="fadeUp" delay={0.1 * (index % 2)}>
               <motion.div 
-                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full"
+                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all border border-slate-200 h-full"
                 whileHover={{ y: -5 }}
               >
                 <div className="relative aspect-video w-full group cursor-pointer" onClick={() => window.location.href = `#video-${video.id}`}>
@@ -229,16 +229,19 @@ const VideoGallery = () => {
                     </div>
                   </div>
                 </div>
-                <div className="p-4">
-                  <div className="flex items-center mb-2">
+                <div className="p-6">
+                  <div className="flex items-center mb-3">
                     <span className="bg-red-50 text-red-600 text-xs font-medium px-2 py-0.5 rounded-full mr-2">
                       {video.subject}
                     </span>
+                    <span className="bg-blue-50 text-blue-600 text-xs font-medium px-2 py-0.5 rounded-full">
+                      {video.category}
+                    </span>
                   </div>
-                  <h4 className="font-medium text-slate-900 mb-2 line-clamp-2 text-sm h-10">{video.title}</h4>
+                  <h4 className="font-medium text-slate-900 mb-3 line-clamp-2">{video.title}</h4>
                   <a 
                     href={`#video-${video.id}`}
-                    className="text-xs font-medium text-red-600 hover:text-red-700 flex items-center mt-2"
+                    className="text-sm font-medium text-red-600 hover:text-red-700 flex items-center mt-2"
                   >
                     Watch Video <i className="fas fa-chevron-right ml-1 text-xs"></i>
                   </a>
@@ -251,9 +254,9 @@ const VideoGallery = () => {
         {/* Hidden video players that become visible when anchored */}
         <div className="mt-16">
           {videos.map((video) => (
-            <div key={video.id} id={`video-${video.id}`} className="py-12 scroll-mt-24">
+            <div key={video.id} id={`video-${video.id}`} className="py-16 scroll-mt-24">
               <ScrollAnimation variant="fadeUp">
-                <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200 max-w-4xl mx-auto">
+                <div className="bg-white rounded-lg overflow-hidden shadow-xl border border-slate-200 max-w-5xl mx-auto">
                   <div className="aspect-video w-full">
                     <iframe
                       width="100%"
@@ -266,23 +269,23 @@ const VideoGallery = () => {
                       className="w-full h-full"
                     ></iframe>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center mb-3">
-                      <span className="bg-red-100 text-red-600 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">
+                  <div className="p-8">
+                    <div className="flex items-center mb-4">
+                      <span className="bg-red-100 text-red-600 text-sm font-medium px-3 py-1 rounded-full mr-3">
                         {video.subject}
                       </span>
-                      <span className="bg-blue-100 text-blue-600 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                      <span className="bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full">
                         {video.category}
                       </span>
                     </div>
-                    <h3 className="font-playfair text-2xl font-bold text-slate-900 mb-3">{video.title}</h3>
-                    <p className="text-slate-600 mb-4">{video.description}</p>
-                    <a 
-                      href="#videos" 
-                      className="text-sm font-medium text-slate-600 hover:text-slate-800 flex items-center"
+                    <h3 className="font-playfair text-3xl font-bold text-slate-900 mb-4">{video.title}</h3>
+                    <p className="text-slate-600 text-lg mb-6">{video.description}</p>
+                    <button 
+                      onClick={() => window.location.href = "#videos"}
+                      className="inline-flex items-center text-slate-600 hover:text-slate-900 font-medium transition-colors"
                     >
                       <i className="fas fa-arrow-left mr-2"></i> Back to all videos
-                    </a>
+                    </button>
                   </div>
                 </div>
               </ScrollAnimation>

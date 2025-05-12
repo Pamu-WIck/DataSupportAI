@@ -196,15 +196,16 @@ const JellyfishVideos = () => {
             </div>
             
             <div className="mt-4">
-              <motion.a 
-                href="#all-videos"
-                className="flex items-center justify-center w-full py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all"
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <i className="fas fa-play-circle mr-2 text-lg"></i>
-                View All Video Lessons
-              </motion.a>
+              <Link href="/videos">
+                <motion.button 
+                  className="flex items-center justify-center w-full py-3 px-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all"
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <i className="fas fa-play-circle mr-2 text-lg"></i>
+                  View All Video Lessons
+                </motion.button>
+              </Link>
             </div>
           </div>
         </div>
