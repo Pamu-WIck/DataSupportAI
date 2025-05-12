@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
-  <rect width="500" height="300" fill="#f0f4f8"/>
-  <rect x="100" y="50" width="300" height="200" rx="10" fill="#ffffff" stroke="#000000" stroke-width="3"/>
-  <circle cx="170" cy="100" r="30" fill="#000000"/>
-  <circle cx="250" cy="100" r="30" fill="#000000"/>
-  <circle cx="330" cy="100" r="30" fill="#000000"/>
-  <rect x="130" y="150" width="240" height="60" fill="#f8f8f8" stroke="#000000" stroke-width="2"/>
-  <text x="250" y="185" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#000000">BBC Bitesize</text>
-  <text x="250" y="260" font-family="Arial" font-size="14" text-anchor="middle" fill="#666666">Image placeholder - actual image to be used</text>
+  <!-- Background -->
+  <rect width="500" height="300" fill="#f8f8f8"/>
+  
+  <!-- Black background for BBC blocks -->
+  <rect x="150" y="80" width="200" height="80" rx="4" fill="#000000"/>
+  
+  <!-- BBC Blocks -->
+  <rect x="160" y="90" width="50" height="60" rx="2" fill="#ffffff"/>
+  <rect x="220" y="90" width="50" height="60" rx="2" fill="#ffffff"/>
+  <rect x="280" y="90" width="50" height="60" rx="2" fill="#ffffff"/>
+  
+  <!-- B letters inside blocks -->
+  <text x="185" y="130" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#000000">B</text>
+  <text x="245" y="130" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#000000">B</text>
+  <text x="305" y="130" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#000000">C</text>
+  
+  <!-- Colorful Bitesize box -->
+  <rect x="150" y="170" width="200" height="60" rx="4" fill="#4169E1"/>
+  <rect x="150" y="170" width="200" height="20" rx="4" fill="#4169E1"/>
+  <rect x="150" y="190" width="200" height="20" fill="#00BFFF"/>
+  <rect x="150" y="210" width="200" height="20" rx="0 0 4 4" fill="#20B2AA"/>
+  
+  <!-- Bitesize text -->
+  <text x="250" y="215" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ffffff">Bitesize</text>
+  
+  <!-- Educational element -->
+  <path d="M130,240 L370,240" stroke="#333333" stroke-width="2"/>
+  
+  <text x="250" y="260" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333333">Learning resources for students</text>
 </svg>

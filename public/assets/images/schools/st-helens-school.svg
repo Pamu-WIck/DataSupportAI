@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
-  <rect width="500" height="300" fill="#f0f4f8"/>
-  <rect x="100" y="50" width="300" height="200" rx="10" fill="#ffffff" stroke="#003366" stroke-width="3"/>
-  <polygon points="250,30 350,90 150,90" fill="#003366"/>
-  <rect x="130" y="100" width="240" height="120" fill="#f8f8f8" stroke="#003366" stroke-width="2"/>
-  <text x="250" y="170" font-family="Arial" font-size="24" text-anchor="middle" fill="#003366">St Helen's School</text>
-  <text x="250" y="200" font-family="Arial" font-size="16" text-anchor="middle" fill="#003366">Northwood</text>
-  <text x="250" y="260" font-family="Arial" font-size="14" text-anchor="middle" fill="#666666">Image placeholder - actual image to be used</text>
+  <!-- Background -->
+  <rect width="500" height="300" fill="#f8f8f8"/>
+  
+  <!-- Circular emblem -->
+  <circle cx="250" cy="150" r="120" fill="#ffffff" stroke="#003366" stroke-width="4"/>
+  
+  <!-- Inner decorative circle -->
+  <circle cx="250" cy="150" r="100" fill="none" stroke="#003366" stroke-width="2" stroke-dasharray="4,2"/>
+  
+  <!-- School Symbol - Stylized Cross -->
+  <path d="M250,80 L250,220 M210,150 L290,150" 
+        stroke="#003366" 
+        stroke-width="8" 
+        stroke-linecap="round"/>
+  
+  <!-- Decorative elements -->
+  <path d="M220,100 Q250,80 280,100" fill="none" stroke="#003366" stroke-width="2"/>
+  <path d="M220,200 Q250,220 280,200" fill="none" stroke="#003366" stroke-width="2"/>
+  
+  <!-- Circular text path for school name -->
+  <path id="circlePath" 
+        d="M250,60 A90,90 0 1,1 249.99,60" 
+        fill="none"/>
+        
+  <text font-family="Garamond, serif" font-size="18" font-weight="bold" fill="#003366">
+    <textPath href="#circlePath" startOffset="25%">ST HELEN'S SCHOOL • NORTHWOOD •</textPath>
+  </text>
+  
+  <!-- Bottom year text -->
+  <text x="250" y="245" 
+        font-family="Garamond, serif" 
+        font-size="14" 
+        text-anchor="middle" 
+        fill="#003366">ESTABLISHED 1899</text>
+  
+  <!-- School Motto -->
+  <text x="250" y="270" 
+        font-family="Garamond, serif" 
+        font-size="12" 
+        font-style="italic"
+        text-anchor="middle" 
+        fill="#003366">Fortiter, Fideliter, Feliciter</text>
 </svg>
