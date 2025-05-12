@@ -978,10 +978,11 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                           <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Paper</th>
                                           <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Question Paper</th>
                                           <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Mark Scheme</th>
+                                          <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Study Notes</th>
                                         </tr>
                                         {/* Paper Count */}
                                         <tr className="bg-slate-50/40">
-                                          <td colSpan={6} className="py-2 px-4 text-xs text-slate-500 italic">
+                                          <td colSpan={7} className="py-2 px-4 text-xs text-slate-500 italic">
                                             Showing {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier]
                                               .filter((paper: any) => {
                                                 if (yearFilter !== 'all' && paper.year !== yearFilter) return false;
@@ -1042,6 +1043,15 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                                 Mark Scheme
                                               </a>
                                             </td>
+                                            <td className="py-4 px-4 border-b">
+                                              <button
+                                                onClick={() => generateNotes(paper, tier, subject)}
+                                                className="text-yellow-600 hover:text-yellow-800 font-medium inline-flex items-center gap-1.5"
+                                              >
+                                                <Sparkles size={16} />
+                                                Generate Notes
+                                              </button>
+                                            </td>
                                           </tr>
                                         ))}
                                         
@@ -1053,7 +1063,7 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
                                             return true;
                                           }).length === 0 && (
                                           <tr>
-                                            <td colSpan={6} className="py-8 text-center text-slate-500">
+                                            <td colSpan={7} className="py-8 text-center text-slate-500">
                                               No papers found matching your filters. Try adjusting your criteria.
                                             </td>
                                           </tr>
@@ -1183,6 +1193,9 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
           </div>
         </div>
       </section>
+      
+      {/* Notes Dialog */}
+      <NotesDialog />
     </div>
   );
 };
