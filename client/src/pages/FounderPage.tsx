@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import studyHiveLogo from "@/assets/study-hive-logo-square.png";
 import nlcsLogo from "@/assets/nlcs-logo.png";
 import stHelensLogo from "@/assets/st-helens-logo.png";
-import bbcBitesizeLogo from "@/assets/bbc-bitesize-logo.png";
+import bbcBitesizeLogo from "@/assets/bbc-bitesize-logo-new.png";
 import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
 const FounderPage = () => {
@@ -237,7 +237,7 @@ const FounderPage = () => {
                               className={`h-16 w-16 object-contain ${
                                 item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
                                 item.organization === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
-                                item.organization === "BBC Bitesize" ? "rounded-full bg-[#ff8d1e] p-1" : 
+                                item.organization === "BBC Bitesize" ? "rounded-full p-0" : 
                                 item.organization === "St Helen's School" ? "rounded-full bg-[#b7bcb2] p-1" : 
                                 ""
                               }`}
