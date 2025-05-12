@@ -187,7 +187,15 @@ const VideoGallery = () => {
                 </div>
                 <div className="p-8">
                   <div className="flex items-center mb-4">
-                    <span className="bg-red-100 text-red-600 text-sm font-medium px-3 py-1 rounded-full mr-3">
+                    <span className={`text-sm font-medium px-3 py-1 rounded-full mr-3 ${
+                      filteredVideos[0].subject === "Biology" 
+                        ? "bg-teal-100 text-teal-600" 
+                        : filteredVideos[0].subject === "Chemistry" 
+                          ? "bg-yellow-100 text-yellow-600" 
+                          : filteredVideos[0].subject === "Physics" 
+                            ? "bg-purple-100 text-purple-600"
+                            : "bg-red-100 text-red-600"
+                    }`}>
                       {filteredVideos[0].subject}
                     </span>
                     <span className="bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full">
