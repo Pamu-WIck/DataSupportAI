@@ -27,74 +27,64 @@ const FounderPage = () => {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollAnimation variant="fadeRight">
-              <div className="text-center lg:text-left">
-                <motion.span 
-                  className="inline-block px-4 py-1 bg-red-50 text-red-800 text-sm font-medium rounded-full mb-6 border border-red-100"
-                  whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  MEET OUR FOUNDER
-                </motion.span>
-                
-                <h1 className="font-playfair font-bold text-4xl md:text-5xl lg:text-6xl text-slate-900 mb-6">
-                  Neethu Haridas
-                </h1>
-                
-                <p className="text-xl text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Former Teacher of Science & Director of EPQ at North London Collegiate School<br/>
-                  Founder of The Study Hive
-                </p>
-                
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                  <a 
-                    href="https://www.linkedin.com/in/neethu-haridas-6198a021/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-5 py-3 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-colors"
-                  >
-                    <i className="fab fa-linkedin mr-2"></i>
-                    LinkedIn Profile
-                  </a>
-                  <a 
-                    href="#contact" 
-                    className="inline-flex items-center px-5 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-full transition-colors border-2 border-black"
-                  >
-                    Contact Ms. Haridas
-                  </a>
-                </div>
-              </div>
-            </ScrollAnimation>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <motion.span 
+                className="inline-block px-4 py-1 bg-red-50 text-red-800 text-sm font-medium rounded-full mb-6 border border-red-100"
+                whileHover={{ y: -3 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                MEET OUR FOUNDER
+              </motion.span>
+            </div>
             
-            <ScrollAnimation variant="fadeLeft">
-              <div className="relative flex justify-center">
-                {/* Simpler container with proper sizing */}
-                <div className="relative w-3/4 lg:w-2/3 mx-auto">
-                  {/* Image container with sizing */}
-                  <div className="relative overflow-hidden rounded-2xl z-10">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+              {/* Left content */}
+              <ScrollAnimation variant="fadeRight" className="w-full md:w-1/2 lg:w-2/5 order-2 md:order-1">
+                <div className="text-center md:text-left">
+                  <h1 className="font-playfair font-bold text-4xl md:text-5xl text-slate-900 mb-6">
+                    Neethu Haridas
+                  </h1>
+                  
+                  <p className="text-xl text-slate-600 mb-8">
+                    Former Teacher of Science & Director of EPQ at North London Collegiate School<br/>
+                    Founder of The Study Hive
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a 
+                      href="https://www.linkedin.com/in/neethu-haridas-6198a021/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-5 py-3 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-colors"
+                    >
+                      <i className="fab fa-linkedin mr-2"></i>
+                      LinkedIn Profile
+                    </a>
+                    <a 
+                      href="#contact" 
+                      className="inline-flex items-center px-5 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-full transition-colors border-2 border-black"
+                    >
+                      Contact Ms. Haridas
+                    </a>
+                  </div>
+                </div>
+              </ScrollAnimation>
+              
+              {/* Right square image */}
+              <ScrollAnimation variant="fadeLeft" className="w-full md:w-1/3 lg:w-1/4 order-1 md:order-2">
+                <div className="relative">
+                  {/* Square container with border */}
+                  <div className="relative aspect-square border-2 border-yellow-400 rounded-lg overflow-hidden">
                     <img 
                       src={neethuHaridasPhoto}
                       alt="Neethu Haridas - Founder of The Study Hive" 
-                      className="w-full h-auto object-cover rounded-2xl shadow-lg border border-slate-200"
+                      className="w-full h-full object-cover object-top"
                     />
-                    
-                    {/* LinkedIn badge */}
-                    <div className="absolute bottom-4 right-4 bg-white/90 px-4 py-2 rounded-lg shadow-md z-20">
-                      <a 
-                        href="https://www.linkedin.com/in/neethu-haridas-6198a021/" 
-                        target="_blank"
-                        rel="noopener noreferrer" 
-                        className="font-medium text-sm flex items-center text-blue-700"
-                      >
-                        <i className="fab fa-linkedin text-blue-700 mr-2"></i>
-                        View LinkedIn Profile
-                      </a>
-                    </div>
                   </div>
                 </div>
-              </div>
-            </ScrollAnimation>
+              </ScrollAnimation>
+            </div>
           </div>
         </div>
       </section>
