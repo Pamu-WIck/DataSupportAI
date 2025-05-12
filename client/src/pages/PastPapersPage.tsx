@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 /**
  * PastPapersPage component
@@ -20,6 +22,8 @@ const PastPapersPage = () => {
     { id: "edexcel-igcse", name: "Edexcel", type: "IGCSE" },
     { id: "cie", name: "Cambridge (CIE)", type: "IGCSE" }
   ];
+  
+
   
   // Past papers by exam board and subject
   const pastPapers = {
@@ -562,6 +566,36 @@ const PastPapersPage = () => {
                     <h3 className="font-playfair font-bold text-2xl text-slate-900 mb-4 capitalize">
                       {subject === "combined-science" ? "Combined Science" : subject} Papers - {examBoards.find(b => b.id === selectedBoard)?.name} {examBoards.find(b => b.id === selectedBoard)?.type}
                     </h3>
+                    
+                    {/* Official Resource Link */}
+                    <div className="mb-6">
+                      <a 
+                        href={(() => {
+                          const subjectForUrl = subject === "combined-science" ? "combined-science" : subject;
+                          switch(selectedBoard) {
+                            case "aqa":
+                              return `https://www.aqa.org.uk/find-past-papers-and-mark-schemes?subject=${subjectForUrl.charAt(0).toUpperCase() + subjectForUrl.slice(1)}`;
+                            case "ocr":
+                              return `https://www.ocr.org.uk/qualifications/past-paper-finder/`;
+                            case "edexcel-gcse":
+                            case "edexcel-igcse":
+                              return `https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html`;
+                            case "cie":
+                              return `https://papers.gceguide.com/Cambridge%20IGCSE/`;
+                            case "wjec":
+                              return `https://www.wjec.co.uk/home/past-papers/`;
+                            default:
+                              return `https://www.aqa.org.uk/find-past-papers-and-mark-schemes`;
+                          }
+                        })()}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 font-medium transition-all"
+                      >
+                        <ExternalLink size={16} />
+                        Access Official {examBoards.find(b => b.id === selectedBoard)?.name} {subject === "combined-science" ? "Combined Science" : subject} Resources
+                      </a>
+                    </div>
                     
                     {pastPapers[selectedBoard as keyof typeof pastPapers] && 
                      (pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject] ? (
