@@ -10,6 +10,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import VideoGallery from "./components/home/VideoGallery";
 import FounderPage from "./pages/FounderPage";
+import PastPapersPage from "./pages/PastPapersPage";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/videos" component={VideoGallery} />
       <Route path="/founder" component={FounderPage} />
+      <Route path="/past-papers" component={PastPapersPage} />
       <Route component={NotFound} />
     </Switch>
   );

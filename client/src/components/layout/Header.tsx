@@ -52,6 +52,12 @@ const Header = () => {
             >
               {t("nav.videos")}
             </Link>
+            <Link 
+              href="/past-papers" 
+              className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
+            >
+              Past Papers
+            </Link>
             <a 
               href="#resources" 
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
@@ -107,6 +113,13 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.videos")}
+              </Link>
+              <Link 
+                href="/past-papers" 
+                className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Past Papers
               </Link>
               <a 
                 href="#resources" 

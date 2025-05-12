@@ -239,7 +239,15 @@ const VideoGallery = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center mb-3">
-                    <span className="bg-red-50 text-red-600 text-xs font-medium px-2 py-0.5 rounded-full mr-2">
+                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full mr-2 ${
+                      video.subject === "Biology" 
+                        ? "bg-teal-50 text-teal-600" 
+                        : video.subject === "Chemistry" 
+                          ? "bg-yellow-50 text-yellow-600" 
+                          : video.subject === "Physics" 
+                            ? "bg-purple-50 text-purple-600"
+                            : "bg-red-50 text-red-600"
+                    }`}>
                       {video.subject}
                     </span>
                     <span className="bg-blue-50 text-blue-600 text-xs font-medium px-2 py-0.5 rounded-full">
@@ -279,7 +287,15 @@ const VideoGallery = () => {
                   </div>
                   <div className="p-8">
                     <div className="flex items-center mb-4">
-                      <span className="bg-red-100 text-red-600 text-sm font-medium px-3 py-1 rounded-full mr-3">
+                      <span className={`text-sm font-medium px-3 py-1 rounded-full mr-3 ${
+                        video.subject === "Biology" 
+                          ? "bg-teal-100 text-teal-600" 
+                          : video.subject === "Chemistry" 
+                            ? "bg-yellow-100 text-yellow-600" 
+                            : video.subject === "Physics" 
+                              ? "bg-purple-100 text-purple-600"
+                              : "bg-red-100 text-red-600"
+                      }`}>
                         {video.subject}
                       </span>
                       <span className="bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full">
