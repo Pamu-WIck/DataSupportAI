@@ -131,7 +131,7 @@ const JellyfishVideos = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
           {/* Main video player - 3 columns */}
-          <div className="lg:col-span-3 bg-slate-900 rounded-lg overflow-hidden shadow-lg">
+          <div className="lg:col-span-3 bg-white rounded-lg overflow-hidden shadow-xl border border-slate-200">
             <div className="aspect-video w-full">
               <iframe
                 width="100%"
@@ -144,9 +144,14 @@ const JellyfishVideos = () => {
                 className="w-full h-full"
               ></iframe>
             </div>
-            <div className="p-6 bg-slate-800">
-              <h3 className="text-white font-bold text-xl mb-2">{videos[selectedVideo].title}</h3>
-              <p className="text-slate-300 text-sm">{videos[selectedVideo].description}</p>
+            <div className="p-6">
+              <div className="flex items-center mb-3">
+                <span className="bg-red-100 text-red-600 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">
+                  {videos[selectedVideo].subject}
+                </span>
+              </div>
+              <h3 className="font-playfair text-xl font-bold text-slate-900 mb-2">{videos[selectedVideo].title}</h3>
+              <p className="text-slate-600 text-sm">{videos[selectedVideo].description}</p>
             </div>
           </div>
           
@@ -173,16 +178,18 @@ const JellyfishVideos = () => {
                       className="w-full h-full object-cover aspect-video"
                     />
                     {selectedVideo === index && (
-                      <div className="absolute inset-0 bg-yellow-400/20 flex items-center justify-center">
-                        <span className="bg-yellow-500 text-white p-1 rounded-full">
+                      <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <span className="bg-red-600 text-white p-1.5 rounded-full">
                           <i className="fas fa-play"></i>
                         </span>
                       </div>
                     )}
                   </div>
                   <div className="w-2/3 p-3">
+                    <span className="inline-block px-2 py-0.5 text-xs font-medium bg-red-50 text-red-600 rounded-full mb-1">
+                      {video.subject}
+                    </span>
                     <h4 className="font-medium text-slate-900 mb-1 text-sm line-clamp-2">{video.title}</h4>
-                    <p className="text-xs text-slate-500">{video.subject}</p>
                   </div>
                 </motion.div>
               ))}

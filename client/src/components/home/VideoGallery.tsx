@@ -172,7 +172,7 @@ const VideoGallery = () => {
         {filteredVideos.length > 0 && (
           <div className="mb-16">
             <ScrollAnimation variant="fadeUp">
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-slate-200">
+              <div className="bg-white rounded-lg overflow-hidden shadow-xl border border-slate-200 max-w-5xl mx-auto">
                 <div className="aspect-video w-full">
                   <iframe
                     width="100%"
@@ -185,29 +185,36 @@ const VideoGallery = () => {
                     className="w-full h-full"
                   ></iframe>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center mb-3">
-                    <span className="bg-red-100 text-red-600 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">
+                <div className="p-8">
+                  <div className="flex items-center mb-4">
+                    <span className="bg-red-100 text-red-600 text-sm font-medium px-3 py-1 rounded-full mr-3">
                       {filteredVideos[0].subject}
                     </span>
-                    <span className="bg-blue-100 text-blue-600 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                    <span className="bg-blue-100 text-blue-600 text-sm font-medium px-3 py-1 rounded-full">
                       {filteredVideos[0].category}
                     </span>
                   </div>
-                  <h3 className="font-playfair text-2xl font-bold text-slate-900 mb-3">{filteredVideos[0].title}</h3>
-                  <p className="text-slate-600">{filteredVideos[0].description}</p>
+                  <h3 className="font-playfair text-3xl font-bold text-slate-900 mb-4">{filteredVideos[0].title}</h3>
+                  <p className="text-slate-600 text-lg">{filteredVideos[0].description}</p>
                 </div>
               </div>
             </ScrollAnimation>
           </div>
         )}
         
-        {/* Video grid - in jellyfish style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Section title for more videos */}
+        <div className="text-center mb-10">
+          <h3 className="font-playfair text-2xl font-bold text-slate-900 inline-block pb-2 border-b-2 border-yellow-400">
+            More Video Lessons
+          </h3>
+        </div>
+        
+        {/* Video grid - in jellyfish style - uniform size */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredVideos.slice(1).map((video, index) => (
-            <ScrollAnimation key={video.id} variant="fadeUp" delay={0.1 * (index % 3)}>
+            <ScrollAnimation key={video.id} variant="fadeUp" delay={0.1 * (index % 4)}>
               <motion.div 
-                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all border border-slate-200"
+                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-slate-200 h-full"
                 whileHover={{ y: -5 }}
               >
                 <div className="relative aspect-video w-full group cursor-pointer" onClick={() => window.location.href = `#video-${video.id}`}>
@@ -222,16 +229,16 @@ const VideoGallery = () => {
                     </div>
                   </div>
                 </div>
-                <div className="p-5">
+                <div className="p-4">
                   <div className="flex items-center mb-2">
                     <span className="bg-red-50 text-red-600 text-xs font-medium px-2 py-0.5 rounded-full mr-2">
                       {video.subject}
                     </span>
                   </div>
-                  <h4 className="font-medium text-slate-900 mb-2 line-clamp-2 h-12">{video.title}</h4>
+                  <h4 className="font-medium text-slate-900 mb-2 line-clamp-2 text-sm h-10">{video.title}</h4>
                   <a 
                     href={`#video-${video.id}`}
-                    className="text-sm font-medium text-red-600 hover:text-red-700 flex items-center mt-3"
+                    className="text-xs font-medium text-red-600 hover:text-red-700 flex items-center mt-2"
                   >
                     Watch Video <i className="fas fa-chevron-right ml-1 text-xs"></i>
                   </a>
