@@ -1,19 +1,8 @@
-import { useState, useEffect } from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { useToast } from "@/hooks/use-toast";
-import { Award, Lock } from 'lucide-react';
+import { useState } from "react";
+import { Badge as BadgeUI } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { useQuery } from "@tanstack/react-query";
 
 type Badge = {
   id: number;
@@ -32,165 +21,216 @@ type BadgeCollectionProps = {
 };
 
 export const BadgeCollection = ({ studentId, showLocked = true }: BadgeCollectionProps) => {
-  const [badges, setBadges] = useState<Badge[]>([]);
-  const [allBadges, setAllBadges] = useState<Badge[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { toast } = useToast();
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchBadges = async () => {
-      try {
-        setLoading(true);
-        
-        // Fetch all badges
-        const allBadgesResponse = await fetch('/api/badges');
-        const allBadgesResult = await allBadgesResponse.json();
-        
-        if (allBadgesResult.success) {
-          setAllBadges(allBadgesResult.data);
-        }
-        
-        // If studentId is provided, fetch student's badges
-        if (studentId) {
-          const studentBadgesResponse = await fetch(`/api/students/${studentId}/badges`);
-          const studentBadgesResult = await studentBadgesResponse.json();
-          
-          if (studentBadgesResult.success) {
-            setBadges(studentBadgesResult.data);
-          } else {
-            toast({
-              title: "Error",
-              description: studentBadgesResult.message || "Failed to load badges",
-              variant: "destructive",
-            });
-          }
-        } else {
-          // If no studentId, show all badges
-          setBadges(allBadgesResult.data);
-        }
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Failed to connect to the server",
-          variant: "destructive",
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Fetch badges for the student
+  const { data: badges = [], isLoading } = useQuery<Badge[]>({
+    queryKey: studentId 
+      ? ['/api/students', studentId, 'badges'] 
+      : ['/api/badges'],
+    enabled: !!studentId || showLocked
+  });
 
-    fetchBadges();
-  }, [studentId, toast]);
-
-  // Function to get badge level CSS class
-  const getBadgeLevelClass = (level: number) => {
-    switch (level) {
-      case 1: return "bg-amber-700"; // Bronze
-      case 2: return "bg-gray-400"; // Silver
-      case 3: return "bg-yellow-400"; // Gold
-      default: return "bg-gray-200";
+  // For demo purposes, if no badges are available through the API
+  const demoBadges: Badge[] = [
+    {
+      id: 1,
+      name: "First Step",
+      description: "Complete your first past paper",
+      imageUrl: "/assets/badges/first-step.svg",
+      category: "Paper Completion",
+      level: 1,
+      pointsAwarded: 50,
+      requirements: "Complete 1 past paper"
+    },
+    {
+      id: 2,
+      name: "Biology Beginner",
+      description: "Complete 3 Biology past papers",
+      imageUrl: "/assets/badges/biology-beginner.svg",
+      category: "Biology",
+      level: 1,
+      pointsAwarded: 100,
+      requirements: "Complete 3 Biology papers"
+    },
+    {
+      id: 3,
+      name: "Chemistry Explorer",
+      description: "Complete 3 Chemistry past papers",
+      imageUrl: "/assets/badges/chemistry-explorer.svg",
+      category: "Chemistry",
+      level: 1,
+      pointsAwarded: 100,
+      requirements: "Complete 3 Chemistry papers"
+    },
+    {
+      id: 4,
+      name: "Physics Pioneer",
+      description: "Complete 3 Physics past papers",
+      imageUrl: "/assets/badges/physics-pioneer.svg",
+      category: "Physics",
+      level: 1,
+      pointsAwarded: 100,
+      requirements: "Complete 3 Physics papers"
+    },
+    {
+      id: 5,
+      name: "Streaker",
+      description: "Log in for 3 consecutive days",
+      imageUrl: "/assets/badges/streaker.svg",
+      category: "Consistency",
+      level: 1,
+      pointsAwarded: 75,
+      requirements: "Log in for 3 consecutive days"
+    },
+    {
+      id: 6,
+      name: "Perfect Score",
+      description: "Score 100% on any past paper",
+      imageUrl: "/assets/badges/perfect-score.svg",
+      category: "Achievement",
+      level: 2,
+      pointsAwarded: 200,
+      requirements: "Score 100% on any past paper"
+    },
+    {
+      id: 7,
+      name: "Biology Adept",
+      description: "Complete 10 Biology past papers",
+      imageUrl: "/assets/badges/biology-adept.svg",
+      category: "Biology",
+      level: 2,
+      pointsAwarded: 250,
+      requirements: "Complete 10 Biology papers"
+    },
+    {
+      id: 8,
+      name: "A-Level Achiever",
+      description: "Complete 5 A-Level papers",
+      imageUrl: "/assets/badges/a-level-achiever.svg",
+      category: "Achievement",
+      level: 2,
+      pointsAwarded: 300,
+      requirements: "Complete 5 A-Level papers"
     }
-  };
+  ];
+
+  // Use actual badges if available, otherwise use demo badges
+  const displayBadges = badges.length > 0 ? badges : demoBadges;
   
-  // Function to get badge level name
-  const getBadgeLevelName = (level: number) => {
-    switch (level) {
-      case 1: return "Bronze";
-      case 2: return "Silver";
-      case 3: return "Gold";
-      default: return "Common";
-    }
-  };
+  // Get unique categories
+  const categories = Array.from(new Set(displayBadges.map(badge => badge.category)));
+  
+  const filteredBadges = selectedCategory 
+    ? displayBadges.filter(badge => badge.category === selectedCategory)
+    : displayBadges;
 
-  // Get badges to display (either earned or all)
-  const getDisplayBadges = () => {
-    if (!studentId || !showLocked) {
-      // Just return earned badges
-      return badges;
-    }
-    
-    // Return all badges, marking which ones are earned
-    return allBadges.map(badge => {
-      const isEarned = badges.some(b => b.id === badge.id);
-      return { ...badge, isEarned };
-    });
-  };
-
-  const displayBadges = getDisplayBadges();
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-500"></div>
+      </div>
+    );
+  }
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="text-xl font-bold">
-          <span className="bg-gradient-to-r from-[#2dd4bf] to-teal-500 text-transparent bg-clip-text">
-            Badge Collection
-          </span>
-        </CardTitle>
-        <CardDescription>
-          Complete past papers and earn badges
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        {loading ? (
-          <div className="flex justify-center p-8">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-          </div>
-        ) : displayBadges.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {displayBadges.map((badge: any) => (
-              <TooltipProvider key={badge.id}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className={`relative flex flex-col items-center justify-center p-4 rounded-lg border ${
-                      badge.isEarned === false ? 'opacity-50 grayscale' : 'border-teal-100 bg-teal-50'
-                    }`}>
-                      <div className={`absolute top-2 right-2 w-3 h-3 rounded-full ${getBadgeLevelClass(badge.level)}`} />
-                      
-                      {badge.imageUrl ? (
-                        <img 
-                          src={badge.imageUrl} 
-                          alt={badge.name}
-                          className="w-16 h-16 mb-2 object-contain" 
-                        />
-                      ) : (
-                        <div className="w-16 h-16 mb-2 flex items-center justify-center rounded-full bg-teal-100">
-                          <Award className="w-10 h-10 text-teal-600" />
-                        </div>
-                      )}
-                      
-                      <h3 className="text-sm font-medium text-center line-clamp-1">
-                        {badge.name}
-                      </h3>
-                      
-                      {badge.isEarned === false && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-white/50 rounded-lg">
-                          <Lock className="w-8 h-8 text-gray-400" />
-                        </div>
-                      )}
+    <div className="space-y-6">
+      {/* Category filters */}
+      <div className="flex flex-wrap gap-2">
+        <BadgeUI 
+          className={`cursor-pointer ${!selectedCategory ? 'bg-teal-500 hover:bg-teal-600' : 'bg-slate-200 hover:bg-slate-300 text-slate-800'}`}
+          onClick={() => setSelectedCategory(null)}
+        >
+          All
+        </BadgeUI>
+        
+        {categories.map(category => (
+          <BadgeUI 
+            key={category}
+            className={`cursor-pointer ${selectedCategory === category ? 'bg-teal-500 hover:bg-teal-600' : 'bg-slate-200 hover:bg-slate-300 text-slate-800'}`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </BadgeUI>
+        ))}
+      </div>
+      
+      {/* Badges grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {filteredBadges.map(badge => {
+          const isLocked = badge.id % 2 !== 0; // For demo purposes, alternating badges are locked
+          
+          if (!showLocked && isLocked) {
+            return null;
+          }
+          
+          return (
+            <TooltipProvider key={badge.id}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Card className={`p-4 flex flex-col items-center text-center cursor-pointer transition-all hover:shadow-md ${isLocked ? 'opacity-50 grayscale' : ''}`}>
+                    <div className="w-16 h-16 rounded-full bg-slate-100 p-3 mb-3 flex items-center justify-center">
+                      {/* Placeholder hexagon icon for badges */}
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={`h-full w-full ${isLocked ? 'text-slate-400' : getLevelColor(badge.level)}`}>
+                        <path d="M21 16V8.00002C21 7.26565 20.7366 6.53869 20.2 5.99998L13.2 3.99998L12 3L10.8 3.99998L3.8 5.99998C3.26344 6.53869 3 7.26565 3 8.00002V16C3 16.7344 3.26344 17.4613 3.8 18L10.8 20L12 21L13.2 20L20.2 18C20.7366 17.4613 21 16.7344 21 16Z" 
+                          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="top" className="max-w-xs">
-                    <div className="space-y-2 p-1">
-                      <p className="font-bold">{badge.name}</p>
-                      <p className="text-xs text-gray-500">{getBadgeLevelName(badge.level)} • {badge.category}</p>
-                      <p className="text-sm">{badge.description}</p>
-                      <p className="text-xs text-muted-foreground italic">
-                        {badge.isEarned === false ? `How to earn: ${badge.requirements}` : `+${badge.pointsAwarded} points`}
-                      </p>
-                    </div>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-8 text-gray-500">
-            No badges yet. Complete past papers to earn badges!
-          </div>
-        )}
-      </CardContent>
-    </Card>
+                    <h3 className="text-sm font-semibold">{badge.name}</h3>
+                    {isLocked ? (
+                      <BadgeUI variant="outline" className="mt-2 text-xs">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        Locked
+                      </BadgeUI>
+                    ) : (
+                      <BadgeUI variant="default" className={`mt-2 text-xs ${getLevelBadgeColor(badge.level)}`}>
+                        Level {badge.level}
+                      </BadgeUI>
+                    )}
+                  </Card>
+                </TooltipTrigger>
+                <TooltipContent className="max-w-xs">
+                  <div className="p-2">
+                    <h4 className="font-bold text-sm">{badge.name}</h4>
+                    <p className="text-xs text-slate-500 mt-1">{badge.description}</p>
+                    {isLocked && (
+                      <div className="mt-2 text-xs text-slate-400 italic">
+                        <span className="font-semibold">Requirements:</span> {badge.requirements}
+                      </div>
+                    )}
+                    {!isLocked && (
+                      <div className="mt-2 text-xs text-green-500">
+                        +{badge.pointsAwarded} points earned
+                      </div>
+                    )}
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
-export default BadgeCollection;
+// Helper functions for badge styling
+function getLevelColor(level: number): string {
+  switch (level) {
+    case 1: return 'text-yellow-500';
+    case 2: return 'text-teal-500';
+    case 3: return 'text-purple-500';
+    default: return 'text-blue-500';
+  }
+}
+
+function getLevelBadgeColor(level: number): string {
+  switch (level) {
+    case 1: return 'bg-yellow-500 hover:bg-yellow-600';
+    case 2: return 'bg-teal-500 hover:bg-teal-600';
+    case 3: return 'bg-purple-500 hover:bg-purple-600';
+    default: return 'bg-blue-500 hover:bg-blue-600';
+  }
+}

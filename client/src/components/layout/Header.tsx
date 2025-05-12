@@ -58,6 +58,12 @@ const Header = () => {
             >
               Past Papers
             </Link>
+            <Link 
+              href="/achievements" 
+              className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
+            >
+              Achievements
+            </Link>
             <a 
               href="#resources" 
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
@@ -120,6 +126,13 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Past Papers
+              </Link>
+              <Link 
+                href="/achievements" 
+                className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Achievements
               </Link>
               <a 
                 href="#resources" 

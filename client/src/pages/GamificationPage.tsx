@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import GamificationDashboard from '../components/gamification/GamificationDashboard';
-import { ScrollAnimation } from '@/components/ui/scroll-animation';
+import ScrollAnimation from '@/components/ui/scroll-animation';
 
 const GamificationPage = () => {
   return (
