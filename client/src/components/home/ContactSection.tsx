@@ -197,7 +197,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-[#424242]">{t("contact.info.hours")}</h4>
-                      <p className="text-[#424242]/70">Monday - Friday: 9am - 8pm<br/>Saturday: 10am - 5pm<br/>Sunday: Closed</p>
+                      <p className="text-[#424242]/70">Monday - Friday: 1pm - 8pm<br/>Saturday: Closed<br/>Sunday: 9am - 5pm</p>
                     </div>
                   </div>
                 </div>
