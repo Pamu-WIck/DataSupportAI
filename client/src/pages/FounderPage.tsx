@@ -36,7 +36,7 @@ const FounderPage = () => {
                 </h1>
                 
                 <p className="text-xl text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Experienced Science Teacher & Founder of The Study Hive
+                  Head of Biology at St Helen's School & Founder of The Study Hive
                 </p>
                 
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
@@ -91,27 +91,27 @@ const FounderPage = () => {
                 icon: "fas fa-graduation-cap",
                 title: "Education",
                 items: [
+                  "BSc (Hons) in Biology, University of Sheffield",
                   "Postgraduate Certificate in Education (PGCE)",
-                  "Master's Degree in Science",
-                  "Specialized Science Teacher Training"
+                  "Qualified Teacher Status (QTS)"
                 ]
               },
               {
                 icon: "fas fa-briefcase",
                 title: "Experience",
                 items: [
-                  "Head of Biology at St Helen's School",
+                  "Head of Biology at St Helen's School, Northwood",
                   "Science Teacher at North London Collegiate School",
-                  "15+ Years Teaching Experience"
+                  "10+ Years Teaching Experience in Top UK Schools"
                 ]
               },
               {
                 icon: "fas fa-award",
                 title: "Specializations",
                 items: [
-                  "GCSE & IGCSE Science Curriculum Expert",
+                  "GCSE & IGCSE Biology Curriculum Expert",
                   "A-Level Biology Specialist",
-                  "Exam Preparation & Strategy"
+                  "Expert in Cambridge and Edexcel Exam Boards"
                 ]
               }
             ].map((section, index) => (
@@ -162,10 +162,10 @@ const FounderPage = () => {
                 description: "Founded The Study Hive to provide personalized science education and academic support for GCSE and IGCSE students."
               },
               {
-                year: "2015 - Present",
+                year: "2018 - Present",
                 title: "Head of Biology Department",
                 organization: "St Helen's School, Northwood",
-                description: "Leading the Biology department at one of the UK's top independent schools, developing curriculum and teaching methodologies."
+                description: "Leading the Biology department at one of the UK's top independent schools, developing curriculum and teaching methodologies that consistently achieve outstanding exam results."
               },
               {
                 year: "2012 - 2015",
@@ -219,15 +219,15 @@ const FounderPage = () => {
               
               <div className="space-y-6 text-slate-700">
                 <p>
-                  As an educator with over 15 years of experience, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
+                  As the Head of Biology at St Helen's School and with over 10 years of experience teaching in prestigious UK schools, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
                 </p>
                 
                 <p>
-                  At The Study Hive, we focus on building strong foundations in scientific concepts while developing critical thinking skills that extend beyond exam success. Our goal is to inspire a lifelong love of learning and scientific inquiry.
+                  At The Study Hive, we focus on building strong foundations in scientific concepts while developing critical thinking skills that extend beyond exam success. Our goal is to inspire a lifelong love of learning and scientific inquiry in every student.
                 </p>
                 
                 <p>
-                  I take pride in helping students not just to understand the curriculum, but to excel in their examinations through strategic preparation, practice, and personalized feedback.
+                  I take pride in helping students not just understand the curriculum, but excel in their examinations through strategic preparation, practice, and personalized feedback tailored to each exam board's specific requirements.
                 </p>
               </div>
             </ScrollAnimation>
