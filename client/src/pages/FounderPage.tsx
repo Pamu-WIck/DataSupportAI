@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import { Link } from "wouter";
 
-// Using relative paths for assets - no imports needed
+// Import school logos
+import studyHiveLogo from "@/assets/images/schools/study-hive.svg";
+import nlcsLogo from "@/assets/images/schools/nlcs-school.svg";
+import stHelensLogo from "@/assets/images/schools/st-helens-school.svg";
+import bbcBitesizeLogo from "@/assets/images/schools/bbc-bitesize.svg";
+import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
 const FounderPage = () => {
   return (
@@ -66,7 +71,7 @@ const FounderPage = () => {
               <div className="relative">
                 <div className="bg-gradient-to-tr from-yellow-400/20 to-teal-400/20 w-full h-full absolute top-6 left-6 rounded-2xl"></div>
                 <img 
-                  src="/assets/images/neethu-haridas.jpg"
+                  src={neethuHaridasPhoto}
                   alt="Neethu Haridas - Founder of The Study Hive" 
                   className="w-full h-auto object-cover rounded-2xl shadow-xl relative z-10 border-2 border-slate-800"
                 />
@@ -175,28 +180,28 @@ const FounderPage = () => {
                 title: "Founder & Lead Educator",
                 organization: "The Study Hive",
                 description: "Founded The Study Hive to provide personalized science education and academic support for GCSE and IGCSE students.",
-                image: "/assets/images/schools/study-hive.svg"
+                image: studyHiveLogo
               },
               {
                 year: "2021 - 2024",
                 title: "Teacher of Science & Director of EPQ",
                 organization: "North London Collegiate School",
                 description: "Teaching Science and directing the Extended Project Qualification program, helping students achieve outstanding exam results.",
-                image: "/assets/images/schools/nlcs-school.svg"
+                image: nlcsLogo
               },
               {
                 year: "2017 - 2021",
                 title: "Teacher of Biology",
                 organization: "St Helen's School, Northwood",
                 description: "Taught Biology at one of the UK's top independent schools, developing specialized curriculum and exam preparation strategies for students.",
-                image: "/assets/images/schools/st-helens-school.svg"
+                image: stHelensLogo
               },
               {
                 year: "2021 - 2024",
                 title: "Science Specialist Writer",
                 organization: "BBC Bitesize",
                 description: "Developed and wrote science content for BBC Bitesize's secondary school platform, creating educational materials for KS3 and GCSE students across the UK.",
-                image: "/assets/images/schools/bbc-bitesize.svg"
+                image: bbcBitesizeLogo
               },
               {
                 year: "2008 - 2010",

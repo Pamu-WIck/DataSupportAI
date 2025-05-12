@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <!-- Background with NLCS burgundy color -->
+  <rect width="500" height="300" fill="#f8f8f8"/>
+  
+  <!-- Elegant shield shape -->
+  <path d="M250,50 L350,90 L350,200 C350,230 310,270 250,290 C190,270 150,230 150,200 L150,90 Z" 
+        fill="#ffffff" 
+        stroke="#990000" 
+        stroke-width="4"/>
+  
+  <!-- Crown element -->
+  <path d="M210,90 L230,70 L250,90 L270,70 L290,90 L280,100 L220,100 Z" 
+        fill="#d4af37" 
+        stroke="#990000" 
+        stroke-width="2"/>
+  
+  <!-- School initials -->
+  <text x="250" y="145" 
+        font-family="Georgia, serif" 
+        font-size="40" 
+        font-weight="bold"
+        text-anchor="middle" 
+        fill="#990000">NLCS</text>
+  
+  <!-- School name -->
+  <text x="250" y="180" 
+        font-family="Georgia, serif" 
+        font-size="14" 
+        font-weight="bold"
+        text-anchor="middle" 
+        fill="#333333">NORTH LONDON</text>
+  
+  <text x="250" y="200" 
+        font-family="Georgia, serif" 
+        font-size="14" 
+        font-weight="bold"
+        text-anchor="middle" 
+        fill="#333333">COLLEGIATE SCHOOL</text>
+  
+  <!-- Laurel wreath elements (simplified) -->
+  <path d="M200,220 C180,200 190,170 210,180 C200,200 210,210 220,215" 
+        fill="none" 
+        stroke="#006400" 
+        stroke-width="2"/>
+  
+  <path d="M300,220 C320,200 310,170 290,180 C300,200 290,210 280,215" 
+        fill="none" 
+        stroke="#006400" 
+        stroke-width="2"/>
+  
+  <!-- Motto -->
+  <text x="250" y="240" 
+        font-family="Georgia, serif" 
+        font-size="12" 
+        font-style="italic"
+        text-anchor="middle" 
+        fill="#990000">EST. 1850</text>
+</svg>
