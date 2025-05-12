@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
  * A comprehensive repository of past papers organized by exam board
  */
 const PastPapersPage = () => {
+  const [selectedLevel, setSelectedLevel] = useState("gcse");
   const [selectedBoard, setSelectedBoard] = useState("aqa");
   const [yearFilter, setYearFilter] = useState("all");
   const [seasonFilter, setSeasonFilter] = useState("all");
@@ -86,7 +87,179 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
     const paperIdentifier = `${paper.year}${paper.season}${paper.paperNumber}`;
     const hash = Array.from(paperIdentifier).reduce((hash, char) => char.charCodeAt(0) + ((hash << 5) - hash), 0);
     
-    if (isALevel && subject === "biology") {
+    // KS3 topics are different from GCSE and A-level
+    if (selectedLevel === "ks3" && subject === "biology") {
+      // KS3 Biology topics
+      const allTopics = [
+        {
+          title: "Cells and Organisation",
+          bullets: [
+            "Plant and animal cell structure and function",
+            "Specialised cells in plants and animals",
+            "Levels of organisation: cells, tissues, organs, and organ systems"
+          ]
+        },
+        {
+          title: "Reproduction and Growth",
+          bullets: [
+            "Human reproductive systems and fertilisation",
+            "Plant reproduction including pollination and seed dispersal",
+            "Adolescent development and puberty"
+          ]
+        },
+        {
+          title: "Health and Nutrition",
+          bullets: [
+            "Balanced diet and nutrients required for health",
+            "The digestive system and enzymes",
+            "Effects of smoking, alcohol, and drugs on health"
+          ]
+        },
+        {
+          title: "Ecosystems and Habitats",
+          bullets: [
+            "Food chains, food webs and energy flow",
+            "Adaptations of organisms to their environments",
+            "Human impact on biodiversity and conservation"
+          ]
+        },
+        {
+          title: "Genetics and Evolution",
+          bullets: [
+            "Introduction to inheritance and variation",
+            "DNA structure and function in simple terms",
+            "Natural selection and evolutionary adaptations"
+          ]
+        }
+      ];
+      
+      // Select topics based on paper hash to ensure consistency for the same paper
+      const selectedIndices = [
+        Math.abs(hash % allTopics.length),
+        Math.abs((hash + 1) % allTopics.length),
+        Math.abs((hash + 2) % allTopics.length)
+      ];
+      
+      return selectedIndices.map((index, i) => {
+        const topic = allTopics[index];
+        return `${i+1}. **${topic.title}**\n   - ${topic.bullets.join('\n   - ')}`;
+      }).join('\n\n');
+      
+    } else if (selectedLevel === "ks3" && subject === "chemistry") {
+      // KS3 Chemistry topics
+      const allTopics = [
+        {
+          title: "Atoms, Elements and Compounds",
+          bullets: [
+            "The periodic table and its organisation",
+            "Atoms, molecules and chemical formulae",
+            "Properties of elements and compounds"
+          ]
+        },
+        {
+          title: "Chemical Reactions",
+          bullets: [
+            "Physical and chemical changes",
+            "Conservation of mass in reactions",
+            "Word and simple symbol equations"
+          ]
+        },
+        {
+          title: "Acids and Alkalis",
+          bullets: [
+            "pH scale and indicators",
+            "Neutralisation reactions",
+            "Everyday applications of acids and alkalis"
+          ]
+        },
+        {
+          title: "Materials and Their Properties",
+          bullets: [
+            "States of matter and particle theory",
+            "Properties of metals and non-metals",
+            "Uses of materials based on their properties"
+          ]
+        },
+        {
+          title: "Earth Science",
+          bullets: [
+            "The rock cycle and types of rocks",
+            "Extraction of metals from ores",
+            "Earth's atmosphere and human impacts"
+          ]
+        }
+      ];
+      
+      // Select topics based on paper hash
+      const selectedIndices = [
+        Math.abs(hash % allTopics.length),
+        Math.abs((hash + 1) % allTopics.length),
+        Math.abs((hash + 2) % allTopics.length)
+      ];
+      
+      return selectedIndices.map((index, i) => {
+        const topic = allTopics[index];
+        return `${i+1}. **${topic.title}**\n   - ${topic.bullets.join('\n   - ')}`;
+      }).join('\n\n');
+      
+    } else if (selectedLevel === "ks3" && subject === "physics") {
+      // KS3 Physics topics
+      const allTopics = [
+        {
+          title: "Forces and Motion",
+          bullets: [
+            "Speed, velocity and acceleration calculations",
+            "Balanced and unbalanced forces",
+            "Newton's laws of motion in simple contexts"
+          ]
+        },
+        {
+          title: "Energy and Work",
+          bullets: [
+            "Energy transfers and conservation",
+            "Different forms of energy (kinetic, potential, thermal)",
+            "Renewable and non-renewable energy resources"
+          ]
+        },
+        {
+          title: "Waves and Sound",
+          bullets: [
+            "Wave properties: amplitude, wavelength, frequency",
+            "Sound production and propagation",
+            "Uses of different waves in the electromagnetic spectrum"
+          ]
+        },
+        {
+          title: "Electricity and Magnetism",
+          bullets: [
+            "Current, voltage and resistance in circuits",
+            "Series and parallel circuits",
+            "Electromagnets and their applications"
+          ]
+        },
+        {
+          title: "Space Physics",
+          bullets: [
+            "The solar system and planetary motion",
+            "Gravity and orbital motion",
+            "Day, night, seasons and the Earth's rotation"
+          ]
+        }
+      ];
+      
+      // Select topics based on paper hash
+      const selectedIndices = [
+        Math.abs(hash % allTopics.length),
+        Math.abs((hash + 1) % allTopics.length),
+        Math.abs((hash + 2) % allTopics.length)
+      ];
+      
+      return selectedIndices.map((index, i) => {
+        const topic = allTopics[index];
+        return `${i+1}. **${topic.title}**\n   - ${topic.bullets.join('\n   - ')}`;
+      }).join('\n\n');
+      
+    } else if (isALevel && subject === "biology") {
       // A-level Biology topics
       const allTopics = [
         {
@@ -815,6 +988,9 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
   
   // Exam board data structure
   const examBoards = [
+    // KS3 Level
+    { id: "ks3", name: "National Curriculum", type: "KS3" },
+    
     // GCSE Exam Boards
     { id: "aqa", name: "AQA", type: "GCSE" },
     { id: "ocr", name: "OCR", type: "GCSE" },
@@ -835,6 +1011,37 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
   
   // Past papers by exam board and subject
   const pastPapers = {
+    // KS3 Past Papers
+    "ks3": {
+      biology: {
+        higher: [
+          { year: "2023", season: "Summer", course: "KS3 Year 9", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year9-Summer2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year9-Summer2023-MS.pdf" },
+          { year: "2023", season: "Spring", course: "KS3 Year 9", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year9-Spring2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year9-Spring2023-MS.pdf" },
+          { year: "2023", season: "Autumn", course: "KS3 Year 9", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year9-Autumn2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year9-Autumn2023-MS.pdf" },
+          { year: "2023", season: "Summer", course: "KS3 Year 8", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year8-Summer2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year8-Summer2023-MS.pdf" },
+          { year: "2023", season: "Spring", course: "KS3 Year 8", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year8-Spring2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year8-Spring2023-MS.pdf" },
+          { year: "2023", season: "Autumn", course: "KS3 Year 8", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year8-Autumn2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year8-Autumn2023-MS.pdf" },
+          { year: "2023", season: "Summer", course: "KS3 Year 7", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year7-Summer2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year7-Summer2023-MS.pdf" },
+          { year: "2023", season: "Spring", course: "KS3 Year 7", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year7-Spring2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year7-Spring2023-MS.pdf" },
+          { year: "2023", season: "Autumn", course: "KS3 Year 7", paperNumber: "Biology Paper 1", questionPaper: "/downloads/past-papers/ks3/biology/KS3-Biology-Year7-Autumn2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/biology/KS3-Biology-Year7-Autumn2023-MS.pdf" }
+        ]
+      },
+      chemistry: {
+        higher: [
+          { year: "2023", season: "Summer", course: "KS3 Year 9", paperNumber: "Chemistry Paper 1", questionPaper: "/downloads/past-papers/ks3/chemistry/KS3-Chemistry-Year9-Summer2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/chemistry/KS3-Chemistry-Year9-Summer2023-MS.pdf" },
+          { year: "2023", season: "Spring", course: "KS3 Year 9", paperNumber: "Chemistry Paper 1", questionPaper: "/downloads/past-papers/ks3/chemistry/KS3-Chemistry-Year9-Spring2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/chemistry/KS3-Chemistry-Year9-Spring2023-MS.pdf" },
+          { year: "2023", season: "Autumn", course: "KS3 Year 9", paperNumber: "Chemistry Paper 1", questionPaper: "/downloads/past-papers/ks3/chemistry/KS3-Chemistry-Year9-Autumn2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/chemistry/KS3-Chemistry-Year9-Autumn2023-MS.pdf" }
+        ]
+      },
+      physics: {
+        higher: [
+          { year: "2023", season: "Summer", course: "KS3 Year 9", paperNumber: "Physics Paper 1", questionPaper: "/downloads/past-papers/ks3/physics/KS3-Physics-Year9-Summer2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/physics/KS3-Physics-Year9-Summer2023-MS.pdf" },
+          { year: "2023", season: "Spring", course: "KS3 Year 9", paperNumber: "Physics Paper 1", questionPaper: "/downloads/past-papers/ks3/physics/KS3-Physics-Year9-Spring2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/physics/KS3-Physics-Year9-Spring2023-MS.pdf" },
+          { year: "2023", season: "Autumn", course: "KS3 Year 9", paperNumber: "Physics Paper 1", questionPaper: "/downloads/past-papers/ks3/physics/KS3-Physics-Year9-Autumn2023-QP.pdf", markScheme: "/downloads/past-papers/ks3/physics/KS3-Physics-Year9-Autumn2023-MS.pdf" }
+        ]
+      }
+    },
+    
     // A-Level Past Papers
     "aqa-alevel": {
       biology: {
@@ -1424,22 +1631,93 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
+            {/* Education Level Selection */}
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold mb-4 text-center">Select Education Level</h3>
+              <div className="bg-white rounded-xl shadow-md p-3 flex flex-wrap mx-auto justify-center w-full">
+                <button
+                  onClick={() => {
+                    setSelectedLevel("ks3");
+                    setSelectedBoard("ks3");
+                  }}
+                  className={`flex-1 px-6 py-4 rounded-xl text-base font-medium transition-all mx-1 ${
+                    selectedLevel === "ks3"
+                      ? "bg-[#2dd4bf] text-white shadow-md"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  }`}
+                >
+                  KS3 (11-14)
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedLevel("gcse");
+                    setSelectedBoard("aqa");
+                  }}
+                  className={`flex-1 px-6 py-4 rounded-xl text-base font-medium transition-all mx-1 ${
+                    selectedLevel === "gcse"
+                      ? "bg-[#2dd4bf] text-white shadow-md"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  }`}
+                >
+                  GCSE & IGCSE (14-16)
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedLevel("alevel");
+                    setSelectedBoard("aqa-alevel");
+                  }}
+                  className={`flex-1 px-6 py-4 rounded-xl text-base font-medium transition-all mx-1 ${
+                    selectedLevel === "alevel"
+                      ? "bg-[#2dd4bf] text-white shadow-md"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  }`}
+                >
+                  A Level (16-18)
+                </button>
+              </div>
+            </div>
+            
             {/* Exam Board Selection */}
             <div className="mb-12">
-              <div className="bg-white rounded-xl shadow-md p-2 inline-flex flex-wrap gap-2 mx-auto justify-center">
-                {examBoards.map((board) => (
-                  <button
-                    key={board.id}
-                    onClick={() => setSelectedBoard(board.id)}
-                    className={`px-4 py-3 rounded-3xl text-sm font-medium transition-all ${
-                      selectedBoard === board.id
-                        ? "bg-[#2dd4bf] text-white shadow-md"
-                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    }`}
-                  >
-                    {board.name} {board.type}
-                  </button>
-                ))}
+              <h3 className="text-xl font-semibold mb-4 text-center">Select Exam Board</h3>
+              <div className="bg-white rounded-xl shadow-md p-2 flex flex-wrap gap-2 mx-auto justify-center w-full">
+                {examBoards
+                  .filter(board => {
+                    if (selectedLevel === "gcse") {
+                      return board.type === "GCSE" || board.type === "IGCSE";
+                    } else if (selectedLevel === "alevel") {
+                      return board.type === "A Level";
+                    } else if (selectedLevel === "ks3") {
+                      return board.id === "ks3";
+                    }
+                    return false;
+                  })
+                  .map((board) => {
+                    // When there's only one board (like in KS3), take the full width
+                    const filteredBoards = examBoards.filter(b => {
+                      if (selectedLevel === "gcse") return b.type === "GCSE" || b.type === "IGCSE";
+                      if (selectedLevel === "alevel") return b.type === "A Level";
+                      if (selectedLevel === "ks3") return b.id === "ks3";
+                      return false;
+                    });
+                    
+                    const isSingleBoard = filteredBoards.length === 1;
+                    const flexClass = isSingleBoard ? 'w-full' : 'flex-1 max-w-fit';
+                    
+                    return (
+                      <button
+                        key={board.id}
+                        onClick={() => setSelectedBoard(board.id)}
+                        className={`${flexClass} px-4 py-3 rounded-3xl text-sm font-medium transition-all mx-1 ${
+                          selectedBoard === board.id
+                            ? "bg-[#2dd4bf] text-white shadow-md"
+                            : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                        }`}
+                      >
+                        {board.name} {board.type}
+                      </button>
+                    );
+                  })}
               </div>
             </div>
             
