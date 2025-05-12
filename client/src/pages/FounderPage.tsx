@@ -36,7 +36,8 @@ const FounderPage = () => {
                 </h1>
                 
                 <p className="text-xl text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Head of Biology at St Helen's School & Founder of The Study Hive
+                  Teacher of Science & Director of EPQ at St Helen's School<br/>
+                  Founder of The Study Hive
                 </p>
                 
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
@@ -111,9 +112,9 @@ const FounderPage = () => {
                 icon: "fas fa-briefcase",
                 title: "Experience",
                 items: [
-                  "Head of Biology at St Helen's School, Northwood",
-                  "Science Teacher at North London Collegiate School",
-                  "10+ Years Teaching Experience in Top UK Schools"
+                  "Teacher of Science at St Helen's School, Northwood",
+                  "Director of Extended Project Qualification (EPQ)",
+                  "Teacher of Biology at North London Collegiate School"
                 ]
               },
               {
@@ -174,17 +175,17 @@ const FounderPage = () => {
                 image: "/assets/images/schools/study-hive.svg"
               },
               {
-                year: "2018 - Present",
-                title: "Head of Biology Department",
+                year: "2014 - Present",
+                title: "Teacher of Science & Director of EPQ",
                 organization: "St Helen's School, Northwood",
-                description: "Leading the Biology department at one of the UK's top independent schools, developing curriculum and teaching methodologies that consistently achieve outstanding exam results.",
+                description: "Teaching Science and directing the Extended Project Qualification program at one of the UK's top independent schools, helping students achieve outstanding exam results.",
                 image: "/assets/images/schools/st-helens-school.svg"
               },
               {
-                year: "2012 - 2018",
-                title: "Science Teacher",
+                year: "2012 - 2014",
+                title: "Teacher of Biology",
                 organization: "North London Collegiate School",
-                description: "Taught Science subjects to students aged 11-18, specializing in Biology curriculum development and exam preparation.",
+                description: "Taught Biology to students aged 11-18, developing specialized curriculum and exam preparation strategies.",
                 image: "/assets/images/schools/nlcs-school.svg"
               },
               {
@@ -242,7 +243,7 @@ const FounderPage = () => {
               
               <div className="space-y-6 text-slate-700">
                 <p>
-                  As the Head of Biology at St Helen's School and with over 10 years of experience teaching in prestigious UK schools, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
+                  As a Science Teacher and Director of EPQ at St Helen's School, with over 10 years of experience teaching in prestigious UK schools, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
                 </p>
                 
                 <p>
