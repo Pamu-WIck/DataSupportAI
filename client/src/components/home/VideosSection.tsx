@@ -6,32 +6,32 @@ const VideosSection = () => {
   const { t } = useTranslation();
   const [selectedVideo, setSelectedVideo] = useState(0);
   
-  // Example videos from your YouTube channel
-  // In a real implementation, these could be fetched from the YouTube API
+  // These are real videos from The Study Hive YouTube channel
+  // Videos from https://www.youtube.com/@TheStudyHive/videos
   const videos = [
     {
       id: "video1",
-      title: "Introduction to Biology",
-      thumbnail: "https://img.youtube.com/vi/QnQe0xW_JY4/maxresdefault.jpg",
-      embedId: "QnQe0xW_JY4",
+      title: "IGCSE Biology Paper 4 - Specimen 2020 (Q1~3) - 0610/04/SP/20",
+      thumbnail: "https://img.youtube.com/vi/t-x-lBi8M_g/maxresdefault.jpg",
+      embedId: "t-x-lBi8M_g",
       subject: "Biology",
-      description: "Learn the fundamentals of Biology with our expert tutor."
+      description: "IGCSE Biology past paper walkthrough with detailed explanations and exam techniques."
     },
     {
       id: "video2",
-      title: "Chemistry Equations Made Easy",
-      thumbnail: "https://img.youtube.com/vi/0RRVV4Diomg/maxresdefault.jpg",
-      embedId: "0RRVV4Diomg",
-      subject: "Chemistry",
-      description: "Master chemical equations with simple techniques."
+      title: "P4 Vectors and SUVAT - Kinematics",
+      thumbnail: "https://img.youtube.com/vi/8FmnTLrTPkk/maxresdefault.jpg",
+      embedId: "8FmnTLrTPkk",
+      subject: "Physics",
+      description: "Learn how to tackle vector problems and use SUVAT equations for kinematics."
     },
     {
       id: "video3",
-      title: "Physics: Forces and Motion",
-      thumbnail: "https://img.youtube.com/vi/CQYELiTtUs8/maxresdefault.jpg",
-      embedId: "CQYELiTtUs8",
-      subject: "Physics",
-      description: "Understand the principles of forces and motion."
+      title: "Rates of Reaction - GCSE Chemistry",
+      thumbnail: "https://img.youtube.com/vi/EdGM-mqDios/maxresdefault.jpg",
+      embedId: "EdGM-mqDios",
+      subject: "Chemistry",
+      description: "Complete guide to understanding rates of reaction for GCSE Chemistry."
     },
   ];
 
@@ -134,7 +134,7 @@ const VideosSection = () => {
               
               <div className="mt-6 text-center">
                 <a 
-                  href="https://www.youtube.com/thestudyhive" 
+                  href="https://www.youtube.com/@TheStudyHive/videos" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-full inline-flex items-center"
