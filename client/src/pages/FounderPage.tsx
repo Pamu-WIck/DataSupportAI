@@ -226,21 +226,23 @@ const FounderPage = () => {
               >
                 <div className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:pr-12 lg:pr-24' : 'md:pl-12 lg:pl-24'}`}>
                   <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 md:static md:transform-none z-10 ${index % 2 === 0 ? 'md:order-1 md:left-0' : 'md:order-3 md:right-0'}`}>
-                    <div className="bg-yellow-400 text-slate-900 font-bold px-4 py-2 rounded-full inline-block mb-4 md:mb-0">
-                      {item.year}
+                    <div className="flex items-center bg-white p-2 rounded-full border-2 border-yellow-400 shadow-md">
+                      {item.image && (
+                        <div className="mr-2">
+                          <img 
+                            src={item.image} 
+                            alt={item.organization} 
+                            className={`h-12 w-12 object-contain ${item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : "rounded-full p-1"}`}
+                          />
+                        </div>
+                      )}
+                      <div className="font-bold px-3 py-1">
+                        {item.year}
+                      </div>
                     </div>
                   </div>
                   
                   <div className={`bg-white p-6 rounded-xl shadow-md border border-slate-200 w-full md:w-auto z-0 mt-6 md:mt-0 ${index % 2 === 0 ? 'md:order-2 md:text-right' : 'md:order-2 md:text-left'}`}>
-                    {item.image && (
-                      <div className="mb-4 flex justify-center">
-                        <img 
-                          src={item.image} 
-                          alt={item.organization} 
-                          className={`h-32 object-contain ${item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-2" : "rounded-md"}`}
-                        />
-                      </div>
-                    )}
                     <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
                     <p className="text-yellow-600 font-medium mb-3">{item.organization}</p>
                     <p className="text-slate-700">{item.description}</p>
