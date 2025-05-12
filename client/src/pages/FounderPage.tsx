@@ -36,7 +36,7 @@ const FounderPage = () => {
                 </h1>
                 
                 <p className="text-xl text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Teacher of Science & Director of EPQ at North London Collegiate School<br/>
+                  Former Teacher of Science & Director of EPQ at North London Collegiate School<br/>
                   Founder of The Study Hive
                 </p>
                 
@@ -176,21 +176,21 @@ const FounderPage = () => {
                 image: "/assets/images/schools/study-hive.svg"
               },
               {
-                year: "2015 - Present",
+                year: "2021 - 2024",
                 title: "Teacher of Science & Director of EPQ",
                 organization: "North London Collegiate School",
                 description: "Teaching Science and directing the Extended Project Qualification program, helping students achieve outstanding exam results.",
                 image: "/assets/images/schools/nlcs-school.svg"
               },
               {
-                year: "2013 - 2015",
+                year: "2017 - 2021",
                 title: "Teacher of Biology",
                 organization: "St Helen's School, Northwood",
                 description: "Taught Biology at one of the UK's top independent schools, developing specialized curriculum and exam preparation strategies for students.",
                 image: "/assets/images/schools/st-helens-school.svg"
               },
               {
-                year: "2010 - 2012",
+                year: "2021 - 2024",
                 title: "Science Specialist Writer",
                 organization: "BBC Bitesize",
                 description: "Developed and wrote science content for BBC Bitesize's secondary school platform, creating educational materials for KS3 and GCSE students across the UK.",
@@ -251,7 +251,7 @@ const FounderPage = () => {
               
               <div className="space-y-6 text-slate-700">
                 <p>
-                  As a Science Teacher and Director of EPQ at North London Collegiate School, with previous experience as a Biology Teacher at St Helen's School and as a content writer for BBC Bitesize, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
+                  As a former Science Teacher and Director of EPQ at North London Collegiate School (2021-2024), with previous experience as a Biology Teacher at St Helen's School (2017-2021) and as a content writer for BBC Bitesize, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
                 </p>
                 
                 <p>
