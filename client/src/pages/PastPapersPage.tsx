@@ -46,7 +46,9 @@ const PastPapersPage = () => {
     const capitalizedTier = tier.charAt(0).toUpperCase() + tier.slice(1);
     const examBoard = examBoards.find(b => b.id === selectedBoard)?.name;
     
-    return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
+    // Generate different notes based on subject and exam board
+    if (subject === "biology") {
+      return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
 
 ## Key Topics Covered in ${paper.year} ${paper.season} Paper
 
@@ -88,6 +90,215 @@ This ${examBoard} paper regularly tests understanding of homeostasis, cell trans
 3. Calculate the percentage efficiency of energy transfer in a food chain. (3 marks)
 
 These notes were automatically generated for ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${paper.year} ${paper.season}).`;
+    } else if (subject === "chemistry") {
+      return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
+
+## Key Topics Covered in ${paper.year} ${paper.season} Paper
+
+1. **Atomic Structure and the Periodic Table**
+   - Electronic configuration
+   - Groups and periods
+   - Trends in properties
+
+2. **Chemical Bonding and Structure**
+   - Ionic, covalent and metallic bonding
+   - Properties of different structures
+   - Intermolecular forces
+
+3. **Quantitative Chemistry**
+   - Calculations involving masses
+   - Moles and equations
+   - Concentration and titration calculations
+
+4. **Chemical Changes**
+   - Acids, bases and neutralisation
+   - Redox reactions
+   - Electrolysis
+
+## Common Exam Techniques
+
+- Show all working in calculations
+- Use correct chemical terminology and symbols
+- Balance chemical equations carefully
+- Relate properties to structure and bonding when explaining
+
+## Frequently Tested Concepts
+
+This ${examBoard} paper frequently examines stoichiometric calculations, understanding of trends in the periodic table, and explanations of chemical bonding and its effect on properties.
+
+## Practice Questions
+
+1. Calculate the mass of magnesium oxide formed when 2.4g of magnesium reacts completely with oxygen. (4 marks)
+2. Explain why diamond has a high melting point but graphite conducts electricity. (6 marks)
+3. Describe what happens during the electrolysis of copper sulfate solution with copper electrodes. (5 marks)
+
+These notes were automatically generated for ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${paper.year} ${paper.season}).`;
+    } else if (subject === "physics") {
+      return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
+
+## Key Topics Covered in ${paper.year} ${paper.season} Paper
+
+1. **Forces and Motion**
+   - Newton's laws
+   - Momentum and impulse
+   - Work, energy and power
+
+2. **Waves**
+   - Properties of waves
+   - Electromagnetic spectrum
+   - Wave behaviors (reflection, refraction, diffraction)
+
+3. **Electricity and Magnetism**
+   - Current, potential difference and resistance
+   - Magnetic fields
+   - Electromagnetic induction
+
+4. **Particle Model of Matter**
+   - Density and states of matter
+   - Energy transfers
+   - Pressure in gases
+
+## Common Exam Techniques
+
+- Include units in calculations and final answers
+- Draw clear, labeled diagrams when explaining phenomena
+- Convert between standard form and decimal form correctly
+- Use equations from the formula sheet accurately
+
+## Frequently Tested Concepts
+
+This ${examBoard} paper frequently tests application of principles to unfamiliar situations, calculations involving multiple steps, and explanations of physical phenomena.
+
+## Practice Questions
+
+1. Calculate the acceleration of a 1200kg car when a force of 3600N is applied. (3 marks)
+2. Explain why the temperature of a gas increases when it is compressed. (4 marks)
+3. Calculate the energy transferred when a current of 5A flows through a 12Ω resistor for 30 seconds. (5 marks)
+
+These notes were automatically generated for ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${paper.year} ${paper.season}).`;
+    } else {
+      return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
+
+## Key Topics Covered in ${paper.year} ${paper.season} Paper
+
+1. **Biology Topics**
+   - Cells and organization
+   - Disease and bioenergetics
+   - Ecology and homeostasis
+
+2. **Chemistry Topics**
+   - Atomic structure and periodic table
+   - Chemical changes and bonding
+   - Organic chemistry and analysis
+
+3. **Physics Topics**
+   - Energy and electricity
+   - Particles and atomic structure
+   - Forces and waves
+
+4. **Required Practicals**
+   - Food tests
+   - Rate of reaction
+   - Specific heat capacity
+
+## Common Exam Techniques
+
+- Read all parts of the question before answering
+- Use scientific terminology appropriately
+- Link answers to the specific question context
+- Use data from graphs/tables in your answers
+
+## Frequently Tested Concepts
+
+This ${examBoard} Combined Science paper frequently tests application of knowledge across biology, chemistry and physics, practical skills, and mathematical calculations.
+
+## Practice Questions
+
+1. Explain how the body maintains a constant internal temperature. (4 marks)
+2. Calculate the energy transferred when 200g of water is heated from 20°C to 50°C. (3 marks)
+3. Describe how to test for the presence of carbon dioxide gas. (3 marks)
+
+These notes were automatically generated for ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${paper.year} ${paper.season}).`;
+    }
+  };
+  
+  // Notes Dialog Component
+  const NotesDialog = () => {
+    return (
+      <Dialog open={!!selectedPaper} onOpenChange={(open) => !open && setSelectedPaper(null)}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">
+              {isGeneratingNotes ? (
+                <div className="flex items-center gap-2">
+                  <span>Generating Notes</span>
+                  <svg className="animate-spin w-5 h-5 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <FileText className="w-6 h-6 text-teal-500" />
+                  <span>Study Notes: {selectedPaper?.examBoard} {selectedPaper?.subject} {selectedPaper?.paperNumber}</span>
+                </div>
+              )}
+            </DialogTitle>
+            <DialogDescription>
+              {isGeneratingNotes 
+                ? "Analyzing past paper content and generating comprehensive notes..."
+                : `${selectedPaper?.year} ${selectedPaper?.season} | ${selectedPaper?.tier} Tier`}
+            </DialogDescription>
+          </DialogHeader>
+          
+          {isGeneratingNotes ? (
+            <div className="flex flex-col items-center justify-center py-12">
+              <div className="relative w-24 h-24">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Sparkles className="w-12 h-12 text-teal-500 animate-pulse" />
+                </div>
+                <div className="absolute inset-0 border-t-4 border-teal-500 rounded-full animate-spin"></div>
+              </div>
+              <p className="mt-6 text-slate-600">Identifying key topics and exam patterns...</p>
+            </div>
+          ) : (
+            <div className="mt-4">
+              <div className="bg-slate-50 p-4 rounded-lg font-mono text-sm whitespace-pre-wrap">
+                {generatedNotes}
+              </div>
+              
+              <DialogFooter className="mt-6 gap-2 flex-row flex-wrap sm:justify-end justify-center">
+                <Button 
+                  variant="outline" 
+                  className="flex items-center gap-1"
+                  onClick={() => {
+                    const blob = new Blob([generatedNotes], { type: "text/markdown" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `${selectedPaper?.examBoard}-${selectedPaper?.subject}-${selectedPaper?.paperNumber}-${selectedPaper?.year}-notes.md`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                  }}
+                >
+                  <Download className="h-4 w-4" />
+                  Download as Markdown
+                </Button>
+                
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(generatedNotes);
+                    // Could add toast notification here
+                  }}
+                >
+                  Copy to Clipboard
+                </Button>
+              </DialogFooter>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    );
   };
   
   // Exam board data structure
