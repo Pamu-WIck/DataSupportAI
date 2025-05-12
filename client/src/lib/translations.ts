@@ -4,6 +4,7 @@ export const translations = {
     "nav.home": "Home",
     "nav.services": "Services",
     "nav.tutors": "Our Tutors",
+    "nav.videos": "Video Lessons",
     "nav.resources": "Resources",
     "nav.contact": "Contact",
     
