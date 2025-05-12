@@ -5,7 +5,7 @@ import { Link } from "wouter";
 // Import school logos
 import studyHiveLogo from "@/assets/images/schools/study-hive.svg";
 import nlcsLogo from "@/assets/nlcs-logo.png";
-import stHelensLogo from "@/assets/images/schools/st-helens-school.svg";
+import stHelensLogo from "@/assets/st-helens-logo.png";
 import bbcBitesizeLogo from "@/assets/images/schools/bbc-bitesize.svg";
 import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
