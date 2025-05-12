@@ -8,11 +8,13 @@ import HomePage from "@/pages/HomePage";
 import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import VideoGallery from "./components/home/VideoGallery";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      <Route path="/videos" component={VideoGallery} />
       <Route component={NotFound} />
     </Switch>
   );
