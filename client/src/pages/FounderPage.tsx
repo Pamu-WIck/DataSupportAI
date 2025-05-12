@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import { Link } from "wouter";
+import { useEffect } from "react";
 
 // Import school logos
 import studyHiveLogo from "@/assets/study-hive-logo-square.png";
@@ -10,6 +11,16 @@ import bbcBitesizeLogo from "@/assets/bbc-bitesize-logo-new.png";
 import neethuHaridasPhoto from "@/assets/images/neethu-haridas.jpg";
 
 const FounderPage = () => {
+  useEffect(() => {
+    // Update the document title to match the new header
+    document.title = "Meet Ms Haridas | The Study Hive";
+    
+    // Restore the original title when component unmounts
+    return () => {
+      document.title = "The Study Hive";
+    };
+  }, []);
+  
   return (
     <div className="bg-[#fafbfc]">
       {/* Hero Section */}
@@ -34,7 +45,7 @@ const FounderPage = () => {
                 whileHover={{ y: -3 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                MEET OUR FOUNDER
+                MEET MS HARIDAS
               </motion.span>
               
               <ScrollAnimation variant="fadeRight">
@@ -280,15 +291,15 @@ const FounderPage = () => {
               
               <div className="space-y-6 text-slate-700">
                 <p>
-                  As a former Science Teacher and Director of EPQ at North London Collegiate School (2021-2024), with previous experience as a Biology Teacher at St Helen's School (2017-2021) and as a content writer for BBC Bitesize, I've developed a teaching approach that combines academic rigor with personalized support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
+                  As a former Science Teacher and Director of EPQ at North London Collegiate School (2021-2024), with previous experience as a Biology Teacher at St Helen's School (2017-2021) and as a content writer for BBC Bitesize, I've developed a teaching approach that combines academic rigour with personalised support. I'm passionate about making science accessible and engaging for all students, regardless of their starting point.
                 </p>
                 
                 <p>
-                  At The Study Hive, we focus on building strong foundations in scientific concepts while developing critical thinking skills that extend beyond exam success. Our goal is to inspire a lifelong love of learning and scientific inquiry in every student.
+                  At The Study Hive, we focus on building strong foundations in scientific concepts whilst developing critical thinking skills that extend beyond exam success. Our goal is to inspire a lifelong love of learning and scientific enquiry in every student.
                 </p>
                 
                 <p>
-                  I take pride in helping students not just understand the curriculum, but excel in their examinations through strategic preparation, practice, and personalized feedback tailored to each exam board's specific requirements.
+                  I take pride in helping students not just understand the curriculum, but excel in their examinations through strategic preparation, practice, and personalised feedback tailored to each exam board's specific requirements.
                 </p>
               </div>
             </ScrollAnimation>
@@ -313,7 +324,7 @@ const FounderPage = () => {
                   },
                   {
                     percentage: "100%",
-                    metric: "Personalized Approach",
+                    metric: "Personalised Approach",
                     description: "Commitment to adapting to each student's learning style"
                   }
                 ].map((stat, index) => (
