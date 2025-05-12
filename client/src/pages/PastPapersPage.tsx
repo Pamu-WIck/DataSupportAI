@@ -3,8 +3,10 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import ScrollAnimation from "@/components/ui/scroll-animation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FileText, Sparkles, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
 
 /**
  * PastPapersPage component
@@ -14,6 +16,79 @@ const PastPapersPage = () => {
   const [selectedBoard, setSelectedBoard] = useState("aqa");
   const [yearFilter, setYearFilter] = useState("all");
   const [seasonFilter, setSeasonFilter] = useState("all");
+  
+  // Note generation state
+  const [isGeneratingNotes, setIsGeneratingNotes] = useState(false);
+  const [generatedNotes, setGeneratedNotes] = useState("");
+  const [selectedPaper, setSelectedPaper] = useState<any>(null);
+  
+  // Function to generate notes for a specific paper
+  const generateNotes = (paper: any, tier: string, subject: string) => {
+    setSelectedPaper({
+      ...paper,
+      tier,
+      subject: subject === "combined-science" ? "Combined Science" : subject,
+      examBoard: examBoards.find(b => b.id === selectedBoard)?.name
+    });
+    setIsGeneratingNotes(true);
+    
+    // Simulate API call to Perplexity
+    setTimeout(() => {
+      const notes = generateSimulatedNotes(paper, tier, subject);
+      setGeneratedNotes(notes);
+      setIsGeneratingNotes(false);
+    }, 1500);
+  };
+  
+  // Function to generate simulated notes based on paper data
+  const generateSimulatedNotes = (paper: any, tier: string, subject: string) => {
+    const capitalizedSubject = subject.charAt(0).toUpperCase() + subject.slice(1);
+    const capitalizedTier = tier.charAt(0).toUpperCase() + tier.slice(1);
+    const examBoard = examBoards.find(b => b.id === selectedBoard)?.name;
+    
+    return `# Study Notes: ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${capitalizedTier} Tier)
+
+## Key Topics Covered in ${paper.year} ${paper.season} Paper
+
+1. **Cell Structure and Function**
+   - Eukaryotic and prokaryotic cells
+   - Organelles and their functions
+   - Cell differentiation and specialization
+
+2. **Biological Molecules**
+   - Carbohydrates, proteins, and lipids
+   - Enzyme function and factors affecting enzyme activity
+   - DNA structure and replication
+
+3. **Genetics and Inheritance**
+   - Mitosis and meiosis
+   - Genetic variation and inheritance
+   - Mendelian genetics and genetic disorders
+
+4. **Ecology and Ecosystems**
+   - Food chains and energy transfer
+   - Carbon and nitrogen cycles
+   - Biodiversity and conservation
+
+## Common Exam Techniques
+
+- Ensure you understand command words like "describe," "explain," and "evaluate"
+- Pay attention to the mark allocation for each question
+- Include relevant scientific terminology in your answers
+- Support explanations with clear examples
+
+## Frequently Tested Concepts
+
+This ${examBoard} paper regularly tests understanding of homeostasis, cell transport mechanisms, and ecological principles. Be sure to review these topics thoroughly.
+
+## Practice Questions
+
+1. Explain how the structure of a cell membrane relates to its function. (4 marks)
+2. Describe the process of natural selection and how it leads to adaptation. (6 marks)
+3. Calculate the percentage efficiency of energy transfer in a food chain. (3 marks)
+
+These notes were automatically generated for ${examBoard} ${capitalizedSubject} ${paper.paperNumber} (${paper.year} ${paper.season}).`;
+  };
   
   // Exam board data structure
   const examBoards = [
