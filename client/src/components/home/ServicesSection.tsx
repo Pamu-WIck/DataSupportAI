@@ -1,61 +1,7 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import Hexagon from "@/components/ui/hexagon";
 import ScrollAnimation from "@/components/ui/scroll-animation";
-
-type ServiceCardProps = {
-  icon: string;
-  title: string;
-  description: string;
-  topics: string[];
-  variant: "primary" | "secondary";
-};
-
-const ServiceCard = ({ icon, title, description, topics, variant }: ServiceCardProps) => {
-  const { t } = useTranslation();
-  
-  return (
-    <div className="service-card bg-white rounded-2xl shadow-md border-2 border-black overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1">
-      <div className="p-6">
-        <div className="flex items-start mb-4">
-          <div className="mr-4">
-            <Hexagon
-              variant={variant}
-              className="w-14 h-14 flex items-center justify-center"
-              rotateHover={true}
-              content={<i className={`${icon} text-black text-lg`}></i>}
-            />
-          </div>
-          <h3 className="font-poppins font-bold text-xl text-slate-900 pt-3">{title}</h3>
-        </div>
-        
-        <p className="text-slate-700 mb-5 text-sm">
-          {description}
-        </p>
-        
-        <ul className="mb-5 space-y-3">
-          {topics.map((topic, index) => (
-            <li key={index} className="flex items-start text-sm bg-yellow-50 p-2 rounded-lg border border-yellow-200">
-              <span className="text-yellow-600 mt-0.5 mr-2 flex-shrink-0">
-                <i className="fas fa-check-circle"></i>
-              </span>
-              <span className="text-slate-800 font-medium">{topic}</span>
-            </li>
-          ))}
-        </ul>
-        
-        <a 
-          href="#contact" 
-          className={`inline-flex items-center text-sm font-bold ${
-            variant === "primary" ? "text-yellow-600 hover:text-yellow-800" : "text-teal-600 hover:text-teal-800"
-          } transition-colors group mt-2`}
-        >
-          {t("services.learnMore")} 
-          <i className="fas fa-chevron-right ml-1 group-hover:ml-2 transition-all duration-300"></i>
-        </a>
-      </div>
-    </div>
-  );
-};
+import ServiceCard from "./ServiceCard";
 
 const ServicesSection = () => {
   const { t } = useTranslation();
@@ -148,9 +94,9 @@ const ServicesSection = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <ScrollAnimation variant="fadeUp" className="text-center mb-16">
           <div className="inline-block">
-            <span className="bg-yellow-400 border-2 border-black text-black font-semibold text-sm mb-3 px-4 py-2 rounded-full inline-block">
+            <span className="bg-yellow-400 border-2 border-black text-black font-semibold text-sm mb-3 px-4 py-2 rounded-full inline-block animate-borderPulse">
               UK CURRICULUM EXPERTISE
             </span>
           </div>
@@ -161,18 +107,24 @@ const ServicesSection = () => {
           <p className="text-slate-700 max-w-2xl mx-auto">
             {t("services.subtitle")}
           </p>
-        </div>
+        </ScrollAnimation>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 staggered-animation">
           {services.map((service, index) => (
-            <ServiceCard
+            <ScrollAnimation 
               key={index}
-              icon={service.icon}
-              title={t(service.titleKey)}
-              description={t(service.descriptionKey)}
-              topics={service.topics}
-              variant={service.variant}
-            />
+              variant="scale" 
+              delay={0.1 * index}
+              duration={0.6}
+            >
+              <ServiceCard
+                icon={service.icon}
+                title={t(service.titleKey)}
+                description={t(service.descriptionKey)}
+                topics={service.topics}
+                variant={service.variant}
+              />
+            </ScrollAnimation>
           ))}
         </div>
       </div>

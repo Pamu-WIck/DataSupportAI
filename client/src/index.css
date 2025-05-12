@@ -68,7 +68,7 @@
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-/* Animations and special effects */
+/* Animations and special effects inspired by St Helens School and NLCS */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -92,6 +92,79 @@
   100% {
     background-position: 100% 100%;
   }
+}
+
+/* NLCS inspired animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 191, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 191, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 191, 0, 0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-borderPulse {
+  animation: borderPulse 2s infinite;
+}
+
+.staggered-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.staggered-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.staggered-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.staggered-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.staggered-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.staggered-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+.elegant-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .honeycomb-pattern {
