@@ -11,6 +11,7 @@ import Footer from "./components/layout/Footer";
 import VideoGallery from "./components/home/VideoGallery";
 import FounderPage from "./pages/FounderPage";
 import PastPapersPage from "./pages/PastPapersPage";
+import GamificationPage from "@/pages/GamificationPage";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/videos" component={VideoGallery} />
       <Route path="/founder" component={FounderPage} />
       <Route path="/past-papers" component={PastPapersPage} />
+      <Route path="/achievements" component={GamificationPage} />
       <Route component={NotFound} />
     </Switch>
   );
