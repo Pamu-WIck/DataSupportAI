@@ -121,9 +121,13 @@ const VideoGallery = () => {
       <div className="container mx-auto px-6">
         <div className="mb-6">
           <Link href="/">
-            <a className="inline-flex items-center text-slate-600 hover:text-slate-900 mb-8">
+            <motion.button 
+              className="inline-flex items-center text-slate-600 hover:text-slate-900 mb-8"
+              whileHover={{ x: -3 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
               <i className="fas fa-arrow-left mr-2"></i> Back to Home
-            </a>
+            </motion.button>
           </Link>
         </div>
         
