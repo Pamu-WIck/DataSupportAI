@@ -241,14 +241,14 @@ const FounderPage = () => {
                       {/* Logo positioned above the year */}
                       {item.image && (
                         <div className="flex-shrink-0 mb-2">
-                          <div className={`${item.organization === "BBC Bitesize" ? "bg-[#ff8d1e] border-[#ff8d1e] p-0" : "bg-white border-slate-200 p-2"} rounded-full shadow-md border`}>
+                          <div className={`${item.organization === "BBC Bitesize" ? "bg-[#ff8d1e] border-[#ff8d1e] p-2 rounded-lg" : "bg-white border-slate-200 p-2 rounded-full"} shadow-md border`}>
                             <img 
                               src={item.image} 
                               alt={item.organization} 
-                              className={`${item.organization === "BBC Bitesize" ? "h-16 w-16 p-0" : "h-16 w-16"} object-contain ${
+                              className={`${item.organization === "BBC Bitesize" ? "h-16 w-16 p-2" : "h-16 w-16"} object-contain ${
                                 item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
                                 item.organization === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
-                                item.organization === "BBC Bitesize" ? "rounded-full bg-[#ff8d1e] p-0" : 
+                                item.organization === "BBC Bitesize" ? "rounded-lg bg-[#ff8d1e] p-0" : 
                                 item.organization === "St Helen's School" ? "rounded-full bg-[#b7bcb2] p-1" : 
                                 ""
                               }`}
