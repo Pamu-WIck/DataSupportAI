@@ -68,23 +68,44 @@ const FounderPage = () => {
             </ScrollAnimation>
             
             <ScrollAnimation variant="fadeLeft">
-              <div className="relative">
-                <div className="bg-gradient-to-tr from-yellow-400/20 to-teal-400/20 w-full h-full absolute top-6 left-6 rounded-2xl"></div>
-                <img 
-                  src={neethuHaridasPhoto}
-                  alt="Neethu Haridas - Founder of The Study Hive" 
-                  className="w-full h-auto object-cover rounded-2xl shadow-xl relative z-10 border-2 border-slate-800"
-                />
-                <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-20">
-                  <a 
-                    href="https://www.linkedin.com/in/neethu-haridas-6198a021/" 
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="font-medium text-sm flex items-center text-blue-700"
-                  >
-                    <i className="fab fa-linkedin text-blue-700 mr-2"></i>
-                    View LinkedIn Profile
-                  </a>
+              <div className="relative flex justify-center">
+                {/* Decorative hexagon elements */}
+                <div className="absolute -top-10 -left-5 w-20 h-20 bg-yellow-400/20 rotate-45 rounded-lg"></div>
+                <div className="absolute -bottom-5 -right-5 w-16 h-16 bg-teal-400/20 rotate-45 rounded-lg"></div>
+                <div className="absolute top-1/3 -right-8 w-12 h-12 bg-yellow-400/30 rotate-45 rounded-lg"></div>
+                
+                {/* Container with gradient background */}
+                <div className="relative w-4/5 md:w-3/4 lg:w-2/3 mx-auto overflow-hidden">
+                  {/* Background gradient effect */}
+                  <div className="bg-gradient-to-tr from-yellow-400/20 via-amber-300/20 to-teal-400/20 w-full h-full absolute top-6 left-6 rounded-2xl"></div>
+                  
+                  {/* Decorative border */}
+                  <div className="absolute inset-0 border-4 border-dashed border-yellow-300/30 rounded-2xl m-3 rotate-1"></div>
+                  
+                  {/* Image container with sizing */}
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-slate-800 shadow-2xl z-10">
+                    <img 
+                      src={neethuHaridasPhoto}
+                      alt="Neethu Haridas - Founder of The Study Hive" 
+                      className="w-full h-auto object-cover rounded-2xl transition-all duration-700 hover:scale-105"
+                    />
+                    
+                    {/* Subtle overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+                    
+                    {/* LinkedIn badge */}
+                    <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-20 border border-slate-200 transition-all duration-300 hover:-translate-y-1">
+                      <a 
+                        href="https://www.linkedin.com/in/neethu-haridas-6198a021/" 
+                        target="_blank"
+                        rel="noopener noreferrer" 
+                        className="font-medium text-sm flex items-center text-blue-700"
+                      >
+                        <i className="fab fa-linkedin text-blue-700 mr-2"></i>
+                        View LinkedIn Profile
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ScrollAnimation>
@@ -163,16 +184,25 @@ const FounderPage = () => {
       </section>
       
       {/* Career Highlights */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6">
+      <section className="py-20 bg-slate-50 relative overflow-hidden">
+        {/* Decorative Hexagon Background Elements */}
+        <div className="absolute top-10 left-10 w-24 h-24 bg-yellow-400/10 rotate-45 rounded-lg"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-teal-400/10 rotate-45 rounded-lg"></div>
+        <div className="absolute top-1/3 right-20 w-16 h-16 bg-yellow-400/15 rotate-45 rounded-lg"></div>
+        <div className="absolute bottom-1/4 left-20 w-20 h-20 bg-teal-400/15 rotate-45 rounded-lg"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <ScrollAnimation variant="fadeUp" className="text-center mb-16">
-            <h2 className="font-playfair font-bold text-3xl md:text-4xl text-slate-900 mb-4">
-              Career Highlights
-            </h2>
+            <div className="inline-block relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/30 to-teal-400/30 rounded-lg blur"></div>
+              <h2 className="font-playfair font-bold text-3xl md:text-4xl text-slate-900 mb-4 relative bg-slate-50 px-4 py-1 rounded-lg">
+                Career Highlights
+              </h2>
+            </div>
           </ScrollAnimation>
           
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-yellow-400"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-500"></div>
             
             {[
               {
