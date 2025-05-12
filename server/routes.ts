@@ -247,6 +247,58 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // API endpoint for saving paper notes
+  app.post("/api/paper-notes", async (req: Request, res: Response) => {
+    try {
+      const { studentId, examBoard, subject, paperIdentifier, notes } = req.body;
+      
+      if (!studentId || !examBoard || !subject || !paperIdentifier || !notes) {
+        return res.status(400).json({
+          success: false,
+          message: "Missing required fields"
+        });
+      }
+      
+      // Check if a paper completion record exists
+      const paperCompletions = await storage.getStudentCompletedPapers(studentId);
+      const existingCompletion = paperCompletions.find(p => p.paperIdentifier === paperIdentifier);
+      
+      let completion;
+      
+      if (existingCompletion) {
+        // Update the existing record with notes
+        completion = await storage.updatePaperCompletionNotes(existingCompletion.id, notes);
+      } else {
+        // Create a new paper completion record with the notes
+        const pointsEarned = 5; // Small points reward for generating notes
+        
+        completion = await storage.recordPaperCompletion({
+          studentId,
+          examBoard,
+          subject,
+          paperIdentifier,
+          pointsEarned,
+          notes
+        });
+        
+        // Update the student's points
+        await storage.updateStudentPoints(studentId, pointsEarned);
+      }
+      
+      res.status(200).json({
+        success: true,
+        data: completion,
+        message: "Paper notes saved successfully"
+      });
+    } catch (error) {
+      console.error("Error saving paper notes:", error);
+      res.status(500).json({
+        success: false,
+        message: "Failed to save paper notes"
+      });
+    }
+  });
+  
   // Past papers download API
   app.get("/api/download/:examBoard/:subject/:filename", async (req: Request, res: Response) => {
     const { examBoard, subject, filename } = req.params;
