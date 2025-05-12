@@ -51,6 +51,7 @@ export interface IStorage {
   recordPaperCompletion(completion: InsertPaperCompletion): Promise<PaperCompletion>;
   getStudentCompletedPapers(studentId: number): Promise<PaperCompletion[]>;
   getPaperCompletionStats(): Promise<{subject: string, completionCount: number}[]>;
+  updatePaperCompletionNotes(completionId: number, notes: string): Promise<PaperCompletion>;
   
   // Video completion methods
   recordVideoCompletion(completion: InsertVideoCompletion): Promise<VideoCompletion>;
@@ -317,6 +318,20 @@ export class DatabaseStorage implements IStorage {
       .groupBy(paperCompletions.subject);
     
     return results;
+  }
+  
+  async updatePaperCompletionNotes(completionId: number, notes: string): Promise<PaperCompletion> {
+    const [updatedCompletion] = await db
+      .update(paperCompletions)
+      .set({ notes })
+      .where(eq(paperCompletions.id, completionId))
+      .returning();
+      
+    if (!updatedCompletion) {
+      throw new Error(`Paper completion with id ${completionId} not found`);
+    }
+      
+    return updatedCompletion;
   }
 
   // Video completion methods
