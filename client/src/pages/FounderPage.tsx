@@ -69,9 +69,9 @@ const FounderPage = () => {
             
             <ScrollAnimation variant="fadeUp" delay={0.2}>
               <div className="relative flex justify-center mb-8">
-                {/* Square image container */}
-                <div className="relative w-3/4 md:w-2/3 lg:w-1/2 mx-auto">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-yellow-400">
+                {/* Rectangular image container */}
+                <div className="relative w-3/4 md:w-2/3 lg:w-3/5 mx-auto">
+                  <div className="relative aspect-[16/9] rounded-lg overflow-hidden border-2 border-yellow-400">
                     <img 
                       src={neethuHaridasPhoto}
                       alt="Neethu Haridas - Founder of The Study Hive" 
