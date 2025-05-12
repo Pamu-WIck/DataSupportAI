@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { BiPlay, BiPause } from "react-icons/bi";
 import { FaCheck } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
@@ -74,11 +73,9 @@ export const VideoCompletionTracker: React.FC<VideoCompletionTrackerProps> = ({
     try {
       // Only record completion if not already completed
       if (!isCompleted) {
-        const response = await apiRequest<{
-          completion: { pointsEarned: number };
-          student: { totalPoints: number };
-        }>("/api/video-completions", {
+        const response = await fetch("/api/video-completions", {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             studentId,
             videoId,
@@ -88,16 +85,18 @@ export const VideoCompletionTracker: React.FC<VideoCompletionTrackerProps> = ({
             watchedPercentage
           })
         });
+        
+        const data = await response.json();
 
-        if (response.success) {
+        if (data.success) {
           setIsCompleted(true);
-          setPointsEarned(response.data.completion.pointsEarned);
+          setPointsEarned(data.data.completion.pointsEarned);
           setIsPlaying(false);
           
           // Show success message
           toast({
             title: "Video Completed!",
-            description: `You earned ${response.data.completion.pointsEarned} points. Your total is now ${response.data.student.totalPoints} points.`,
+            description: `You earned ${data.data.completion.pointsEarned} points. Your total is now ${data.data.student.totalPoints} points.`,
             variant: "default",
           });
           
@@ -143,8 +142,7 @@ export const VideoCompletionTracker: React.FC<VideoCompletionTrackerProps> = ({
       <div className="mb-3">
         <Progress 
           value={progress} 
-          className="h-2" 
-          indicatorClassName={getSubjectColor()} 
+          className={`h-2 ${getSubjectColor()}`}
         />
         <div className="text-xs text-right mt-1 text-muted-foreground">
           {progress}% complete
