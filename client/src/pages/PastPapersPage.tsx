@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
  */
 const PastPapersPage = () => {
   const [selectedBoard, setSelectedBoard] = useState("aqa");
+  const [yearFilter, setYearFilter] = useState("all");
+  const [seasonFilter, setSeasonFilter] = useState("all");
   
   // Exam board data structure
   const examBoards = [
@@ -567,21 +569,8 @@ const PastPapersPage = () => {
                       {subject === "combined-science" ? "Combined Science" : subject} Papers - {examBoards.find(b => b.id === selectedBoard)?.name} {examBoards.find(b => b.id === selectedBoard)?.type}
                     </h3>
                     
-                    {/* Direct Download and Official Resource Links */}
-                    <div className="mb-6 flex flex-wrap gap-3">
-                      <a 
-                        href={`/downloads/${selectedBoard}-${subject}-papers.zip`}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#2dd4bf] hover:bg-teal-600 text-white rounded-lg font-medium transition-all"
-                        download
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-download">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                          <polyline points="7 10 12 15 17 10"/>
-                          <line x1="12" x2="12" y1="15" y2="3"/>
-                        </svg>
-                        Download {examBoards.find(b => b.id === selectedBoard)?.name} {subject === "combined-science" ? "Combined Science" : subject} Papers (2018-2023)
-                      </a>
-                      
+                    {/* Official Resource Link */}
+                    <div className="mb-6">
                       <a 
                         href={(() => {
                           const subjectForUrl = subject === "combined-science" ? "combined-science" : subject;
@@ -608,6 +597,58 @@ const PastPapersPage = () => {
                         <ExternalLink size={16} />
                         Browse Official {examBoards.find(b => b.id === selectedBoard)?.name} Resources
                       </a>
+                    </div>
+                    
+                    {/* Filter options */}
+                    <div className="flex flex-wrap gap-3 mb-6 items-center">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-slate-700">Filter by Year:</span>
+                        <select 
+                          className="px-3 py-1.5 border border-slate-300 rounded-md text-sm"
+                          value={yearFilter}
+                          onChange={(e) => setYearFilter(e.target.value)}
+                        >
+                          <option value="all">All Years</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
+                        </select>
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-slate-700">Filter by Season:</span>
+                        <select 
+                          className="px-3 py-1.5 border border-slate-300 rounded-md text-sm"
+                          value={seasonFilter}
+                          onChange={(e) => setSeasonFilter(e.target.value)}
+                        >
+                          <option value="all">All Seasons</option>
+                          <option value="Summer">Summer</option>
+                          <option value="January">January</option>
+                          <option value="Winter">Winter</option>
+                          <option value="Autumn">Autumn</option>
+                        </select>
+                      </div>
+                      
+                      {/* Clear Filters Button - only show if filters are active */}
+                      {(yearFilter !== 'all' || seasonFilter !== 'all') && (
+                        <button
+                          onClick={() => {
+                            setYearFilter('all');
+                            setSeasonFilter('all');
+                          }}
+                          className="text-sm text-slate-600 hover:text-slate-900 flex items-center gap-1"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M19 12H5"/>
+                            <path d="M12 19l-7-7 7-7"/>
+                          </svg>
+                          Clear Filters
+                        </button>
+                      )}
                     </div>
                     
                     {pastPapers[selectedBoard as keyof typeof pastPapers] && 
@@ -652,9 +693,34 @@ const PastPapersPage = () => {
                                           <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Question Paper</th>
                                           <th className="text-left py-4 px-4 font-medium text-slate-700 border-b">Mark Scheme</th>
                                         </tr>
+                                        {/* Paper Count */}
+                                        <tr className="bg-slate-50/40">
+                                          <td colSpan={6} className="py-2 px-4 text-xs text-slate-500 italic">
+                                            Showing {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier]
+                                              .filter((paper: any) => {
+                                                if (yearFilter !== 'all' && paper.year !== yearFilter) return false;
+                                                if (seasonFilter !== 'all' && paper.season !== seasonFilter) return false;
+                                                return true;
+                                              }).length} of {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier].length} papers
+                                          </td>
+                                        </tr>
                                       </thead>
                                       <tbody>
-                                        {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier].map((paper: any, index: number) => (
+                                        {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier]
+                                          .filter((paper: any) => {
+                                            // Apply year filter
+                                            if (yearFilter !== 'all' && paper.year !== yearFilter) {
+                                              return false;
+                                            }
+                                            
+                                            // Apply season filter
+                                            if (seasonFilter !== 'all' && paper.season !== seasonFilter) {
+                                              return false;
+                                            }
+                                            
+                                            return true;
+                                          })
+                                          .map((paper: any, index: number) => (
                                           <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
                                             <td className="py-4 px-4 border-b text-slate-800">{paper.year}</td>
                                             <td className="py-4 px-4 border-b text-slate-800">{paper.season}</td>
@@ -666,6 +732,7 @@ const PastPapersPage = () => {
                                                 target="_blank" 
                                                 rel="noreferrer" 
                                                 className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center gap-1.5"
+                                                download
                                               >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                   <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
@@ -680,6 +747,7 @@ const PastPapersPage = () => {
                                                 target="_blank" 
                                                 rel="noreferrer" 
                                                 className="text-[#2dd4bf] hover:text-teal-700 font-medium inline-flex items-center gap-1.5"
+                                                download
                                               >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                   <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
@@ -690,6 +758,20 @@ const PastPapersPage = () => {
                                             </td>
                                           </tr>
                                         ))}
+                                        
+                                        {/* No results message */}
+                                        {(pastPapers[selectedBoard as keyof typeof pastPapers] as any)[subject][tier]
+                                          .filter((paper: any) => {
+                                            if (yearFilter !== 'all' && paper.year !== yearFilter) return false;
+                                            if (seasonFilter !== 'all' && paper.season !== seasonFilter) return false;
+                                            return true;
+                                          }).length === 0 && (
+                                          <tr>
+                                            <td colSpan={6} className="py-8 text-center text-slate-500">
+                                              No papers found matching your filters. Try adjusting your criteria.
+                                            </td>
+                                          </tr>
+                                        )}
                                       </tbody>
                                     </table>
                                   </div>
