@@ -60,7 +60,7 @@ const Header = () => {
             </a>
             <a 
               href="#contact" 
-              className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-full transition-colors border-2 border-black"
+              className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-3xl transition-colors border-2 border-black"
             >
               {t("nav.contact")}
             </a>
@@ -117,7 +117,7 @@ const Header = () => {
               </a>
               <a 
                 href="#contact" 
-                className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-full transition-colors border-2 border-black"
+                className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-3xl transition-colors border-2 border-black"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.contact")}

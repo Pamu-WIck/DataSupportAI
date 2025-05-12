@@ -55,7 +55,7 @@ const CallToActionSection = () => {
               <ScrollAnimation variant="fadeRight" delay={0.5}>
                 <motion.a 
                   href="#contact"
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-montserrat font-medium px-6 py-3 rounded-full shadow-sm transition-all hover:shadow-md text-center border-2 border-black inline-block"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-montserrat font-medium px-6 py-3 rounded-3xl shadow-sm transition-all hover:shadow-md text-center border-2 border-black inline-block"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

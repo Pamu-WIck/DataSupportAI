@@ -437,7 +437,7 @@ const FounderPage = () => {
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="#contact">
                   <motion.button 
-                    className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-colors"
+                    className="px-8 py-4 bg-white text-slate-900 font-bold rounded-3xl hover:bg-slate-100 transition-colors"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
