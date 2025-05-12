@@ -80,6 +80,112 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // Gamification API
+  
+  // Get leaderboard
+  app.get("/api/leaderboard", async (_req: Request, res: Response) => {
+    try {
+      const topStudents = await storage.getTopStudents(10);
+      res.status(200).json({ 
+        success: true,
+        data: topStudents.map(student => ({
+          id: student.id,
+          name: student.name,
+          totalPoints: student.totalPoints,
+          streak: student.streak,
+          avatarUrl: student.avatarUrl
+        }))
+      });
+    } catch (error) {
+      console.error("Error fetching leaderboard:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch leaderboard." 
+      });
+    }
+  });
+  
+  // Get student badges
+  app.get("/api/students/:id/badges", async (req: Request, res: Response) => {
+    try {
+      const studentId = parseInt(req.params.id);
+      const badges = await storage.getStudentBadges(studentId);
+      res.status(200).json({ 
+        success: true,
+        data: badges
+      });
+    } catch (error) {
+      console.error("Error fetching student badges:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch student badges." 
+      });
+    }
+  });
+  
+  // Record paper completion
+  app.post("/api/paper-completions", async (req: Request, res: Response) => {
+    try {
+      const completionData = req.body;
+      
+      // Calculate points based on paper difficulty and score
+      let pointsEarned = 10; // Base points
+      
+      if (completionData.score && completionData.maxScore) {
+        const scorePercentage = (completionData.score / completionData.maxScore) * 100;
+        if (scorePercentage >= 90) pointsEarned += 15;
+        else if (scorePercentage >= 75) pointsEarned += 10;
+        else if (scorePercentage >= 60) pointsEarned += 5;
+      }
+      
+      // Bonus points for A-level papers
+      if (completionData.examBoard.includes('alevel')) {
+        pointsEarned += 5;
+      }
+      
+      const completion = await storage.recordPaperCompletion({
+        ...completionData,
+        pointsEarned
+      });
+      
+      // Get updated student info
+      const student = await storage.getStudent(completionData.studentId);
+      
+      res.status(201).json({ 
+        success: true, 
+        message: "Paper completion recorded successfully!",
+        data: {
+          completion,
+          student,
+          pointsEarned
+        }
+      });
+    } catch (error) {
+      console.error("Error recording paper completion:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to record paper completion." 
+      });
+    }
+  });
+  
+  // Get all badges
+  app.get("/api/badges", async (_req: Request, res: Response) => {
+    try {
+      const allBadges = await storage.getAllBadges();
+      res.status(200).json({ 
+        success: true, 
+        data: allBadges
+      });
+    } catch (error) {
+      console.error("Error fetching badges:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to fetch badges." 
+      });
+    }
+  });
+  
   // Past papers download API
   app.get("/api/download/:examBoard/:subject/:filename", async (req: Request, res: Response) => {
     const { examBoard, subject, filename } = req.params;

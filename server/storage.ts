@@ -266,7 +266,7 @@ export class DatabaseStorage implements IStorage {
         .returning();
       
       // Update student streak and points (for updated entry, we only give points if none were given before)
-      if (existing.pointsEarned === 0 && insertCompletion.pointsEarned > 0) {
+      if (existing.pointsEarned === 0 && insertCompletion.pointsEarned && insertCompletion.pointsEarned > 0) {
         await this.updateStudentPoints(insertCompletion.studentId, insertCompletion.pointsEarned);
       }
       
@@ -281,7 +281,9 @@ export class DatabaseStorage implements IStorage {
         .returning();
       
       // Update student streak and points
-      await this.updateStudentPoints(insertCompletion.studentId, insertCompletion.pointsEarned);
+      if (insertCompletion.pointsEarned) {
+        await this.updateStudentPoints(insertCompletion.studentId, insertCompletion.pointsEarned);
+      }
       await this.updateStudentStreak(insertCompletion.studentId);
       
       // Check for badge awards based on completions

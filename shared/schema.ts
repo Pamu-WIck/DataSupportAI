@@ -132,15 +132,19 @@ export const paperCompletions = pgTable("paper_completions", {
   unq: unique().on(t.studentId, t.paperIdentifier),
 }));
 
-export const insertPaperCompletionSchema = createInsertSchema(paperCompletions).pick({
-  studentId: true,
-  examBoard: true,
-  subject: true,
-  paperIdentifier: true,
-  score: true,
-  maxScore: true,
-  pointsEarned: true,
-});
+export const insertPaperCompletionSchema = createInsertSchema(paperCompletions)
+  .pick({
+    studentId: true,
+    examBoard: true,
+    subject: true,
+    paperIdentifier: true,
+    score: true,
+    maxScore: true,
+    pointsEarned: true,
+  })
+  .extend({
+    pointsEarned: z.number().default(0), // Ensure pointsEarned is always provided with a default
+  });
 
 export type InsertPaperCompletion = z.infer<typeof insertPaperCompletionSchema>;
 export type PaperCompletion = typeof paperCompletions.$inferSelect;
