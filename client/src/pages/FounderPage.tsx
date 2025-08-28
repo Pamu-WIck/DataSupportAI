@@ -198,35 +198,35 @@ const FounderPage = () => {
               {
                 year: "2020 - Present",
                 title: "Founder & Lead Educator",
-                organization: "The Study Hive",
+                organisation: "The Study Hive",
                 description: "Founded The Study Hive to provide personalised science education and academic support for GCSE and IGCSE students.",
                 image: studyHiveLogo
               },
               {
                 year: "2021 - 2024",
                 title: "Teacher of Science & Director of EPQ",
-                organization: "North London Collegiate School",
+                organisation: "North London Collegiate School",
                 description: "Teaching Science and directing the Extended Project Qualification program, helping students achieve outstanding exam results.",
                 image: nlcsLogo
               },
               {
                 year: "2017 - 2021",
                 title: "Teacher of Biology",
-                organization: "St Helen's School, Northwood",
+                organisation: "St Helen's School, Northwood",
                 description: "Taught Biology at one of the UK's top independent schools, developing specialised curriculum and exam preparation strategies for students.",
                 image: stHelensLogo
               },
               {
                 year: "2021 - 2024",
                 title: "Science Specialist Writer",
-                organization: "BBC Bitesize",
+                organisation: "BBC Bitesize",
                 description: "Developed and wrote science content for BBC Bitesize's secondary school platform, creating educational materials for KS3 and GCSE students across the UK.",
                 image: bbcBitesizeLogo
               },
               {
                 year: "2012 - 2017",
                 title: "Science Education Specialist",
-                organization: "Various Educational Institutions",
+                organisation: "Various Educational Institutions",
                 description: "Developed specialised teaching methodologies for science subjects with a focus on practical applications."
               }
             ].map((item, index) => (
@@ -241,15 +241,15 @@ const FounderPage = () => {
                       {/* Logo positioned above the year */}
                       {item.image && (
                         <div className="flex-shrink-0 mb-2">
-                          <div className={`${item.organization === "BBC Bitesize" ? "bg-[#ff8d1e] border-[#ff8d1e] p-2 rounded-lg" : "bg-white border-slate-200 p-2 rounded-full"} shadow-md border`}>
+                          <div className={`${item.organisation === "BBC Bitesize" ? "bg-[#ff8d1e] border-[#ff8d1e] p-2 rounded-lg" : "bg-white border-slate-200 p-2 rounded-full"} shadow-md border`}>
                             <img 
                               src={item.image} 
-                              alt={item.organization} 
-                              className={`${item.organization === "BBC Bitesize" ? "h-16 w-16 p-2" : "h-16 w-16"} object-contain ${
-                                item.organization === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
-                                item.organization === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
-                                item.organization === "BBC Bitesize" ? "rounded-lg bg-[#ff8d1e] p-0" : 
-                                item.organization === "St Helen's School" ? "rounded-full bg-[#b7bcb2] p-1" : 
+                              alt={item.organisation} 
+                              className={`${item.organisation === "BBC Bitesize" ? "h-16 w-16 p-2" : "h-16 w-16"} object-contain ${
+                                item.organisation === "The Study Hive" ? "rounded-full bg-[#2dd4bf] p-1" : 
+                                item.organisation === "North London Collegiate School" ? "rounded-full bg-[#4f95d0] p-1" : 
+                                item.organisation === "BBC Bitesize" ? "rounded-lg bg-[#ff8d1e] p-0" : 
+                                item.organisation === "St Helen's School" ? "rounded-full bg-[#b7bcb2] p-1" : 
                                 ""
                               }`}
                             />
@@ -266,7 +266,7 @@ const FounderPage = () => {
                   
                   <div className={`bg-white p-6 rounded-xl shadow-md border border-slate-200 w-full md:w-auto z-0 mt-6 md:mt-0 ${index % 2 === 0 ? 'md:order-2 md:text-right' : 'md:order-2 md:text-left'}`}>
                     <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
-                    <p className="text-yellow-600 font-medium mb-3">{item.organization}</p>
+                    <p className="text-yellow-600 font-medium mb-3">{item.organisation}</p>
                     <p className="text-slate-700">{item.description}</p>
                   </div>
                 </div>

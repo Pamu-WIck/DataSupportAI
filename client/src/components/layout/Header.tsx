@@ -18,7 +18,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 relative">
               <img 
-                src="/assets/images/study-hive-logo.png" 
+                src="src/assets/study-hive-logo-square.png" 
                 alt="The Study Hive Logo" 
                 className="w-full h-full"
               />

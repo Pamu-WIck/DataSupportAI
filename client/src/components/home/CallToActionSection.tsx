@@ -48,7 +48,7 @@ const CallToActionSection = () => {
               
               <ScrollAnimation variant="fadeRight" delay={0.3}>
                 <p className="text-slate-700 mb-8">
-                  Book a free consultation with our expert science tutors specializing in the UK curriculum. We'll help you create a personalized learning path to achieve academic excellence.
+                  Book a free consultation with our expert science tutors specialising in the UK curriculum. We'll help you create a personalised learning path to achieve academic excellence.
                 </p>
               </ScrollAnimation>
               

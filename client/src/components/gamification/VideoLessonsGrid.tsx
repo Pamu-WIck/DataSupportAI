@@ -40,7 +40,7 @@ export const VideoLessonsGrid: React.FC<VideoLessonsGridProps> = ({
     queryClient.invalidateQueries({ queryKey: ['/api/students'] });
   };
 
-  // Get subject-specific color
+  // Get subject-specific colour
   const getSubjectColor = (subject: string) => {
     switch (subject.toLowerCase()) {
       case "biology":

@@ -116,7 +116,7 @@ export const VideoCompletionTracker: React.FC<VideoCompletionTrackerProps> = ({
     }
   };
 
-  // Calculate background color based on subject
+  // Calculate background colour based on subject
   const getSubjectColor = () => {
     switch (subject.toLowerCase()) {
       case "biology":

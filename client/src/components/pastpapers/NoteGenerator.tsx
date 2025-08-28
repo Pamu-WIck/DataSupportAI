@@ -56,7 +56,7 @@ export function NoteGenerator({
         
         toast({
           title: "Study notes generated!",
-          description: "Your personalized study notes are ready to use.",
+          description: "Your personalised study notes are ready to use.",
         });
       }, 1500);
     } catch (error) {
@@ -441,7 +441,7 @@ These notes were automatically generated for ${examBoard.toUpperCase()} ${capita
               </div>
               <h3 className="text-xl font-semibold mb-2">Generate Study Notes</h3>
               <p className="text-gray-500 text-center mb-6 max-w-md">
-                Create personalized study notes based on this past paper. The notes include key topics, 
+                Create personalised study notes based on this past paper. The notes include key topics, 
                 exam techniques, frequently tested concepts, and practice questions.
               </p>
               <Button 

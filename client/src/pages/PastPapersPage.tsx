@@ -483,7 +483,7 @@ These notes were automatically generated for ${examBoard} ${capitalizedSubject} 
           bullets: [
             "DNA structure, replication and protein synthesis",
             "Mendelian genetics: monohybrid crosses and genetic disorders",
-            "Mitosis and meiosis: chromosome behavior and genetic variation"
+            "Mitosis and meiosis: chromosome behaviour and genetic variation"
           ]
         },
         {
