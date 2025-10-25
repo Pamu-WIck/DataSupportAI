@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
@@ -60,11 +61,37 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
+  // build listen options and avoid reusePort on Windows where it's unsupported
+    const listenOptions: { port: number; host: string; reusePort?: boolean } = { port, host: "0.0.0.0" };
+  if (process.platform !== "win32") {
+    // reusePort is useful on POSIX systems for load-balancing but is not supported on Windows
+    listenOptions.reusePort = true;
+  }
+
+  // attempt to listen. If reusePort is not supported we catch ENOTSUP and retry without it.
+  const onListening = () => {
+        log(`\n🚀 Server running at: http://localhost:${port}`);
+    log(`   Local:   http://localhost:${port}`);
+    log(`   Network: http://0.0.0.0:${port}\n`);
+  };
+
+  // attach an error handler to attempt fallback when needed
+  server.on("error", (err: any) => {
+    if (err && err.code === "ENOTSUP" && listenOptions.reusePort) {
+      log("reusePort not supported on this platform — retrying without reusePort");
+      delete listenOptions.reusePort;
+      try {
+        server.listen(listenOptions, onListening);
+      } catch (e) {
+        // if retry fails, surface the error
+        throw e;
+      }
+    } else {
+      // rethrow other errors so they are visible
+      throw err;
+    }
   });
+
+  // start server initially
+  server.listen(listenOptions, onListening);
 })();
