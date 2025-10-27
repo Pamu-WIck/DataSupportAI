@@ -27,51 +27,57 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <a 
-              href="#home" 
+          <nav className="hidden md:flex space-x-8 items-center">
+            <a
+              href="#home"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.home")}
             </a>
-            <a 
-              href="#services" 
+            <a
+              href="#services"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.services")}
             </a>
-            <Link 
-              href="/founder" 
+            <Link
+              href="/founder"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               Founder
             </Link>
-            <Link 
-              href="/videos" 
+            <Link
+              href="/videos"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.videos")}
             </Link>
-            <Link 
-              href="/past-papers" 
+            <Link
+              href="/past-papers"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               Past Papers
             </Link>
-            <Link 
-              href="/achievements" 
+            <Link
+              href="/achievements"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               Achievements
             </Link>
-            <a 
-              href="#resources" 
+            <a
+              href="#resources"
               className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-1 py-2"
             >
               {t("nav.resources")}
             </a>
-            <a 
-              href="#contact" 
+            <Link
+              href="/login"
+              className="flex items-center justify-center px-5 py-2 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-3xl transition-colors border-2 border-teal-700"
+            >
+              Login
+            </Link>
+            <a
+              href="#contact"
               className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-3xl transition-colors border-2 border-black"
             >
               {t("nav.contact")}
@@ -92,57 +98,64 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <a 
-                href="#home" 
+              <a
+                href="#home"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.home")}
               </a>
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.services")}
               </a>
-              <Link 
-                href="/founder" 
+              <Link
+                href="/founder"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Founder
               </Link>
-              <Link 
-                href="/videos" 
+              <Link
+                href="/videos"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.videos")}
               </Link>
-              <Link 
-                href="/past-papers" 
+              <Link
+                href="/past-papers"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Past Papers
               </Link>
-              <Link 
-                href="/achievements" 
+              <Link
+                href="/achievements"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Achievements
               </Link>
-              <a 
-                href="#resources" 
+              <a
+                href="#resources"
                 className="font-montserrat font-medium text-slate-700 hover:text-yellow-500 transition-colors px-3 py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t("nav.resources")}
               </a>
-              <a 
-                href="#contact" 
+              <Link
+                href="/login"
+                className="flex items-center justify-center px-5 py-2 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-3xl transition-colors border-2 border-teal-700"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
+              <a
+                href="#contact"
                 className="flex items-center justify-center px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-3xl transition-colors border-2 border-black"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

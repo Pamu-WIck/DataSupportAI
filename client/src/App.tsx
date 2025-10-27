@@ -12,6 +12,7 @@ import VideoGallery from "./components/home/VideoGallery";
 import FounderPage from "./pages/FounderPage";
 import PastPapersPage from "./pages/PastPapersPage";
 import GamificationPage from "@/pages/GamificationPage";
+import LoginPage from "@/pages/auth/LoginPage";
 
 function Router() {
   return (
@@ -31,13 +32,21 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              <Router />
-            </main>
-            <Footer />
-          </div>
+          <Switch>
+            {/* Auth pages without header/footer */}
+            <Route path="/login" component={LoginPage} />
+
+            {/* Regular pages with header/footer */}
+            <Route>
+              <div className="flex flex-col min-h-screen">
+                <Header />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+              </div>
+            </Route>
+          </Switch>
           <Toaster />
         </TooltipProvider>
       </LanguageProvider>
