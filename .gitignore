@@ -7,3 +7,5 @@ vite.config.ts.*
 /.env
 /.idea/
 /.github/git-commit-instructions.md
+/.mcp.json
+/temp/

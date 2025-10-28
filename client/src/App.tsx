@@ -13,6 +13,9 @@ import FounderPage from "./pages/FounderPage";
 import PastPapersPage from "./pages/PastPapersPage";
 import GamificationPage from "@/pages/GamificationPage";
 import LoginPage from "@/pages/auth/LoginPage";
+import StudentDashboard from "@/pages/student/StudentDashboard";
+import AdminDashboard from "@/pages/admin/AdminDashboard";
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 function Router() {
   return (
@@ -35,6 +38,32 @@ function App() {
           <Switch>
             {/* Auth pages without header/footer */}
             <Route path="/login" component={LoginPage} />
+
+            {/* Protected Student Dashboard */}
+            <Route path="/dashboard">
+              <ProtectedRoute requiredRole="student">
+                <div className="flex flex-col min-h-screen">
+                  <Header />
+                  <main className="flex-grow">
+                    <StudentDashboard />
+                  </main>
+                  <Footer />
+                </div>
+              </ProtectedRoute>
+            </Route>
+
+            {/* Protected Admin Dashboard */}
+            <Route path="/admin/dashboard">
+              <ProtectedRoute requiredRole={["admin", "super_admin"]}>
+                <div className="flex flex-col min-h-screen">
+                  <Header />
+                  <main className="flex-grow">
+                    <AdminDashboard />
+                  </main>
+                  <Footer />
+                </div>
+              </ProtectedRoute>
+            </Route>
 
             {/* Regular pages with header/footer */}
             <Route>

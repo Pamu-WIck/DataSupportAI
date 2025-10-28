@@ -4,14 +4,18 @@ import { storage } from "./storage";
 import { insertInquirySchema, insertSubscriberSchema, insertVideoCompletionSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import authRoutes from "./auth/authRoutes";
 
 import * as fs from 'fs';
 import * as path from 'path';
 import fetch from 'node-fetch';
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Authentication routes
+  app.use("/api/auth", authRoutes);
+
   // API routes with /api prefix
-  
+
   // Create a new inquiry
   app.post("/api/inquiries", async (req: Request, res: Response) => {
     try {

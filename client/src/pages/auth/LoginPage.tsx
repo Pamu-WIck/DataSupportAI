@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { useAuth } from "../../hooks/useAuth";
 
 /**
  * LoginPage component
@@ -8,42 +9,14 @@ import { motion } from "framer-motion";
  * Redirects to appropriate portal based on user role
  */
 const LoginPage = () => {
-  const [, setLocation] = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const { login, isLoggingIn, loginError } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-    setIsLoading(true);
-
-    try {
-      // TODO: Implement actual authentication API call
-      // const response = await fetch('/api/auth/login', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email, password, rememberMe })
-      // });
-
-      // Temporary mock authentication for UI testing
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Mock response - replace with actual API call
-      console.log("Login attempt:", { email, password, rememberMe });
-
-      // TODO: Based on user role, redirect to appropriate dashboard
-      // if (user.role === 'student') setLocation('/dashboard');
-      // if (user.role === 'admin') setLocation('/admin/dashboard');
-
-      setError("Authentication not yet implemented");
-    } catch (err) {
-      setError("An error occurred. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    login({ email, password });
   };
 
   return (
@@ -77,9 +50,9 @@ const LoginPage = () => {
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Error Message */}
-            {error && (
+            {loginError && (
               <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
-                {error}
+                {loginError.message}
               </div>
             )}
 
@@ -145,10 +118,10 @@ const LoginPage = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isLoggingIn}
               className="w-full py-3 px-6 bg-yellow-400 hover:bg-yellow-500 text-black font-bold rounded-3xl transition-all border-2 border-black font-montserrat disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              {isLoading ? (
+              {isLoggingIn ? (
                 <span className="flex items-center justify-center">
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

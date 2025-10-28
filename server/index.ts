@@ -1,11 +1,40 @@
 import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
+import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
+import passport from "./auth/passport";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Session configuration
+const PgSession = connectPgSimple(session);
+
+app.use(
+  session({
+    store: new PgSession({
+      conString: process.env.DATABASE_URL,
+      tableName: "sessions",
+      createTableIfMissing: true, // Auto-create sessions table
+    }),
+    secret: process.env.SESSION_SECRET || "your-secret-key-change-in-production",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // HTTPS only in production
+      sameSite: "lax"
+    }
+  })
+);
+
+// Passport initialization
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
   const start = Date.now();

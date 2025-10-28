@@ -1,20 +1,62 @@
-import { pgTable, text, serial, integer, boolean, timestamp, unique } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, unique, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+// Authentication - Users table (central authentication for all user types)
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+  email: text("email").notNull().unique(),
+  passwordHash: text("password_hash").notNull(),
+  role: text("role").notNull().default("student"), // student, teacher, admin, super_admin
+  isVerified: boolean("is_verified").default(false),
+  verificationToken: text("verification_token"),
+  resetPasswordToken: text("reset_password_token"),
+  resetPasswordExpires: timestamp("reset_password_expires"),
+  lastLogin: timestamp("last_login"),
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+  email: true,
+  passwordHash: true,
+  role: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+// Sessions table (PostgreSQL session store for connect-pg-simple)
+export const sessions = pgTable("sessions", {
+  sid: text("sid").primaryKey(),
+  sess: jsonb("sess").notNull(),
+  expire: timestamp("expire").notNull(),
+});
+
+// Activity logs table (audit trail for security)
+export const activityLogs = pgTable("activity_logs", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  action: text("action").notNull(), // login, logout, create, update, delete, etc.
+  resource: text("resource"), // papers, students, badges, etc.
+  resourceId: integer("resource_id"),
+  ipAddress: text("ip_address"),
+  userAgent: text("user_agent"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertActivityLogSchema = createInsertSchema(activityLogs).pick({
+  userId: true,
+  action: true,
+  resource: true,
+  resourceId: true,
+  ipAddress: true,
+  userAgent: true,
+});
+
+export type InsertActivityLog = z.infer<typeof insertActivityLogSchema>;
+export type ActivityLog = typeof activityLogs.$inferSelect;
 
 export const inquiries = pgTable("inquiries", {
   id: serial("id").primaryKey(),
@@ -51,9 +93,10 @@ export type Subscriber = typeof subscribers.$inferSelect;
 // Gamification - Students
 export const students = pgTable("students", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id, { onDelete: 'cascade' }).unique(), // Link to users table
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
-  passwordHash: text("password_hash").notNull(), 
+  passwordHash: text("password_hash"), // Deprecated - keeping for backwards compatibility, use users.passwordHash instead
   avatarUrl: text("avatar_url"),
   schoolYear: integer("school_year"), // 7-13 for UK system
   totalPoints: integer("total_points").default(0).notNull(),
@@ -63,9 +106,9 @@ export const students = pgTable("students", {
 });
 
 export const insertStudentSchema = createInsertSchema(students).pick({
+  userId: true,
   name: true,
   email: true,
-  passwordHash: true,
   avatarUrl: true,
   schoolYear: true,
 });
