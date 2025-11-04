@@ -1,0 +1,9 @@
+
+> next-app@1.0.0 dev
+> next dev -p 3001 -H 0.0.0.0
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3001
+  - Network:      http://0.0.0.0:3001
+
+ ✓ Starting...

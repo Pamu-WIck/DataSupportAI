@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --primary: 45 100% 50%;  /* #FFBF00 Yellow */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 164 75% 55%; /* #26C6A9 Teal */
+  --secondary-foreground: 0 0% 0%;
+  --accent: 45 100% 60%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 45 100% 50%; /* #FFBF00 Yellow */
+  --radius: 0.75rem;
+  --chart-1: 45 100% 50%;
+  --chart-2: 164 75% 55%;
+  --chart-3: 0 84.2% 60.2%;
+  --chart-4: 270 95% 64%;
+  --chart-5: 32 94% 58%;
+
+  /* Jellyfish template inspired colors */
+  --jellyfish-bg: 220 33% 98%;
+  --jellyfish-text: 220 20% 20%;
+  --jellyfish-accent: 45 100% 50%;
+  --jellyfish-secondary: 164 75% 55%;
+}
+
+.dark {
+  --background: 220 13% 18%;
+  --foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --popover: 220 13% 18%;
+  --popover-foreground: 210 40% 98%;
+  --card: 220 13% 18%;
+  --card-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --primary: 45 100% 50%; /* #FFBF00 Yellow */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 164 75% 45%; /* Darker teal for dark mode */
+  --secondary-foreground: 0 0% 0%;
+  --accent: 45 90% 50%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 45 100% 50%;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Define custom clip-path for hexagons */
+.clip-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Animations and special effects inspired by St Helens School and NLCS */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes honeycomb-bg-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* NLCS inspired animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 191, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 191, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 191, 0, 0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-borderPulse {
+  animation: borderPulse 2s infinite;
+}
+
+.staggered-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.staggered-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.staggered-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.staggered-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.staggered-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.staggered-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Custom scrollbar for video list */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.elegant-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.honeycomb-pattern {
+  background-color: #f9fafb;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zm20.97 0l9.315 9.314-1.414 1.414L34.828 0h2.83zM22.344 0L13.03 9.314l1.414 1.414L25.172 0h-2.83zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544v5.657L26.113 34.31l-1.414 1.414L0 8.2v5.657l22.627 22.627-1.414 1.414L0 13.86v5.657l19.14 19.14-1.414 1.415L0 19.514v5.657l15.655 15.656-1.414 1.414L0 25.172v5.657l12.17 12.17-1.413 1.416L0 30.83v5.657l8.686 8.686-1.415 1.415L0 36.485v5.657l5.2 5.2-1.413 1.415L0 42.14V60h60V0H.284zM60 60L0 0h60v60z' fill='%2326c6a9' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  animation: honeycomb-bg-shift 60s ease infinite alternate;
+  background-size: 60px 60px;
+}
+
+/* Define custom font families inspired by Jellyfish template */
+@layer base {
+  body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: hsl(var(--jellyfish-text));
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  /* Jellyfish template inspired text styles */
+  .text-jellyfish-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .text-jellyfish-body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom hover effect for service cards */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Testimonial slider styling */
+.testimonial-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonial-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
